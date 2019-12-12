@@ -1,3 +1,0 @@
-Halo Cep
-
-Sedang mengetik...
