@@ -16,7 +16,7 @@
         <div class="box box-primary" style="padding:10px;">
           <div class="box-header with-border">
             <center>
-              <h3 class="box-title" style="text-transform:uppercase"><b>Rencana Pelaksanaan Pembelajaran</b></h3>
+              <h3 class="box-title" style="text-transform:uppercase"><b>Silabus</b></h3>
             </center>
           </div>
                 <!-- /.box-header -->
@@ -32,13 +32,6 @@
                         </td>
                       </tr>
                       <tr>
-                        <td width="15%"><b>Muatan Terpadu</b></td>
-                        <td width="2%">:</td>
-                        <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
-                        </td>
-                      </tr>
-                      <tr>
                         <td width="15%"><b>Kelas / Semester</b></td>
                         <td width="2%">:</td>
                         <td>
@@ -46,110 +39,38 @@
                         </td>
                       </tr>
                       <tr>
-                        <td width="15%"><b>Tema</b></td>
-                        <td width="2%">:</td>
-                        <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
-                        </td>
+                        <td><b>A. Kompetensi Inti</b></td>
+                        <td>:</td>
                       </tr>
                       <tr>
-                        <td width="15%"><b>Sub Tema</b></td>
-                        <td width="2%">:</td>
-                        <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width="15%"><b>Pembelajaran</b></td>
-                        <td width="2%">:</td>
-                        <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width="15%"><b>materi Pokok</b></td>
-                        <td width="2%">:</td>
-                        <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width="15%"><b>Alokasi Waktu</b></td>
-                        <td width="2%">:</td>
-                        <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
-                        </td>
-                      </tr>
-                    </table>
-                    <br>
-                    <h4><b>A. Kompetensi Inti</b></h4>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td>
+                        <td colspan="3">
                           <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
                     <br>
-                    <h4><b>B. Kompetensi Dasar dan Indikator Pencapaian Kompetensi</b></h4>
-                    <table width="100%" border="0">
+                    <h4><b>Semester 1</b></h4>
+                    <table class="text-center" border="1" width="100%">
                       <tr>
-                        <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
-                        </td>
+                        <th width="15%">Muatan Pelajaran</th>
+                        <th width="15%">Kompetensi Dasar</th>
+                        <th width="15%">Tema</th>
+                        <th width="15%">Pembelajaran</th>
+                        <th width="12%">Penilaian</th>
+                        <th width="11%">Alokasi Waktu</th>
+                        <th width="12%">Sumber Belajar</th>
+                        <th width="5%">Option</th>
                       </tr>
                     </table>
-                    <br>
-                    <br>
-                    <h4><b>C. Tujuan Pembelajaran</b></h4>
-                    <table width="100%" border="0">
+                    <table class="text-center" border="1" width="100%" id="tableSemester1">
                       <tr>
-                        <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
-                        </td>
+                        <td colspan="4" style="text-align:left;padding-left:20px" id="rmrowthis1">Data Kosong</td>
                       </tr>
                     </table>
-                    <br>
-                    <h4><b>D. Materi Pembelajaran</b></h4>
-                    <table width="100%" border="0">
+                    <table width="100%">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
-                        </td>
-                      </tr>
-                    </table>
-                    <br>
-                    <h4><b>E. Pendekatan, Model, dan Metode Pembelajaran</b></h4>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
-                        </td>
-                      </tr>
-                    </table>
-                    <br>
-                    <h4><b>F. Media / Alat, Bahan dan Sumber Belajar</b></h4>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
-                        </td>
-                      </tr>
-                    </table>
-                    <h4><b>G. Kegiatan Pembelajaran</b></h4>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
-                        </td>
-                      </tr>
-                    </table>
-                    <br>
-                    <h4><b>H. Penilaian</b></h4>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <button type="button" class="btn btn-primary addprota" id="1" name="button" style="width:100%;height:30px;border-radius:0">Tambah Data</button>
                         </td>
                       </tr>
                     </table>
@@ -166,4 +87,37 @@
   </section>
   <!-- /.content -->
 </div>
+<script>
+  $(".addprota").click(function() {
+    var btnid = $(this).attr('id');
+    // Count Element
+    var total_element = $(".protasem"+btnid).length;
+    $("#rmrowthis"+btnid).remove();
+    $("#tableSemester"+btnid).append(
+        "<tr class='protasem"+btnid+"' id='protarow"+total_element+"'>"+
+        "<input type='text' name='DTL_SEMESTER[]' value='"+btnid+"' style='width:100%;border:none;text-align:center'></input>"+
+        "<td width='15%'><input type='text' name='DTL_NO[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='12%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='11%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='12%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='5%'><button type='button' class='btn btn-danger remove' id='"+total_element+"' name='button' style='width:100%;border-radius:0px;height:30px'><i class='fa fa-trash'></i></button></td>"+
+        "</tr>"
+      );
+  });
+
+  $("#tableSemester1").on('click','.remove',function(){
+    var id = $(this).attr('id');
+    console.log(id);
+    $("#tableSemester1 #protarow"+id).remove();
+  });
+
+  $("#tableSemester2").on('click','.remove',function(){
+    var id = $(this).attr('id');
+    console.log(id);
+    $("#tableSemester2 #protarow"+id).remove();
+  });
+</script>
 <!-- /.content-wrapper -->

@@ -1,0 +1,75 @@
+/* Body */
+body {
+  font-family: lato;
+}
+
+/* Custom Font */
+@font-face {
+font-family: "lato";
+src: url("../font/Lato-Regular.ttf");
+}
+
+@font-face {
+font-family: "roboto";
+src: url("../font/Roboto-Regular.ttf");
+}
+
+#myImg {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {box-shadow: 1px 4px 8px rgba(0, 107, 191, 0.77);}
+
+#myPkg {
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 5px 7px 5px #dcdcdc40;
+}
+
+#myPkg:hover {
+  box-shadow: 4px 5px 10px rgba(0, 107, 191, 0.77);
+}
+
+
+
+/* Navigation */
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  color: #fff;
+  padding:10px;
+  font-size:10px;
+  font-weight: 800;
+  text-align:center;
+  text-transform: uppercase;
+}
+
+.nav2 {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  color: #fff;
+  padding:10px;
+  font-size:10px;
+  font-weight: 800;
+  text-align:center;
+  text-transform: uppercase;
+}
+
+.nav-title {
+  font-family:lato;
+  font-size:20px;
+  margin-top: 0px;
+}
+
+.nav-item {
+  border-radius:20px;
+}
+
+.nav-item:hover {
+  background: #0277bd;
+  border-radius:20px;
+}

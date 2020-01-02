@@ -2,13 +2,13 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Travel Anda</title>
+  <title>SDN PAKIS 5 SURABAYA</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css'>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h2>Travel Anda</h2>
+<h2>SDN PAKIS 5 SURABAYA</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="proses/register.php" method="post">
