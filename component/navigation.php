@@ -18,12 +18,12 @@
       Profil
     </div>
     </a>
-    <a href="gallery.php" style="color:#fff">
+    <a href="berita.php" style="color:#fff">
     <div class="nav-item col s1 waves-effect" style="margin:10px;padding:5px">
        Berita
     </div>
      </a>
-    <a href="contacus.php" style="color:#fff">
+    <a href="membaca.php" style="color:#fff">
     <div class="nav-item col s1 waves-effect" style="margin:10px;padding:5px">
        Membaca
     </div>

@@ -1,4 +1,4 @@
-<div class="" style="margin-top:90px;text-align:center;background:#42a5f5 ">
+<!-- <div class="" style="margin-top:90px;text-align:center;background:#42a5f5 ">
   <div class="row" style="margin-top:70px;margin:50px auto;display: inline-block;">
     <div class="input_form">
       <form class="" action="#" method="post">
@@ -14,11 +14,11 @@
       </form>
     </div>
   </div>
-</div>
-<div class="" style="background:#444a4f;height:100px">
+</div> -->
+<div class="" style="margin-top:90px;background:#444a4f;height:100px">
   <div class="row" style="padding-left:20px;padding-right:20px;">
     <div class="col s7" style="color:#fff;font-size:12px">
-    <p><font style="font-size:16px;font-weight:800">SD Negeri Pakis 5 Surabaya</font><br>Jl. Pakis Sidokumpul No.55, Pakis, Kec. Sawahan, Kota SBY, Jawa Timur 60256<br>(031) 5665149</p>
+    <p><font style="font-size:16px;font-weight:800;">SD Negeri Pakis 5 Surabaya</font><br>Jl. Pakis Sidokumpul No.55, Pakis, Kec. Sawahan, Kota SBY, Jawa Timur 60256<br>(031) 5665149</p>
     </div>
     <div class="col s1" style="color:#fff;font-size:12px;font-weight:800">
       <p style="padding-top:30px;">About</p>
