@@ -176,6 +176,18 @@
           <li><a href="home.php?id=data_membaca">Data Siswa Membaca</a></li>
         </ul>
       </li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-gear"></i> <span>Homepage</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="home.php?id=homepage">Homepage</a></li>
+          <li><a href="home.php?id=profil">Profil</a></li>
+          <li><a href="home.php?id=berita">Berita</a></li>
+        </ul>
+      </li>
       <li><a href="index.php"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     </ul>
     <!-- /.sidebar-menu -->
