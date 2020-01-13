@@ -172,8 +172,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="home.php?id=input_membaca">Input Siswa Membaca</a></li>
-          <li><a href="home.php?id=data_membaca">Data Siswa Membaca</a></li>
+          <li><a href="home.php?id=input_membaca">Tambah Data</a></li>
+          <li><a href="home.php?id=data_rangking">Rangking Siswa Membaca</a></li>
         </ul>
       </li>
       <li class="treeview">

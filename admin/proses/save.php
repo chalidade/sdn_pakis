@@ -1,5 +1,7 @@
 <?php
 
+
+
  function save($input, $table, $page) {
   include "koneksi.php";
   // Inisialisasi

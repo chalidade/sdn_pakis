@@ -3,11 +3,12 @@
 $host     = "localhost";
 $username = "root";
 $password = "";
-$db       = "travel";
+$db       = "sdn_pakis";
 
-$connect = new mysqli($host, $username, $password, $db);
+$mysqli = new mysqli($host,$username,$password,$db);
+$myArray = array();
 // Check connection
-if ($connect->connect_error) {
+if ($mysqli->connect_error) {
     die("Connection failed: " . $connect->connect_error);
 }
 ?>

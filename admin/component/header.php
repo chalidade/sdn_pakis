@@ -2,6 +2,7 @@
 // $my_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 // $file   = substr($my_url, strrpos($my_url, '/' )+1);
 $file      = $_REQUEST['id'].".php";
+include "proses/koneksi.php";
  ?>
 <!DOCTYPE html>
 <!--
