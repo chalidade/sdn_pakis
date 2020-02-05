@@ -6,7 +6,7 @@
 <!-- jQuery 3 -->
 <script src="js/main.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->

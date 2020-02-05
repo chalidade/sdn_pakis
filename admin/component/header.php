@@ -2,6 +2,7 @@
 // $my_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 // $file   = substr($my_url, strrpos($my_url, '/' )+1);
 $file      = $_REQUEST['id'].".php";
+include "proses/config.php";
 include "proses/koneksi.php";
  ?>
 <!DOCTYPE html>
@@ -26,6 +27,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <script src="js/axios.min.js"></script>
+  <script src="js/vue.js"></script>
+
 
 
   <!-- Google Font -->
