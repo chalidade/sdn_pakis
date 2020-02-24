@@ -41,14 +41,14 @@
                             </table>
                             <?php
                             $start  = $_REQUEST['start'];
-                            $page   = $_REQUEST['page'];
+                            $page   = 1;
                              ?>
                             <table id="app" class="table table-border">
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.MEMBACA_ID }}</td>
                                   <td width="15%" style="text-align:center">
-                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Membaca/' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
+                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
                                   </td>
                                   <td width="20%">{{ data.MEMBACA_JUDUL }}</td>
                                   <td width="25%">{{ data.MEMBACA_SISWA }}</td>
@@ -67,10 +67,10 @@
                                     if ($prev < 0) $prev = 0;
                                     $next = $start+25;
                                    ?>
-                                  <a href="http://localhost/sdn_pakis/admin/home.php?id=input_membaca&start=<?php echo $prev; ?>&page=1" type="button" name="button" class="btn btn-primary"><</a>
+                                  <a href="<?php echo $urlPageMembaca.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
                                 </td>
                                 <td colspan="3">
-                                  <a href="http://localhost/sdn_pakis/admin/home.php?id=input_membaca&start=<?php echo $next; ?>&page=1" style="float:right" type="button" class="btn btn-primary">></a>
+                                  <a href="<?php echo $urlPageMembaca.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
                                 </td>
                               </tr>
                             </table>
@@ -79,7 +79,7 @@
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="proses/modal.php?id=modalMembaca" method="post" enctype="multipart/form-data">
+                                <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
                                 <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
                                   <input type="file" id="imgSlider1" name="MEMBACA_COVER" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
@@ -178,7 +178,7 @@ function DELETE_MEMBACA(id, start, page) {
           where : ["MEMBACA_ID", id]
         })
         .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "http://localhost/sdn_pakis/admin/home.php?id=input_membaca&start="+start+"&page="+page));
+        .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
       }
     })
 }

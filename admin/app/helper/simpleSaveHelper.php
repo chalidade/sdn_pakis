@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="../js/axios.min.js"></script>
-    <script src="../js/vue.js"></script>
+    <script src="<?php echo $publicJs.'axios.min.js'; ?>"></script>
+    <script src="<?php echo $publicJs.'vue.js'; ?>"></script>
   </head>
   <body>
     <center>
@@ -12,7 +12,7 @@
       <h1 style="text-align:center">Message</h1>
       {{ info }}
     </div>
-     <img src="../img/pleasewait1.gif" alt="" style="width:50%;margin:auto;z-index:-1">
+     <img src="<?php echo $publicImage.'pleasewait1.gif'; ?>" alt="" style="width:50%;margin:auto;z-index:-1">
      <?php
       header("Refresh: 5; URL=$urlAdmin?id=$page&start=0&page=1");
      ?>

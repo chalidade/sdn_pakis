@@ -2,8 +2,8 @@
 // $my_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 // $file   = substr($my_url, strrpos($my_url, '/' )+1);
 $file      = $_REQUEST['id'].".php";
-include "proses/config.php";
-include "proses/koneksi.php";
+include "app/config/setting.php";
+include "app/config/connection.php";
  ?>
 <!DOCTYPE html>
 <!--
@@ -15,20 +15,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SDN PAKIS 5 SURABAYA</title>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-  <script src="js/axios.min.js"></script>
-  <script src="js/vue.js"></script>
+  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/dist/css/skins/skin-blue.min.css">
+  <script src="assets/js/axios.min.js"></script>
+  <script src="assets/js/vue.js"></script>
 
 
 

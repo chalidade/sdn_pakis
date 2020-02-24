@@ -27,10 +27,10 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row" id="slider">
-              <form class="" action="proses/modal.php?id=slider" method="post" enctype="multipart/form-data">
+              <form class="" action="app/model/HomeModel.php?id=slider" method="post" enctype="multipart/form-data">
               <div class="col-md-3">
                   <label class="" for="imgSlider1" style="height:150px;border:solid thin #000;width:100%">
-                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Slider/' + info[0].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
+                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Slider/' + info[0].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
                     <input type="file" id="imgSlider1" name="SLIDER_IMG_A" style="display:none">
                     <input type="hidden" name="SLIDER_IMG_A_BACKUP" v-bind:value="info[0].SLIDER_IMG">
                     <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
@@ -53,7 +53,7 @@
               </div>
               <div class="col-md-3">
                   <label class="" for="imgSlider2" style="height:150px;border:solid thin #000;width:100%">
-                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Slider/' + info[1].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
+                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Slider/' + info[1].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
                     <input type="file" id="imgSlider2" name="SLIDER_IMG_B" value="" style="display:none">
                     <input type="hidden" name="SLIDER_IMG_B_BACKUP" v-bind:value="info[1].SLIDER_IMG">
                     <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:0px;padding:0px 10px;">
@@ -76,7 +76,7 @@
               </div>
               <div class="col-md-3">
                   <label class="" for="imgSlider3" style="height:150px;border:solid thin #000;width:100%">
-                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Slider/' + info[2].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
+                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Slider/' + info[2].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
                     <input type="file" id="imgSlider3" name="SLIDER_IMG_C" value="" style="display:none">
                     <input type="hidden" name="SLIDER_IMG_C_BACKUP" v-bind:value="info[2].SLIDER_IMG">
                     <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:0px;padding:0px 10px;">
@@ -99,7 +99,7 @@
               </div>
               <div class="col-md-3">
                   <label class="" for="imgSlider4" style="height:150px;border:solid thin #000;width:100%">
-                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Slider/' + info[3].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
+                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Slider/' + info[3].SLIDER_IMG"/ style="width: 100%; z-index: -10;height: 150px;" alt=''>
                     <input type="file" id="imgSlider4" name="SLIDER_IMG_D" value="" style="display:none">
                     <input type="hidden" name="SLIDER_IMG_D_BACKUP" v-bind:value="info[3].SLIDER_IMG">
                     <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:0px;padding:0px 10px;">
@@ -147,10 +147,10 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row" class="container" id="pengantar">
-              <form class="" action="proses/modal.php?id=kataPengantar" method="post" enctype="multipart/form-data">
+              <form class="" action="app/model/HomeModel.php?id=kataPengantar" method="post" enctype="multipart/form-data">
               <div class="col-md-12">
                 <label class="" for="imgPengantar" style="height:350px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Pengantar/' + pengantar[0].PENGANTAR_IMG"/ style="width: 100%; z-index: -10;height: 350px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Pengantar/' + pengantar[0].PENGANTAR_IMG"/ style="width: 100%; z-index: -10;height: auto;" alt=''>
                   <input type="file" id="imgPengantar" name="PENGANTAR_IMG" value="" style="display:none">
                   <input type="hidden" name="PENGANTAR_IMG_BACKUP" v-bind:value="pengantar[0].PENGANTAR_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">
@@ -198,12 +198,12 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row" id="fasilitas">
-              <form class="" action="proses/modal.php?id=fasilitasHomepage" method="post" enctype="multipart/form-data">
+              <form class="" action="app/model/HomeModel.php?id=fasilitasHomepage" method="post" enctype="multipart/form-data">
               <div class="col-md-4" style="margin:10px 0px;">
                 <h4 style="text-align:center;font-weight:800">FASILITAS 1</h4>
                 <hr>
                 <label class="" for="imgFasilitas1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Fasilitas/' + fasilitas[0].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Fasilitas/' + fasilitas[0].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
                   <input type="file" id="imgFasilitas1" name="FASILITAS_IMG_A" style="display:none">
                   <input type="hidden" name="FASILITAS_IMG_A_BACKUP" v-bind:value="fasilitas[0].FASILITAS_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">
@@ -226,7 +226,7 @@
                 <h4 style="text-align:center;font-weight:800">FASILITAS 2</h4>
                 <hr>
                 <label class="" for="imgFasilitas2" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Fasilitas/' + fasilitas[1].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Fasilitas/' + fasilitas[1].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
                   <input type="file" id="imgFasilitas2" name="FASILITAS_IMG_B" style="display:none">
                   <input type="hidden" name="FASILITAS_IMG_B_BACKUP" v-bind:value="fasilitas[1].FASILITAS_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">
@@ -248,7 +248,7 @@
                 <h4 style="text-align:center;font-weight:800">FASILITAS 3</h4>
                 <hr>
                 <label class="" for="imgFasilitas3" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Fasilitas/' + fasilitas[2].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Fasilitas/' + fasilitas[2].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
                   <input type="file" id="imgFasilitas3" name="FASILITAS_IMG_C" value="" style="display:none">
                   <input type="hidden" name="FASILITAS_IMG_C_BACKUP" v-bind:value="fasilitas[2].FASILITAS_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">
@@ -270,7 +270,7 @@
                 <h4 style="text-align:center;font-weight:800">FASILITAS 4</h4>
                 <hr>
                 <label class="" for="imgFasilitas4" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Fasilitas/' + fasilitas[3].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Fasilitas/' + fasilitas[3].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
                   <input type="file" id="imgFasilitas4" name="FASILITAS_IMG_D" style="display:none">
                   <input type="hidden" name="FASILITAS_IMG_D_BACKUP" v-bind:value="fasilitas[3].FASILITAS_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">
@@ -292,7 +292,7 @@
                 <h4 style="text-align:center;font-weight:800">FASILITAS 5</h4>
                 <hr>
                 <label class="" for="imgFasilitas5" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Fasilitas/' + fasilitas[4].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Fasilitas/' + fasilitas[4].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
                   <input type="file" id="imgFasilitas5" name="FASILITAS_IMG_E" style="display:none">
                   <input type="hidden" name="FASILITAS_IMG_E_BACKUP" v-bind:value="fasilitas[4].FASILITAS_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">
@@ -314,7 +314,7 @@
                 <h4 style="text-align:center;font-weight:800">FASILITAS 6</h4>
                 <hr>
                 <label class="" for="imgFasilitas6" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'proses/image/Fasilitas/' + fasilitas[5].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
+                  <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicFolder; ?>/Fasilitas/' + fasilitas[5].FASILITAS_IMG"/ style="width: 100%; z-index: -10;height: 200px;" alt=''>
                   <input type="file" id="imgFasilitas6" name="FASILITAS_IMG_F" style="display:none">
                   <input type="hidden" name="FASILITAS_IMG_F_BACKUP" v-bind:value="fasilitas[5].FASILITAS_IMG">
                   <div class="sliderChangePicture" style="border:1px solid;width:100%;padding:5px 10px;">

@@ -29,7 +29,7 @@
     </div>
     </a>
     <div class="col s1" style="margin:10px">
-        <a href="admin/index.php" class="nav-item waves-effect" style="padding:5px;width: 80%;height: 25px;color:#fff">Login</a>
+        <a href="login.php" class="nav-item waves-effect" style="padding:5px;width: 80%;height: 25px;color:#fff">Login</a>
     </div>
   </div>
 </div>

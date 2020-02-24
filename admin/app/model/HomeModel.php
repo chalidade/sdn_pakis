@@ -1,38 +1,11 @@
 <?php
 error_reporting(0);
-include "config.php";
+include "../config/setting.php";
 
 // header('Content-Type: application/json');
 $id = $_REQUEST['id'];
 
 switch ($id) {
-  case 'modalMembaca':
-    $imageName = "MEMBACA_COVER";
-    $page = "input_membaca";
-    $json = array(
-    "action"                   => "simpleSave",
-    "db"                       => $database,
-    "table"                    => "tx_hdr_buku_membaca",
-    "primaryKey"               => "MEMBACA_ID",
-    "value"                    => [
-    array(
-    "MEMBACA_ID"               =>  $_POST['MEMBACA_ID'],
-    "MEMBACA_COVER"            =>  date("d_m_Y")."_".basename($_FILES[$imageName]["name"]),
-    "MEMBACA_TANGGAL"          =>  $_POST['MEMBACA_TANGGAL'],
-    "MEMBACA_SISWA"            =>  $_POST['MEMBACA_SISWA'],
-    "MEMBACA_GURU"             =>  $_POST['MEMBACA_GURU'],
-    "MEMBACA_JUDUL"            =>  $_POST['MEMBACA_JUDUL'],
-    "MEMBACA_PENGARANG"        =>  $_POST['MEMBACA_PENGARANG'],
-    "MEMBACA_PENERBIT"         =>  $_POST['MEMBACA_PENERBIT'],
-    "MEMBACA_TOKOH"            =>  $_POST['MEMBACA_TOKOH'],
-    "MEMBACA_RANGKUMAN"        =>  $_POST['MEMBACA_RANGKUMAN'],
-    "MEMBACA_SARAN"            =>  $_POST['MEMBACA_SARAN']
-    )]);
-
-    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Membaca");
-
-    break;
-
   case 'slider':
       $imageA = "SLIDER_IMG_A";
       $imageB = "SLIDER_IMG_B";
@@ -240,7 +213,7 @@ switch ($id) {
 }
 
 function uploadImage($input,$folder) {
-  $target_dir = "image/$folder/";
+  $target_dir = "../resource/public/$folder/";
   $target_file = $target_dir . date("d_m_Y")."_".basename($_FILES[$input]["name"]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -264,5 +237,5 @@ function uploadImage($input,$folder) {
 $data = json_encode($json);
 // header('Content-Type: application/json'); echo $data;
 
-include "inputProcess.php";
+include "../helper/simpleSaveHelper.php";
  ?>

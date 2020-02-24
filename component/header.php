@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include "admin/proses/config.php";
+include "admin/app/config/setting.php";
  ?>
 <!DOCTYPE html>
   <html>
@@ -12,8 +12,8 @@ include "admin/proses/config.php";
       <link type="text/css" rel="stylesheet" href="css/slideshow.css"/>
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/lightpick.css">
-      <script src="admin/js/axios.min.js"></script>
-      <script src="admin/js/vue.js"></script>
+      <script src="js/axios.min.js"></script>
+      <script src="js/vue.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
