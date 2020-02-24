@@ -6,33 +6,28 @@ include "../config/setting.php";
 $id = $_REQUEST['id'];
 
 switch ($id) {
-  case 'modalMembaca':
-    $imageName = "MEMBACA_COVER";
-    $page = "input_membaca";
+  case 'profileModel':
+    $imageName = "PROFILE_IMAGE";
+    $page = "profil";
     $json = array(
     "action"                   => "simpleSave",
     "db"                       => $database,
-    "table"                    => "tx_hdr_buku_membaca",
-    "primaryKey"               => "MEMBACA_ID",
+    "table"                    => "tx_home_profile",
+    "primaryKey"               => "PROFILE_ID",
     "value"                    => [
     array(
-    "MEMBACA_ID"               =>  $_POST['MEMBACA_ID'],
-    "MEMBACA_COVER"            =>  date("d_m_Y")."_".basename($_FILES[$imageName]["name"]),
-    "MEMBACA_TANGGAL"          =>  $_POST['MEMBACA_TANGGAL'],
-    "MEMBACA_SISWA"            =>  $_POST['MEMBACA_SISWA'],
-    "MEMBACA_GURU"             =>  $_POST['MEMBACA_GURU'],
-    "MEMBACA_JUDUL"            =>  $_POST['MEMBACA_JUDUL'],
-    "MEMBACA_PENGARANG"        =>  $_POST['MEMBACA_PENGARANG'],
-    "MEMBACA_PENERBIT"         =>  $_POST['MEMBACA_PENERBIT'],
-    "MEMBACA_TOKOH"            =>  $_POST['MEMBACA_TOKOH'],
-    "MEMBACA_RANGKUMAN"        =>  $_POST['MEMBACA_RANGKUMAN'],
-    "MEMBACA_SARAN"            =>  $_POST['MEMBACA_SARAN']
+    "PROFILE_ID"               =>  "1",
+    "PROFILE_IMAGE"            =>  date("d_m_Y")."_".basename($_FILES[$imageName]["name"]),
+    "PROFILE_VISI"              =>  $_POST['PROFILE_VISI'],
+    "PROFILE_MISI"             =>  $_POST['PROFILE_MISI'],
+    "PROFILE_INFORMASI"        =>  $_POST['PROFILE_INFORMASI'],
+    "PROFILE_MAPS"             =>  $_POST['PROFILE_MAPS'],
     )]);
 
-    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Membaca");
+    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Profile");
 
     break;
-    
+
   default:
     $json = array(
       "ERROR" => "No Format JSON FOUND"
@@ -55,7 +50,7 @@ function uploadImage($input,$folder) {
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES[$input]["tmp_name"], $target_file)) {
-          // echo "The file ". basename( $_FILES["MEMBACA_COVER"]["name"]). " has been uploaded.";
+          // echo "The file ". basename( $_FILES["PROFILE_IMAGE"]["name"]). " has been uploaded.";
       } else {
           // echo "Sorry, there was an error uploading your file.";
       }
