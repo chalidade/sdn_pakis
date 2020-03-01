@@ -18,7 +18,6 @@
 
             <!-- START CUSTOM TABS -->
                   <h2 class="page-header">Rangking Membaca Siswa</h2>
-
                   <div class="row">
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
@@ -27,96 +26,50 @@
                           <li class="active"><a href="#tab_1" data-toggle="tab">Data Siswa</a></li>
                           <!-- <li><a href="#tab_2" data-toggle="tab">Tambah Data Siswa</a></li> -->
                         </ul>
-                        <div class="tab-content">
+                        <div class="tab-content" id="app">
                           <div class="tab-pane active" id="tab_1">
-                            <table class="table table-border">
+                            <table class="table table-border" width="100%">
                               <tr>
-                                <th style="text-align:center">No</th>
-                                <th style="text-align:center">Foto Buku</th>
-                                <th>Judul</th>
-                                <th>Siswa</th>
-                                <th style="text-align:center">Tgl Baca</th>
-                                <th style="text-align:center">Option</th>
+                                <th style="text-align:center">Rangking</th>
+                                <th width="15%" style="text-align:center">Foto</th>
+                                <th>Nama Siswa</th>
+                                <th>NIS</th>
+                                <th >Kelas</th>
+                                <th style="text-align:center;width:15%">Total Bintang</th>
+                                <th>Detail</th>
                               </tr>
+                              <template v-for="data in rangking">
                               <tr>
-                                <td  style="text-align:center">1</td>
-                                <td> <img src="../img/gunung_bromo2.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td>Ani Nur Tyas</td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
+                                <td style="font-size:30px;font-weight:800;text-align:center;vertical-align:middle">{{no++}}</td>
+                                <td>
+                                  <center>
+                                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicSiswa ?>' + data.DTL_PHOTO"/ style='width:100px;padding:5px' alt=''>
+                                  </center>
+                                </td>
+                                <td> {{data.USER_NAME}}</td>
+                                <td>{{data.DTL_NIS}}</td>
+                                <td>{{data.DTL_TINGKAT}} {{data.DTL_KELAS}}</td>
+                                <td style="text-align:center;width:10%;font-size:18px;font-weight:800;color:orange">{{data.total}}</td>
+                                <td>
+                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-star"></i> </button>
                                 </td>
                               </tr>
-                              <tr>
-                                <td  style="text-align:center">2</td>
-                                <td> <img src="../img/gunung_bromo2.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td>Ani</td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td  style="text-align:center">3</td>
-                                <td> <img src="../img/gunung_bromo2.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td>Ani</td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td  style="text-align:center">4</td>
-                                <td> <img src="../img/gunung_bromo2.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td>Ani</td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
+                            </template>
+                            <tr>
+                              <td colspan="5">
+                                <?php
+                                  $prev = $start-25;
+                                  if ($prev < 0) $prev = 0;
+                                  $next = $start+25;
+                                 ?>
+                                <a href="<?php echo $urlPageRangking.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
+                              </td>
+                              <td colspan="3">
+                                <a href="<?php echo $urlPageRangking.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
+                              </td>
+                            </tr>
                             </table>
                           </div>
-                          <!-- /.tab-pane -->
-                          <!-- <div class="tab-pane" id="tab_2">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="imgSlider1" value="" style="display:none">
-                                  <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
-                                    <center>
-                                      <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
-                                    </center>
-                                  </div>
-                                </label>
-                              </div>
-                              <div class="col-md-12">
-                                  <label for="title" style="width:100%">
-                                    Judul
-                                    <input type="text" id="title" class="form-control" name="" value="">
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Deskripsi
-                                    <textarea type="text" id="desc" class="form-control" name="" style="height:150px"></textarea>
-                                  </label>
-                              </div>
-                              <div class="col-md-12">
-                                <button type="button" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
-                              </div>
-                            </div>
-                          </div> -->
-                          <!-- /.tab-pane -->
                         </div>
                         <!-- /.tab-content -->
                       </div>
@@ -142,3 +95,46 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script type="text/javascript">
+start   = <?php echo $start; ?>;
+var url = "<?php echo $urlApi; ?>";
+new Vue({
+    el: '#app',
+    data () {
+      return {
+        rangking: null,
+        no: start-2499,
+      }
+    },
+    mounted () {
+      axios
+      .post(url+'/index', {
+          action: 'list',
+          db: 'sdnpakis',
+          table: 'tx_hdr_buku_membaca as A',
+          selectraw: 'COUNT(A.MEMBACA_SISWA) AS total, B.*, C.*',
+          groupbyraw: 'A.MEMBACA_SISWA',
+          orderBy: [
+              'total',
+              'DESC'
+          ],
+          leftJoin: [
+              {
+                  table: 'tx_hdr_user as B',
+                  field1: 'B.USER_ID',
+                  field2: 'A.MEMBACA_SISWA'
+              },
+              {
+                  table: 'tx_dtl_user_siswa as C',
+                  field1: 'B.USER_ID',
+                  field2: 'C.DTL_HDR_ID'
+              }
+          ],
+          start: start,
+          limit: '25'
+      })
+      .then(response => (this.rangking = response["data"]["result"]))
+    }
+  })
+</script>

@@ -86,7 +86,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="KOMPETENSI_INTI" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -95,7 +95,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="KOMPETENSI_DASAR" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -105,7 +105,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="TUJUAN_PEMBELAJARAN" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -114,7 +114,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="MATERI_PEMBELAJARAN" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -123,7 +123,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="METODE_PEMBELAJARAN" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -132,7 +132,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="SUMBER_PEMBELAJARAN" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -140,7 +140,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="KEGIATAN_PEMBELAJARAN" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
@@ -149,7 +149,7 @@
                     <table width="100%" border="0">
                       <tr>
                         <td>
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea id="PENILAIAN" name="name" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>

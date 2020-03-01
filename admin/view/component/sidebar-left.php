@@ -173,7 +173,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="index.php?id=input_membaca&start=0&page=1">Tambah Data</a></li>
-          <li><a href="index.php?id=data_rangking">Rangking Siswa Membaca</a></li>
+          <li><a href="index.php?id=data_rangking&start=0">Rangking Siswa Membaca</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -185,7 +185,7 @@
         <ul class="treeview-menu">
           <li><a href="index.php?id=homepage">Homepage</a></li>
           <li><a href="index.php?id=profil">Profil</a></li>
-          <li><a href="index.php?id=berita">Berita</a></li>
+          <li><a href="index.php?id=berita&start=0">Berita</a></li>
         </ul>
       </li>
       <li><a href="index.php"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>

@@ -29,66 +29,42 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
-                            <table class="table table-border">
+                            <?php
+                            $start  = $_REQUEST['start'];
+                            $page   = 1;
+                             ?>
+                            <table class="table table-border" id="app">
                               <tr>
-                                <th style="text-align:center">No</th>
-                                <th style="text-align:center">Foto</th>
-                                <th>Judul</th>
-                                <th style="text-align:center">Tanggal Posting</th>
-                                <th style="text-align:center">Option</th>
+                                <th width="5%" style="text-align:center">No</th>
+                                <th width="15%" style="text-align:center">Foto</th>
+                                <th width="20%">Judul</th>
+                                <th width="10%" style="text-align:center">Tanggal Posting</th>
+                                <th width="20%" style="text-align:center">Option</th>
                               </tr>
-                              <tr>
-                                <td  style="text-align:center">1</td>
-                                <td> <img src="../img/gunung_bromo2.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td  style="text-align:center">2</td>
-                                <td> <img src="../img/gunung_bromo1.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td  style="text-align:center">3</td>
-                                <td> <img src="../img/gunung_bromo3.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td  style="text-align:center">4</td>
-                                <td> <img src="../img/gunung_bromo4.jpg" style="width:50px" alt=""> </td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </td>
-                                <td style="text-align:center">1/1/2020</td>
-                                <td style="text-align:center">
-                                  <button type="button" class="btn btn-warning" name="button"> <i class="fa fa-pencil"></i> </button>
-                                  <button type="button" class="btn btn-danger" name="button"><i class="fa fa-trash"></i></button>
-                                  <button type="button" class="btn btn-primary" name="button"><i class="fa fa-eye"></i></button>
-                                </td>
-                              </tr>
+                              <template  v-for="data in berita">
+                                <tr>
+                                  <td width="5%" style="text-align:center">{{ data.BERITA_ID }}</td>
+                                  <td width="15%" style="text-align:center">
+                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicBerita ?>' + data.BERITA_IMAGE"/ style='width:80px;padding:5px' alt=''>
+                                  </td>
+                                  <td width="20%">{{ data.BERITA_JUDUL }}</td>
+                                  <td width="10%" style="text-align:center">{{ data.BERITA_TANGGAL }}</td>
+                                  <td width="20%" style="text-align:center">
+                                    <button type="button" v-bind:onclick="'EDIT_BERITA(' + data.BERITA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
+                                    <button type="button" v-bind:onclick="'DELETE_BERITA(' + data.BERITA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
+                                    <button type="button" onclick="VIEW_BERITA('tx_home_berita', 2,'BERITA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
+                                  </td>
+                                </tr>
+                              </template>
                             </table>
                           </div>
                           <!-- /.tab-pane -->
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="imgSlider1" value="" style="display:none">
+                                <form action="app/model/BeritaModel.php?id=modalBerita" method="post"  enctype="multipart/form-data">
+                                <label class="container" for="BERITA_IMAGE" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
+                                  <input type="file" id="BERITA_IMAGE" name="BERITA_IMAGE" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
                                     <center>
                                       <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
@@ -99,16 +75,17 @@
                               <div class="col-md-12">
                                   <label for="title" style="width:100%">
                                     Judul
-                                    <input type="text" id="title" class="form-control" name="" value="">
+                                    <input type="text" id="title" class="form-control" name="BERITA_JUDUL" value="">
                                   </label>
                                   <label for="desc" style="width:100%">
                                     Deskripsi
-                                    <textarea type="text" id="desc" class="form-control" name="" style="height:150px"></textarea>
+                                    <textarea type="text" id="desc" class="form-control" name="BERITA_DESKRIPSI" style="height:150px"></textarea>
                                   </label>
                               </div>
                               <div class="col-md-12">
-                                <button type="button" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
+                                <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
                               </div>
+                            </form>
                             </div>
                           </div>
                           <!-- /.tab-pane -->
@@ -137,3 +114,51 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script type="text/javascript">
+function DELETE_BERITA(id, start, page) {
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+          action: 'simpleDelete',
+          db: 'sdnpakis',
+          table: 'tx_home_berita',
+          where : ["BERITA_ID", id]
+        })
+        .then(response => (alert(this.info = response["data"])))
+        .then(response=>(window.location = "<?php echo $urlPageBerita; ?>"+start+"&page="+page));
+      }
+    })
+}
+
+start   = <?php echo $start; ?>;
+var url = "<?php echo $urlApi; ?>";
+new Vue({
+    el: '#app',
+    data () {
+      return {
+        berita: null
+      }
+    },
+    mounted () {
+      axios
+      .post(url+'/index', {
+        action: 'list',
+        db: 'sdnpakis',
+        table: 'tx_home_berita',
+        start: start,
+        orderBy: ['BERITA_ID', 'DESC'],
+        limit: 25
+      })
+      .then(response => (this.berita = response["data"]["result"]))
+    }
+  })
+</script>

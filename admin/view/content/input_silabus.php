@@ -44,7 +44,7 @@
                       </tr>
                       <tr>
                         <td colspan="3">
-                          <textarea name="name" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea name="name" id="KOMPETENSI_INTI" rows="8" style="width:100%;padding:20px"></textarea>
                         </td>
                       </tr>
                     </table>
