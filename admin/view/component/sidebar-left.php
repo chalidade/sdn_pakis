@@ -177,6 +177,19 @@
         </ul>
       </li>
       <li class="treeview">
+        <a href="#"><i class="fa fa-heart"></i> <span>Guru, Siswa, Staff</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="index.php?id=data_siswa&start=0&page=1">Data Siswa</a></li>
+          <li><a href="index.php?id=data_guru&start=0">Data Guru</a></li>
+          <li><a href="index.php?id=data_staff&start=0">Data Staff</a></li>
+
+        </ul>
+      </li>
+      <li class="treeview">
         <a href="#"><i class="fa fa-gear"></i> <span>Homepage</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

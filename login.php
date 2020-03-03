@@ -13,15 +13,9 @@
 	<div class="form-container sign-in-container">
 		<form action="admin/index.php?id=home" method="post">
 			<h1>Sign in</h1>
-			<!-- <div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div> -->
 			<span style="margin: 10px;">Use your account</span>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<!-- <a href="#">Forgot your password?</a> -->
 			<button type="submit" style="margin: 10px;">Sign In</button>
 		</form>
 	</div>
