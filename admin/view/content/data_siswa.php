@@ -17,7 +17,7 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Aku Suka Membaca</h2>
+                  <h2 class="page-header">Data Siswa</h2>
 
                   <div class="row">
                     <div class="col-md-12">
