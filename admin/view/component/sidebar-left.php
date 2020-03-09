@@ -96,7 +96,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="index.php?id=input_analisis_hb">Input Analisis HB</a></li>
-          <li><a href="index.php?id=data_analisis_hb">Data Analisis HB</a></li>
+          <li><a href="index.php?id=data_analisis_hb&start=0">Data Analisis HB</a></li>
         </ul>
       </li>
       <li class="treeview">

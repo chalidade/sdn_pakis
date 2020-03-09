@@ -14,7 +14,7 @@ $publicBerita   = "resource/public/Berita/";
 $publicImage    = "../../assets/img/";
 $publicJs       = "../../assets/js/";
 
-$database       = "sdnpakis";
+$database       = "sdn_pakis";
 
 
 // LogicException
