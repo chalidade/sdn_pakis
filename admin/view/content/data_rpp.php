@@ -31,10 +31,11 @@
                             <table class="table table-border">
                               <tr>
                                 <th width="5%" style="text-align:center">Id</th>
-                                <th width="15%" style="text-align:center">Muatan Terpadu</th>
-                                <th width="25%">Tema</th>
-                                <th width="25%">Sub Tema</th>
-                                <th width="10%" style="text-align:center">Pembelajaran</th>
+                                <th width="15%">Muatan Terpadu</th>
+                                <th width="15%">Tema</th>
+                                <th width="15%">Sub Tema</th>
+                                <th width="15%">Pembelajaran</th>
+                                <th width="25%">Option</th>
                               </tr>
                             </table>
                             <?php
@@ -45,13 +46,13 @@
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.RPP_HDR_ID }}</td>
-                                  <td width="15%" style="text-align:center">
+                                  <td width="12%">
                                     {{data.RPP_HDR_MUATAN_TERPADU}}
                                   </td>
-                                  <td width="20%">{{ data.RPP_HDR_TEMA }}</td>
-                                  <td width="25%">{{ data.RPP_HDR_SUB_TEMA }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.RPP_HDR_PEMBELAJARAN }}</td>
-                                  <td width="20%" style="text-align:center">
+                                  <td width="12%">{{ data.RPP_HDR_TEMA }}</td>
+                                  <td width="13%">{{ data.RPP_HDR_SUB_TEMA }}</td>
+                                  <td width="13%">{{ data.RPP_HDR_PEMBELAJARAN }}</td>
+                                  <td width="20%">
                                     <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
                                     <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
                                     <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
@@ -65,10 +66,10 @@
                                     if ($prev < 0) $prev = 0;
                                     $next = $start+25;
                                    ?>
-                                  <a href="<?php echo $urlPageMembaca.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
+                                  <a href="<?php echo $urlPageRpp.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
                                 </td>
                                 <td colspan="3">
-                                  <a href="<?php echo $urlPageMembaca.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
+                                  <a href="<?php echo $urlPageRpp.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
                                 </td>
                               </tr>
                             </table>
