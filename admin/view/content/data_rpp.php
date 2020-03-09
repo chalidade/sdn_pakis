@@ -54,7 +54,7 @@
                                   <td width="13%">{{ data.RPP_HDR_PEMBELAJARAN }}</td>
                                   <td width="20%">
                                     <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
+                                    <button type="button" v-bind:onclick="'DELETE_RPP(' + data.RPP_HDR_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
                                     <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
                                   </td>
                                 </tr>
@@ -99,6 +99,30 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
+
+function DELETE_RPP(id, start, page) {
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+          action: 'simpleDelete',
+          db: 'sdnpakis',
+          table: 'tx_hdr_rpp',
+          where : ["RPP_HDR_ID", id]
+        })
+        .then(response => (alert(this.info = response["data"])))
+        .then(response=>(window.location = "<?php echo $urlPageRpp; ?>"+start+"&page="+page));
+      }
+    })
+}
+
   start   = <?php echo $start; ?>;
   var url = "<?php echo $urlApi; ?>";
   new Vue({
