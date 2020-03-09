@@ -17,15 +17,14 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Data Siswa</h2>
+                  <h2 class="page-header">Data RPP</h2>
 
                   <div class="row">
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Siswa</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Tambah Data Siswa</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data RPP</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
@@ -74,66 +73,6 @@
                               </tr>
                             </table>
                           </div>
-                          <!-- /.tab-pane -->
-                          <div class="tab-pane" id="tab_2">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
-                                <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="USER_COVER" value="" style="display:none">
-                                  <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
-                                    <center>
-                                      <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
-                                    </center>
-                                  </div>
-                                </label>
-                              </div>
-                              <div class="col-md-12">
-                                  <label for="title" style="width:100%">
-                                    Tanggal Baca
-                                    <input type="hidden" id="title" class="form-control" name="USER_ID" value="" style="line-height:15px">
-                                    <input type="date" id="title" class="form-control" name="USER_TANGGAL" value="" style="line-height:15px">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Nama Siswa
-                                    <input type="input" id="title" class="form-control" name="USER_SISWA" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Nama Guru
-                                    <input type="input" id="title" class="form-control" name="USER_GURU" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Judul
-                                    <input type="text" id="title" class="form-control" name="USER_JUDUL" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Pengarang
-                                    <input type="text" id="title" class="form-control" name="USER_PENGARANG" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Penerbit
-                                    <input type="text" id="title" class="form-control" name="USER_PENERBIT" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Tokoh
-                                    <input type="text" id="title" class="form-control" name="USER_TOKOH" value="">
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Rangkuman
-                                    <textarea type="text" id="desc" class="form-control" name="USER_RANGKUMAN" style="height:150px"></textarea>
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Saran
-                                    <textarea type="text" id="desc" class="form-control" name="USER_SARAN" style="height:150px"></textarea>
-                                  </label>
-                              </div>
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
-                              </div>
-                            </form>
-                            </div>
-                          </div>
-                          <!-- /.tab-pane -->
                         </div>
                         <!-- /.tab-content -->
                       </div>
@@ -159,33 +98,6 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
-function DELETE_USER(id, start, page) {
-  var url = "<?php echo $urlApi; ?>";
-  new Vue({
-      el: '#app',
-      data () {
-        return {
-          info: null
-        }
-      },
-      mounted () {
-        axios
-        .post(url+'/store', {
-          action: 'simpleDelete',
-          db: 'sdnpakis',
-          table: 'tx_hdr_buku_membaca',
-          where : ["USER_ID", id]
-        })
-        .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
-      }
-    })
-}
-
-function EDIT_USER(id, start, page) {
-  alert(id);
-}
-
   start   = <?php echo $start; ?>;
   var url = "<?php echo $urlApi; ?>";
   new Vue({
