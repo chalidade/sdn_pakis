@@ -7,7 +7,7 @@ $urlPageBerita  = "http://localhost/sdn_pakis_baru/admin/index.php?id=berita&sta
 $urlPageRpp     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
 $urlAssets      = "assets/dist/img/";
 $urlPageRangking= "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rangking&start=";
-
+$urlAnalisisHB  = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_analisis_hb&start=";
 $publicFolder   = "resource/public/";
 $publicMembaca  = "resource/public/Membaca/";
 $publicSiswa    = "resource/public/Siswa/";
