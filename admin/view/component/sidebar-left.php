@@ -74,7 +74,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="index.php?id=input_rpp">Input RPP</a></li>
-          <li><a href="index.php?id=data_rpp">Data RPP</a></li>
+          <li><a href="index.php?id=data_rpp&start=0">Data RPP</a></li>
         </ul>
       </li>
       <li class="treeview">
