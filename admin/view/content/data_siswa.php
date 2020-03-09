@@ -43,20 +43,20 @@
                             $start  = $_REQUEST['start'];
                             $page   = 1;
                              ?>
-                            <table id="app" class="table table-border">
+                            <table cellpadding="10" id="app" class="table table-border">
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="5%" style="text-align:center">{{ data.MEMBACA_ID }}</td>
+                                  <td width="5%" style="text-align:center">{{ data.USER_ID }}</td>
                                   <td width="15%" style="text-align:center">
-                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
+                                    {{data.USER_NAME}}
                                   </td>
-                                  <td width="20%">{{ data.MEMBACA_JUDUL }}</td>
-                                  <td width="25%">{{ data.MEMBACA_SISWA }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.MEMBACA_TANGGAL }}</td>
+                                  <td width="20%">{{ data.DTL_NIS }}</td>
+                                  <td width="25%">{{ data.DTL_KELAS }}</td>
+                                  <td width="10%" style="text-align:center">{{ data.DTL_HP }}</td>
                                   <td width="20%" style="text-align:center">
-                                    <button type="button" v-bind:onclick="'EDIT_MEMBACA(' + data.MEMBACA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_MEMBACA(' + data.MEMBACA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_MEMBACA('tx_hdr_buku_membaca', 2,'MEMBACA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
+                                    <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
+                                    <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
+                                    <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
                                   </td>
                                 </tr>
                               </template>
@@ -81,7 +81,7 @@
                               <div class="col-md-12">
                                 <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
                                 <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="MEMBACA_COVER" value="" style="display:none">
+                                  <input type="file" id="imgSlider1" name="USER_COVER" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
                                     <center>
                                       <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
@@ -92,40 +92,40 @@
                               <div class="col-md-12">
                                   <label for="title" style="width:100%">
                                     Tanggal Baca
-                                    <input type="hidden" id="title" class="form-control" name="MEMBACA_ID" value="" style="line-height:15px">
-                                    <input type="date" id="title" class="form-control" name="MEMBACA_TANGGAL" value="" style="line-height:15px">
+                                    <input type="hidden" id="title" class="form-control" name="USER_ID" value="" style="line-height:15px">
+                                    <input type="date" id="title" class="form-control" name="USER_TANGGAL" value="" style="line-height:15px">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Nama Siswa
-                                    <input type="input" id="title" class="form-control" name="MEMBACA_SISWA" value="">
+                                    <input type="input" id="title" class="form-control" name="USER_SISWA" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Nama Guru
-                                    <input type="input" id="title" class="form-control" name="MEMBACA_GURU" value="">
+                                    <input type="input" id="title" class="form-control" name="USER_GURU" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Judul
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_JUDUL" value="">
+                                    <input type="text" id="title" class="form-control" name="USER_JUDUL" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Pengarang
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_PENGARANG" value="">
+                                    <input type="text" id="title" class="form-control" name="USER_PENGARANG" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Penerbit
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_PENERBIT" value="">
+                                    <input type="text" id="title" class="form-control" name="USER_PENERBIT" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Tokoh
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_TOKOH" value="">
+                                    <input type="text" id="title" class="form-control" name="USER_TOKOH" value="">
                                   </label>
                                   <label for="desc" style="width:100%">
                                     Rangkuman
-                                    <textarea type="text" id="desc" class="form-control" name="MEMBACA_RANGKUMAN" style="height:150px"></textarea>
+                                    <textarea type="text" id="desc" class="form-control" name="USER_RANGKUMAN" style="height:150px"></textarea>
                                   </label>
                                   <label for="desc" style="width:100%">
                                     Saran
-                                    <textarea type="text" id="desc" class="form-control" name="MEMBACA_SARAN" style="height:150px"></textarea>
+                                    <textarea type="text" id="desc" class="form-control" name="USER_SARAN" style="height:150px"></textarea>
                                   </label>
                               </div>
                               <div class="col-md-12">
@@ -160,7 +160,7 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
-function DELETE_MEMBACA(id, start, page) {
+function DELETE_USER(id, start, page) {
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -175,7 +175,7 @@ function DELETE_MEMBACA(id, start, page) {
           action: 'simpleDelete',
           db: 'sdnpakis',
           table: 'tx_hdr_buku_membaca',
-          where : ["MEMBACA_ID", id]
+          where : ["USER_ID", id]
         })
         .then(response => (alert(this.info = response["data"])))
         .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
@@ -183,7 +183,7 @@ function DELETE_MEMBACA(id, start, page) {
     })
 }
 
-function EDIT_MEMBACA(id, start, page) {
+function EDIT_USER(id, start, page) {
   alert(id);
 }
 
@@ -199,13 +199,26 @@ function EDIT_MEMBACA(id, start, page) {
       mounted () {
         axios
         .post(url+'/index', {
-          action: 'list',
-          db: 'sdnpakis',
-          table: 'tx_hdr_buku_membaca',
-          start: start,
-          orderBy: ['MEMBACA_ID', 'DESC'],
-          limit: 25
-        })
+              "action"    : "list",
+              "db"        : "sdnpakis",
+              "table"     : "tx_hdr_user as A",
+              "innerJoin" : [
+                  {
+                      "table": "tx_dtl_user_siswa as B",
+                      "field1": "A.USER_ID",
+                      "field2": "B.DTL_HDR_ID"
+                  }
+              ],
+              "where": [
+                  [
+                      "A.USER_ROLE",
+                      "=",
+                      "1"
+                  ]
+              ],
+              "start": start,
+              "limit": 25
+          })
         .then(response => (this.info = response["data"]["result"]))
       }
     })
