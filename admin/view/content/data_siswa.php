@@ -29,34 +29,31 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
-                            <table class="table table-border">
-                              <tr>
-                                <th width="5%" style="text-align:center">Id</th>
-                                <th width="15%" style="text-align:center">Nama Siswa</th>
-                                <th width="25%">NIS</th>
-                                <th width="25%">Kelas</th>
-                                <th width="10%" style="text-align:center">Telpon</th>
-                                <th width="20%" style="text-align:center">Option</th>
-                              </tr>
-                            </table>
+                            <div class="table-responsive">
                             <?php
                             $start  = $_REQUEST['start'];
                             $page   = 1;
                              ?>
-                            <table cellpadding="10" id="app" class="table table-border">
+                            <table cellpadding="10" id="app" class="table table-border" width="100%">
+                              <tr>
+                                <th width="6%">Nis</th>
+                                <th width="25%">Nama Siswa</th>
+                                <th width="15%">Kelas</th>
+                                <th width="10%" style="text-align:center">Telpon</th>
+                                <th width="20%" style="text-align:center">Option</th>
+                              </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="5%" style="text-align:center">{{ data.USER_ID }}</td>
-                                  <td width="15%" style="text-align:center">
+                                  <td width="6%">{{ data.DTL_NIS }}</td>
+                                  <td width="25%">
                                     {{data.USER_NAME}}
                                   </td>
-                                  <td width="20%">{{ data.DTL_NIS }}</td>
-                                  <td width="25%">{{ data.DTL_KELAS }}</td>
+                                  <td width="15%">{{ data.DTL_TINGKAT }} {{ data.DTL_KELAS }}</td>
                                   <td width="10%" style="text-align:center">{{ data.DTL_HP }}</td>
                                   <td width="20%" style="text-align:center">
-                                    <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
+                                    <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:25px;font-size:10px;padding:5px"> <i class="fa fa-pencil"></i> </button>
+                                    <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:25px;font-size:10px;padding:5px"><i class="fa fa-trash"></i></button>
+                                    <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:25px;font-size:10px;padding:5px"><i class="fa fa-eye"></i></button>
                                   </td>
                                 </tr>
                               </template>
@@ -74,6 +71,7 @@
                                 </td>
                               </tr>
                             </table>
+                          </div>
                           </div>
                           <!-- /.tab-pane -->
                           <div class="tab-pane" id="tab_2">
