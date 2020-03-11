@@ -34,6 +34,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="assets/js/axios.min.js"></script>
   <script src="assets/js/vue.js"></script>
 
+  <style type="text/css" media="screen">
+    .option {
+      width:25px;
+      font-size:10px;
+      padding:5px;
+    }
+  </style>
+
 
 
   <!-- Google Font -->
