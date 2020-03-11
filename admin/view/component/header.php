@@ -1,7 +1,11 @@
 <?php
 // $my_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 // $file   = substr($my_url, strrpos($my_url, '/' )+1);
-$file      = $_REQUEST['id'].".php";
+error_reporting(0);
+session_start();
+$session     = json_decode($_SESSION['USER'], TRUE);
+if (empty($session)) echo "<script type='text/javascript'> alert('You Must Login First'); window.location.href = '../login.php'; </script>";
+$file        = $_REQUEST['id'].".php";
 include "app/config/setting.php";
 include "app/config/connection.php";
  ?>

@@ -11,11 +11,11 @@
 <h2>SDN PAKIS 5 SURABAYA</h2>
 <div class="container" id="container">
 	<div class="form-container sign-in-container">
-		<form action="admin/index.php?id=home" method="post">
+		<form action="auth.php" method="post">
 			<h1>Sign in</h1>
 			<span style="margin: 10px;">Use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" name="email" placeholder="Email" />
+			<input type="password" name="password" placeholder="Password" />
 			<button type="submit" style="margin: 10px;">Sign In</button>
 		</form>
 	</div>
