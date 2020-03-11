@@ -77,9 +77,9 @@
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
+                                <form action="app/model/SiswaModel.php?id=insert" method="post" enctype="multipart/form-data">
                                 <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="USER_COVER" value="" style="display:none">
+                                  <input type="file" id="imgSlider1" name="DTL_PHOTO" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
                                     <center>
                                       <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
@@ -88,46 +88,74 @@
                                 </label>
                               </div>
                               <div class="col-md-12">
-                                  <label for="title" style="width:100%">
-                                    Tanggal Baca
-                                    <input type="hidden" id="title" class="form-control" name="USER_ID" value="" style="line-height:15px">
-                                    <input type="date" id="title" class="form-control" name="USER_TANGGAL" value="" style="line-height:15px">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Nama Siswa
-                                    <input type="input" id="title" class="form-control" name="USER_SISWA" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Nama Guru
-                                    <input type="input" id="title" class="form-control" name="USER_GURU" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Judul
-                                    <input type="text" id="title" class="form-control" name="USER_JUDUL" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Pengarang
-                                    <input type="text" id="title" class="form-control" name="USER_PENGARANG" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Penerbit
-                                    <input type="text" id="title" class="form-control" name="USER_PENERBIT" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Tokoh
-                                    <input type="text" id="title" class="form-control" name="USER_TOKOH" value="">
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Rangkuman
-                                    <textarea type="text" id="desc" class="form-control" name="USER_RANGKUMAN" style="height:150px"></textarea>
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Saran
-                                    <textarea type="text" id="desc" class="form-control" name="USER_SARAN" style="height:150px"></textarea>
-                                  </label>
+                                <label for="title" style="width:100%">
+                                  NIS
+                                  <input type="input" id="title" class="form-control" name="DTL_NIS" value="">
+                                </label>
                               </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Nama Lengkap
+                                  <input type="input" id="title" class="form-control" name="USER_NAME" value="">
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Email
+                                  <input type="input" id="title" class="form-control" name="USER_EMAIL" value="">
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Alamat
+                                  <input type="input" id="title" class="form-control" name="USER_ADDRESS" value="">
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Tempat, Tanggal Lahir
+                                  <table width="100%">
+                                    <tr>
+                                      <td width="30%"><input type="text" id="title" class="form-control" name="USER_BIRTHPLACE" value=""></td>
+                                      <td><input type="date" id="title" class="form-control" name="USER_BIRTHDAY" value="" style="padding:0px;padding-left:10px"></td>
+                                    </tr>
+                                  </table>
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Kelas
+                                  <table width="100%">
+                                    <tr>
+                                      <td width="30%"><input type="input" id="title" class="form-control" name="DTL_TINGKAT" value="" placeholder="6"></td>
+                                      <td><input type="input" id="title" class="form-control" name="DTL_KELAS" value="" placeholder="A"></td>
+                                    </tr>
+                                  </table>
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Nama Ayah
+                                  <input type="input" id="title" class="form-control" name="DTL_AYAH" value="">
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Nama Ibu
+                                  <input type="input" id="title" class="form-control" name="DTL_IBU" value="">
+                              </label>
+                              </div>
+
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
+                              </div>
                               </div>
                             </form>
                             </div>
