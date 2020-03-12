@@ -21,35 +21,35 @@
           </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="proses/route.php?page=input_booking" method="post" enctype="multipart/form-data">
+                <form role="form" action="app/model/SarpasModel.php?id=insert" method="post" enctype="multipart/form-data">
                   <div class="box-body">
                     <table width="100%" id="myTable" class="table order-list">
                       <tr>
                         <td width="15%"><b>Nama Sekolah<b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" class="form-control border-bottom-only" name="SARPRAS_HDR_NAMA_SEKOLAH" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Alamat Sekolah</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" class="form-control border-bottom-only" name="SARPRAS_HDR_ALAMAT_SEKOLAH" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Kecamatan</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" class="form-control border-bottom-only" name="SARPRAS_HDR_KECAMATAN" value="">
+                          <input type="hidden" name="SARPRAS_HDR_UPDATE_BY" value="<?php $userId = $session["USER_ID"]; echo $userId; ?>">
                         </td>
                       </tr>
                     </table>
                     <br>
                     <table class="text-center" border="1" width="100%">
                       <tr>
-                        <th rowspan="2" width="3%">No</th>
                         <th rowspan="2" width="20%">Jenis Barang</th>
                         <th rowspan="2" width="10%">Jumlah Barang</th>
                         <th rowspan="2" width="10%">Satuan</th>
@@ -96,13 +96,12 @@ $(".addinventaris").click(function() {
     $("#rmrowthis").remove();
     $("#tablesarpas").append(
         "<tr class='sarpas' id='protarow"+total_element+"'>"+
-        "<td width='3%'><input type='text' name='DTL_NO[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='20%'><input type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='10%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='10%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='10%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='10%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='20%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='20%'><input type='text' name='SARPRAS_DTL_JENIS_BARANG[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input type='text' name='SARPRAS_DTLJUMLAH_BARANG[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input type='text' name='SARPRAS_DTL_SATUAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input type='text' name='SARPRAS_DTL_KONDISI_BAIK[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input type='text' name='SARPRAS_DTL_KONDISI_RUSAK[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='20%'><input type='text' name='SARPRAS_DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input><input type='hidden' name='SARPRAS_DTL_UPDATE_BY' value='<?php echo $userId; ?>'></input></td>"+
         "<td width='10%'><button type='button' class='btn btn-danger remove' id='"+total_element+"' name='button' style='width:100%;border-radius:0px;height:30px'>Hapus</button></td>"+
         "</tr>"
       );
