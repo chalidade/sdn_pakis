@@ -5,6 +5,12 @@ include "../config/setting.php";
 // header('Content-Type: application/json');
 $id = $_REQUEST['id'];
 
+if (isset($_REQUEST["ext"])) {
+  $role = "3";
+} else {
+  $role = "2";
+}
+
 switch ($id) {
   case 'insert':
     $imageName = "DTL_PHOTO";
@@ -23,11 +29,11 @@ switch ($id) {
         'VALUE' =>
         array (
           array (
-            "USER_ID"         => "6",
+            "USER_ID"         => "",
             'USER_NAME'       => $_POST["USER_NAME"],
             'USER_EMAIL'      => $_POST["USER_EMAIL"],
             'USER_ADDRESS'    => $_POST["USER_ADDRESS"],
-            'USER_ROLE'       => '2',
+            'USER_ROLE'       => $role,
             'USER_PASSWORD'   => $_POST["DTL_NIP"],
             'USER_BIRTHDATE'  => $_POST["USER_BIRTHDATE"],
             'USER_BIRTHPLACE' => $_POST["USER_BIRTHPLACE"],
