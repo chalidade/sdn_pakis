@@ -6,6 +6,7 @@ $urlPageMembaca = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_memb
 $urlPageBerita  = "http://localhost/sdn_pakis_baru/admin/index.php?id=berita&start=";
 $urlPageRpp     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
 $urlDataSiswa   = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_siswa&start=";
+$urlDataGuru    = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_guru&start=";
 $urlAssets      = "assets/dist/img/";
 $urlPageRangking= "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rangking&start=";
 $urlAnalisisHB  = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_analisis_hb&start=";

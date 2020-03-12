@@ -17,15 +17,15 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Data Siswa</h2>
+                  <h2 class="page-header">Data Guru</h2>
 
                   <div class="row">
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Siswa</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Tambah Data Siswa</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Guru</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Tambah Data Guru</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
@@ -36,19 +36,19 @@
                              ?>
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
-                                <th width="6%">Nis</th>
-                                <th width="25%">Nama Siswa</th>
-                                <th width="15%">Kelas</th>
+                                <th width="6%">NIP</th>
+                                <th width="25%">Nama Guru</th>
+                                <th width="15%">Jabatan</th>
                                 <th width="10%" style="text-align:center">Telpon</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="6%">{{ data.DTL_NIS }}</td>
+                                  <td width="6%">{{ data.USER_NIP }}</td>
                                   <td width="25%">
                                     {{data.USER_NAME}}
                                   </td>
-                                  <td width="15%">{{ data.DTL_TINGKAT }} {{ data.DTL_KELAS }}</td>
+                                  <td width="15%">{{ data.DTL_JABATAN }}</td>
                                   <td width="10%" style="text-align:center">{{ data.DTL_HP }}</td>
                                   <td width="20%" style="text-align:center">
                                     <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning option"> <i class="fa fa-pencil"></i> </button>
@@ -64,10 +64,10 @@
                                     if ($prev < 0) $prev = 0;
                                     $next = $start+25;
                                    ?>
-                                  <a href="<?php echo $urlDataSiswa.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
+                                  <a href="<?php echo $urlDataGuru.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
                                 </td>
                                 <td colspan="3">
-                                  <a href="<?php echo $urlDataSiswa.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
+                                  <a href="<?php echo $urlDataGuru.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
                                 </td>
                               </tr>
                             </table>
@@ -77,7 +77,7 @@
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="app/model/SiswaModel.php?id=insert" method="post" enctype="multipart/form-data">
+                                <form action="app/model/GuruModel.php?id=insert" method="post" enctype="multipart/form-data">
                                 <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
                                   <input type="file" id="imgSlider1" name="DTL_PHOTO" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
@@ -89,8 +89,8 @@
                               </div>
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
-                                  NIS
-                                  <input required type="text" id="title" class="form-control" name="DTL_NIS" value="">
+                                  NIP
+                                  <input required type="text" id="title" class="form-control" name="DTL_NIP" value="">
                                 </label>
                               </div>
 
@@ -128,29 +128,79 @@
                               </div>
 
                               <div class="col-md-12">
-                                <label for="title" style="width:100%">
-                                  Kelas
                                   <table width="100%">
                                     <tr>
-                                      <td width="30%"><input required type="text" id="title" class="form-control" name="DTL_TINGKAT" value="" placeholder="6"></td>
-                                      <td><input required type="text" id="title" class="form-control" name="DTL_KELAS" value="" placeholder="A"></td>
+                                      <td width="30%">
+                                        <label for="title" style="width:100%">
+                                          NUPTK
+                                        <input required type="text" id="title" class="form-control" name="DTL_NUPTK" value="">
+                                      </label>
+                                      </td>
+                                      <td>
+                                        <label for="title" style="width:100%">
+                                          Status
+                                        <input required type="text" id="title" class="form-control" name="DTL_STATUS" value="" placeholder="Pegawai Tetap">
+                                        </label>
+                                      </td>
+                                      <td>
+                                        <label for="title" style="width:100%">
+                                          Golongan
+                                        <input required type="text" id="title" class="form-control" name="DTL_GOL" value="" placeholder="3A">
+                                        </label>
+                                      </td>
                                     </tr>
                                   </table>
-                                </label>
                               </div>
 
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
-                                  Nama Ayah
-                                  <input required type="text" id="title" class="form-control" name="DTL_AYAH" value="">
+                                  Jabatan
+                                  <input required type="text" id="title" class="form-control" name="DTL_JABATAN" value="">
                                 </label>
                               </div>
 
                               <div class="col-md-12">
-                                <label for="title" style="width:100%">
-                                  Nama Ibu
-                                  <input required type="text" id="title" class="form-control" name="DTL_IBU" value="">
-                              </label>
+                                  <table width="100%">
+                                    <tr>
+                                      <td width="30%">
+                                        <label for="title" style="width:100%">
+                                          Ijazah
+                                        <input required type="text" id="title" class="form-control" name="DTL_IJAZAH" value="">
+                                      </label>
+                                      </td>
+                                      <td>
+                                        <label for="title" style="width:100%">
+                                          Tahun
+                                        <input required type="text" id="title" class="form-control" name="DTL_IJAZAH_TAHUN" value="">
+                                        </label>
+                                      </td>
+                                      <td width="30%">
+                                        <label for="title" style="width:100%">
+                                          Prodi
+                                        <input required type="text" id="title" class="form-control" name="DTL_IJAZAH_JURUSAN" value="">
+                                      </label>
+                                      </td>
+                                    </tr>
+                                  </table>
+                              </div>
+
+                              <div class="col-md-12">
+                                  <table width="100%">
+                                    <tr>
+                                      <td width="30%">
+                                        <label for="title" style="width:100%">
+                                          Tanggal Masuk
+                                        <input required type="date" id="title" class="form-control" name="DTL_TANGGAL_MULAI" value="" style="padding:0px;padding-left:10px">
+                                      </label>
+                                      </td>
+                                      <td width="30%">
+                                        <label for="title" style="width:100%">
+                                          Nomor Telpon
+                                        <input required type="text" id="title" class="form-control" name="DTL_TELPON" value="">
+                                      </label>
+                                      </td>
+                                    </tr>
+                                  </table>
                               </div>
 
                               <div class="col-md-12">
@@ -209,12 +259,12 @@ function DELETE_USER(id, start, page) {
 
           "DETAIL": {
           	"DB"     : dbapi,
-        	"TABLE"  : "tx_dtl_user_siswa",
+        	"TABLE"  : "tx_dtl_user_guru",
         	"FK"     : ["DTL_HDR_ID","USER_ID"]
           }
         })
         .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "<?php echo $urlDataSiswa; ?>"+start+"&page="+page));
+        .then(response=>(window.location = "<?php echo $urlDataGuru; ?>"+start+"&page="+page));
       }
     })
 }
@@ -240,7 +290,7 @@ function EDIT_USER(id, start, page) {
               "table"     : "tx_hdr_user as A",
               "innerJoin" : [
                   {
-                      "table": "tx_dtl_user_siswa as B",
+                      "table": "tx_dtl_user_guru as B",
                       "field1": "A.USER_ID",
                       "field2": "B.DTL_HDR_ID"
                   }
@@ -249,7 +299,7 @@ function EDIT_USER(id, start, page) {
                   [
                       "A.USER_ROLE",
                       "=",
-                      "1"
+                      "2"
                   ]
               ],
               "start": start,
