@@ -90,28 +90,28 @@
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
                                   NIS
-                                  <input type="input" id="title" class="form-control" name="DTL_NIS" value="">
+                                  <input required type="text" id="title" class="form-control" name="DTL_NIS" value="">
                                 </label>
                               </div>
 
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
                                   Nama Lengkap
-                                  <input type="input" id="title" class="form-control" name="USER_NAME" value="">
+                                  <input required type="text" id="title" class="form-control" name="USER_NAME" value="">
                                 </label>
                               </div>
 
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
                                   Email
-                                  <input type="input" id="title" class="form-control" name="USER_EMAIL" value="">
+                                  <input required type="text" id="title" class="form-control" name="USER_EMAIL" value="">
                                 </label>
                               </div>
 
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
                                   Alamat
-                                  <input type="input" id="title" class="form-control" name="USER_ADDRESS" value="">
+                                  <input required type="text" id="title" class="form-control" name="USER_ADDRESS" value="">
                                 </label>
                               </div>
 
@@ -120,8 +120,8 @@
                                   Tempat, Tanggal Lahir
                                   <table width="100%">
                                     <tr>
-                                      <td width="30%"><input type="text" id="title" class="form-control" name="USER_BIRTHPLACE" value=""></td>
-                                      <td><input type="date" id="title" class="form-control" name="USER_BIRTHDAY" value="" style="padding:0px;padding-left:10px"></td>
+                                      <td width="30%"><input required type="text" id="title" class="form-control" name="USER_BIRTHPLACE" value=""></td>
+                                      <td><input required type="date" id="title" class="form-control" name="USER_BIRTHDAY" value="" style="padding:0px;padding-left:10px"></td>
                                     </tr>
                                   </table>
                                 </label>
@@ -132,8 +132,8 @@
                                   Kelas
                                   <table width="100%">
                                     <tr>
-                                      <td width="30%"><input type="input" id="title" class="form-control" name="DTL_TINGKAT" value="" placeholder="6"></td>
-                                      <td><input type="input" id="title" class="form-control" name="DTL_KELAS" value="" placeholder="A"></td>
+                                      <td width="30%"><input required type="text" id="title" class="form-control" name="DTL_TINGKAT" value="" placeholder="6"></td>
+                                      <td><input required type="text" id="title" class="form-control" name="DTL_KELAS" value="" placeholder="A"></td>
                                     </tr>
                                   </table>
                                 </label>
@@ -142,14 +142,14 @@
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
                                   Nama Ayah
-                                  <input type="input" id="title" class="form-control" name="DTL_AYAH" value="">
+                                  <input required type="text" id="title" class="form-control" name="DTL_AYAH" value="">
                                 </label>
                               </div>
 
                               <div class="col-md-12">
                                 <label for="title" style="width:100%">
                                   Nama Ibu
-                                  <input type="input" id="title" class="form-control" name="DTL_IBU" value="">
+                                  <input required type="text" id="title" class="form-control" name="DTL_IBU" value="">
                               </label>
                               </div>
 
@@ -187,7 +187,8 @@
 
 <script type="text/javascript">
 function DELETE_USER(id, start, page) {
-  var url = "<?php echo $urlApi; ?>";
+  var url   = "<?php echo $urlApi; ?>";
+  var dbapi = "<?php echo $databaseApi; ?>";
   new Vue({
       el: '#app',
       data () {
@@ -198,13 +199,22 @@ function DELETE_USER(id, start, page) {
       mounted () {
         axios
         .post(url+'/store', {
-          action: 'simpleDelete',
-          db: 'sdnpakis',
-          table: 'tx_hdr_buku_membaca',
-          where : ["USER_ID", id]
+          "action" : "delHeaderDetail",
+          "data"   : ["HEADER", "DETAIL"],
+          "HEADER" : {
+          	"DB"     : dbapi,
+          	"TABLE"  : "tx_hdr_user",
+          	"PK"     : ["USER_ID",id]
+          },
+
+          "DETAIL": {
+          	"DB"     : dbapi,
+        	"TABLE"  : "tx_dtl_user_siswa",
+        	"FK"     : ["DTL_HDR_ID","USER_ID"]
+          }
         })
         .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
+        .then(response=>(window.location = "<?php echo $urlDataSiswa; ?>"+start+"&page="+page));
       }
     })
 }
