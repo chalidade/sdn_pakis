@@ -16,7 +16,7 @@ $publicImage    = "../../assets/img/";
 $publicJs       = "../../assets/js/";
 
 $database       = "sdn_pakis";
-
+$databaseApi    = "sdnpakis";
 
 // LogicException
 if (isset($_REQUEST['start'])) {
