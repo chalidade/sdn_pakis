@@ -17,7 +17,7 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Data STAFF</h2>
+                  <h2 class="page-header">Data Staff</h2>
 
                   <div class="row">
                     <div class="col-md-12">

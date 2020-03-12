@@ -29,7 +29,12 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
-                            <table class="table table-border">
+                            <?php
+                            $start  = $_REQUEST['start'];
+                            $page   = 1;
+                             ?>
+                           <div class="table-responsive">
+                            <table id="app" class="table table-border">
                               <tr>
                                 <th width="5%" style="text-align:center">Id</th>
                                 <th width="15%" style="text-align:center">Foto Buku</th>
@@ -38,12 +43,6 @@
                                 <th width="10%" style="text-align:center">Tgl Baca</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
-                            </table>
-                            <?php
-                            $start  = $_REQUEST['start'];
-                            $page   = 1;
-                             ?>
-                            <table id="app" class="table table-border">
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.MEMBACA_ID }}</td>
@@ -74,6 +73,7 @@
                                 </td>
                               </tr>
                             </table>
+                          </div>
                           </div>
                           <!-- /.tab-pane -->
                           <div class="tab-pane" id="tab_2">

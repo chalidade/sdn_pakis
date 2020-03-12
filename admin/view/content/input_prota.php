@@ -21,28 +21,29 @@
           </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="proses/route.php?page=input_booking" method="post" enctype="multipart/form-data">
+                <form role="form" action="app/model/ProtaModel.php?id=insert" method="post" enctype="multipart/form-data">
                   <div class="box-body">
                     <table width="100%" id="myTable" class="table order-list">
                       <tr>
                         <td width="15%"><b>Satuan Pendidikan<b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="PROTA_SATUAN_AJAR" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Tahun Ajaran</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="PROTA_TAHUN_AJAR" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Kelas</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="PROTA_KELAS" value="">
+                          <input type="hidden" name="PROTA_USER_ID" value="<?php echo $session["USER_ID"]; ?>">
                         </td>
                       </tr>
                     </table>
@@ -113,11 +114,10 @@
     $("#rmrowthis"+btnid).remove();
     $("#tableSemester"+btnid).append(
         "<tr class='protasem"+btnid+"' id='protarow"+total_element+"'>"+
-        "<input type='text' name='DTL_SEMESTER[]' value='"+btnid+"' style='width:100%;border:none;text-align:center'></input>"+
-        "<td width='10%'><input type='text' name='DTL_NO[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='40%'><input type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='10%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='30%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input type='hidden' name='DTL_SEMESTER[]' value='"+btnid+"' style='width:100%;border:none;text-align:center'></input><input required type='text' name='DTL_NO[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='40%'><input required type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input required type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='30%'><input required type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
         "<td width='10%'><button type='button' class='btn btn-danger remove' id='"+total_element+"' name='button' style='width:100%;border-radius:0px;height:30px'>Hapus</button></td>"+
         "</tr>"
       );

@@ -28,6 +28,7 @@
                         </ul>
                         <div class="tab-content" id="app">
                           <div class="tab-pane active" id="tab_1">
+                            <div class="table-responsive">
                             <table class="table table-border" width="100%">
                               <tr>
                                 <th style="text-align:center">Rangking</th>
@@ -69,6 +70,7 @@
                               </td>
                             </tr>
                             </table>
+                          </div>
                           </div>
                         </div>
                         <!-- /.tab-content -->
