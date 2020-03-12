@@ -21,21 +21,31 @@
           </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="proses/route.php?page=input_booking" method="post" enctype="multipart/form-data">
+                <form role="form" action="app/model/SilabusModel.php?id=insert" method="post" enctype="multipart/form-data">
                   <div class="box-body">
                     <table width="100%" id="myTable" class="table order-list">
                       <tr>
                         <td width="15%"><b>Satuan Pendidikan<b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" class="form-control border-bottom-only" name="SILABUS_HDR_SATUAN_PENDIDIKAN" value="">
                         </td>
                       </tr>
                       <tr>
-                        <td width="15%"><b>Kelas / Semester</b></td>
+                        <td width="15%"><b>Kelas</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="" value="">
+                          <input type="text" class="form-control border-bottom-only" name="SILABUS_HDR_KELAS" value="">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="15%"><b>Semester</b></td>
+                        <td width="2%">:</td>
+                        <td>
+                          <select class="form-control" name="SILABUS_HDR_SEMESTER" id="SEMESTER">
+                              <option value="1">Semester Ganjil</option>
+                              <option value="2">Semester Genap</option>
+                          </select>
                         </td>
                       </tr>
                       <tr>
@@ -44,12 +54,12 @@
                       </tr>
                       <tr>
                         <td colspan="3">
-                          <textarea name="name" id="KOMPETENSI_INTI" rows="8" style="width:100%;padding:20px"></textarea>
+                          <textarea name="SILABUS_HDR_KOMPETENSI_INTI" id="KOMPETENSI_INTI" rows="8" style="width:100%;padding:20px"></textarea>
+                          <input type="hidden" name="SILABUS_HDR_UPDATE_BY" value="<?php $userId = $session['USER_ID']; echo $userId; ?>">
                         </td>
                       </tr>
                     </table>
                     <br>
-                    <h4><b>Semester 1</b></h4>
                     <table class="text-center" border="1" width="100%">
                       <tr>
                         <th width="15%">Muatan Pelajaran</th>
@@ -95,14 +105,13 @@
     $("#rmrowthis"+btnid).remove();
     $("#tableSemester"+btnid).append(
         "<tr class='protasem"+btnid+"' id='protarow"+total_element+"'>"+
-        "<input type='text' name='DTL_SEMESTER[]' value='"+btnid+"' style='width:100%;border:none;text-align:center'></input>"+
-        "<td width='15%'><input type='text' name='DTL_NO[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='15%'><input type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='15%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='15%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='12%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='11%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='12%'><input type='text' name='DTL_KETERANGAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='SILABUS_DTL_MUATAN_PELAJARAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='SILABUS_DTL_KOMPETENSI_DASAR[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='SILABUS_DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' name='SILABUS_DTL_PEMBELAJARAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='12%'><input type='text' name='SILABUS_DTL_PENLAIAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='11%'><input type='text' name='SILABUS_DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='12%'><input type='text' name='SILABUS_DTL_SUMBER_BELAJAR[]' style='width:100%;border:none;text-align:center'></input><input type='hidden' name='SILABUS_DTL_UPDATE_BY' value='<?php echo $userId; ?>'></input></td>"+
         "<td width='5%'><button type='button' class='btn btn-danger remove' id='"+total_element+"' name='button' style='width:100%;border-radius:0px;height:30px'><i class='fa fa-trash'></i></button></td>"+
         "</tr>"
       );

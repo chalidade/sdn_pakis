@@ -46,8 +46,7 @@ $arrdetil = substr($arrdetil, 0,-1);
 
 switch ($id) {
   case 'insert':
-    $imageName = "DTL_PHOTO";
-    $page      = "input_prota";
+    $page      = "input_promes";
     $json      = '{
                   "action": "saveheaderdetail",
                   "data": [
