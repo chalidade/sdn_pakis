@@ -152,12 +152,66 @@
       <!-- End Kata Pengantar -->
     </div>
 
-    </div>
+  </div>
     <!-- /.row -->
   </section>
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<?php if ($session["USER_ROLE"] == "1") { ?>
+  <script type="text/javascript">
+    start   = <?php echo $start; ?>;
+    var url = "<?php echo $urlApi; ?>";
+    new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+          .post(url+'/index', {
+            action: 'list',
+            db: 'sdnpakis',
+            table: 'tx_hdr_buku_membaca',
+            where : [['MEMBACA_SISWA','=', '<?php echo $session["USER_ID"]; ?>']],
+            start: start,
+            orderBy: ['MEMBACA_ID', 'DESC'],
+            limit: 25
+          })
+          .then(response => (this.info = response["data"]["result"]))
+        }
+      })
+  </script>
+<?php } else {?>
+  <script type="text/javascript">
+    start   = <?php echo $start; ?>;
+    var url = "<?php echo $urlApi; ?>";
+    new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+          .post(url+'/index', {
+            action: 'list',
+            db: 'sdnpakis',
+            table: 'tx_hdr_buku_membaca',
+            start: start,
+            orderBy: ['MEMBACA_ID', 'DESC'],
+            limit: 25
+          })
+          .then(response => (this.info = response["data"]["result"]))
+        }
+      })
+  </script>
+<?php } ?>
+
 
 <script type="text/javascript">
 function DELETE_MEMBACA(id, start, page) {
@@ -186,27 +240,4 @@ function DELETE_MEMBACA(id, start, page) {
 function EDIT_MEMBACA(id, start, page) {
   alert(id);
 }
-
-  start   = <?php echo $start; ?>;
-  var url = "<?php echo $urlApi; ?>";
-  new Vue({
-      el: '#app',
-      data () {
-        return {
-          info: null
-        }
-      },
-      mounted () {
-        axios
-        .post(url+'/index', {
-          action: 'list',
-          db: 'sdnpakis',
-          table: 'tx_hdr_buku_membaca',
-          start: start,
-          orderBy: ['MEMBACA_ID', 'DESC'],
-          limit: 25
-        })
-        .then(response => (this.info = response["data"]["result"]))
-      }
-    })
 </script>

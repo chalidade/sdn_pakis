@@ -51,9 +51,90 @@
                                   <td width="15%">{{ data.DTL_TINGKAT }} {{ data.DTL_KELAS }}</td>
                                   <td width="10%" style="text-align:center">{{ data.DTL_HP }}</td>
                                   <td width="20%" style="text-align:center">
-                                    <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning option"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger option"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <!-- <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning option"> <i class="fa fa-pencil"></i> </button> -->
+                                    <!-- <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger option"><i class="fa fa-trash"></i></button> -->
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.USER_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+
+                                    <div class="modal fade" v-bind:id="'modal-default' + data.USER_ID">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">{{data.USER_NAME}}</h4>
+                                          </div>
+                                          <div class="modal-body" style="text-align:left">
+                                            <form action="app/model/SiswaModel.php?id=insert" method="post" enctype="multipart/form-data">
+                                            <div class="table-responsive">
+                                              <table class="table table-border">
+                                                <tr>
+                                                  <td rowspan="7" width="40%" style="vertical-align:middle">
+                                                    <label class="" for="imgSlider1">
+                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicSiswa ?>' + data.DTL_PHOTO"/ style='width:100%;padding:5px' alt=''>
+                                                      <input type="file" id="imgSlider1" name="DTL_PHOTO" style="display:none">
+                                                      <input type="hidden" name="DTL_PHOTO_BACKUP" v-bind:value="data.DTL_PHOTO">
+                                                      <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
+                                                        <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
+                                                      </div>
+                                                    </label>
+                                                  </td>
+                                                  <td width="20%" style="font-weight:800">NIS</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_NIS" style="width:100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">Nama Lengkap</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_NAME" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">Email</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_EMAIL" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">Alamat</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_ADDRESS" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">TTL</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_BIRTHPLACE" style="width: 35%;border:none;">, <input type="text" name="DTL_NIS" v-bind:value="data.USER_BIRTHDATE" style="width: 50%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">Nama Ayah</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_AYAH" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">Nama Ibu</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_IBU" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td colspan="4" style="font-weight:800"> Rincian Prestasi : </td>
+                                                </tr>
+                                                <tr>
+                                                  <td colspan="4">
+                                                    <textarea name="name" rows="8" cols="60" style="border:none">{{data.DTL_PRESTASI}}</textarea>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td colspan="4">
+                                                    <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Edit</button>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
+
                                   </td>
                                 </tr>
                               </template>
