@@ -122,7 +122,13 @@
                                                 </tr>
                                                 <tr>
                                                   <td colspan="4">
-                                                    <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Edit</button>
+                                                    <table width="100%">
+                                                      <tr>
+                                                        <td><button type="submit" class="btn btn-success" name="button" style="width:100%">Edit</button></td>
+                                                        <td width="1%"></td>
+                                                        <td width="10%"><button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:100%"><i class="fa fa-trash"></i></button></td>
+                                                      </tr>
+                                                    </table>
                                                   </td>
                                                 </tr>
                                               </table>

@@ -16,6 +16,7 @@ $publicFolder   = "resource/public/";
 $publicImage    = "../../assets/img/";
 $publicJs       = "../../assets/js/";
 $publicSiswa    = "resource/public/Siswa/";
+$publicGuru    = "resource/public/Guru/";
 $publicBerita   = "resource/public/Berita/";
 $publicMembaca  = "resource/public/Membaca/";
 
