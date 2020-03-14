@@ -44,7 +44,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_absen_siswa">Input Absen Siswa</a></li>
-            <li><a href="index.php?id=data_absen_siswa">Data Absen Siswa</a></li>
+            <li><a href="index.php?id=data_absen_siswa&start=0">Data Absen Siswa</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -74,7 +74,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_prota">Input Prota</a></li>
-            <li><a href="index.php?id=data_prota">Data Prota</a></li>
+            <li><a href="index.php?id=data_prota&start=0">Data Prota</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -85,7 +85,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_promes">Input Promes</a></li>
-            <li><a href="index.php?id=data_promes">Data Promes</a></li>
+            <li><a href="index.php?id=data_promes&start=0">Data Promes</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -96,7 +96,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_silabus">Input Silabus</a></li>
-            <li><a href="index.php?id=data_silabus">Data Silabus</a></li>
+            <li><a href="index.php?id=data_silabus&start=0">Data Silabus</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -118,7 +118,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_analisis">Input Analisis KD</a></li>
-            <li><a href="index.php?id=data_analisis">Data Analisis KD</a></li>
+            <li><a href="index.php?id=data_analisis&start=0">Data Analisis KD</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -140,7 +140,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_buku_induk">Input Buku Induk</a></li>
-            <li><a href="index.php?id=data_buku_induk">Data Buku Induk</a></li>
+            <li><a href="index.php?id=data_buku_induk&start=0">Data Buku Induk</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -151,7 +151,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_absen_siswa">Input Absen Siswa</a></li>
-            <li><a href="index.php?id=data_absen_siswa">Data Absen Siswa</a></li>
+            <li><a href="index.php?id=data_absen_siswa&start=0">Data Absen Siswa</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -162,7 +162,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_absen_guru">Input Absen Guru</a></li>
-            <li><a href="index.php?id=data_absen_guru">Data Absen Guru</a></li>
+            <li><a href="index.php?id=data_absen_guru&start=0">Data Absen Guru</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -173,7 +173,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_inventaris">Input Inventaris</a></li>
-            <li><a href="index.php?id=data_inventaris">Data Inventaris</a></li>
+            <li><a href="index.php?id=data_inventaris&start=0">Data Inventaris</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -184,7 +184,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_kurikulum">Input Dokumen Kurikulum</a></li>
-            <li><a href="index.php?id=data_kurikulum">Data Dokumen Kurikulum</a></li>
+            <li><a href="index.php?id=data_kurikulum&start=0">Data Dokumen Kurikulum</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -214,7 +214,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_keuangan">Input Keuangan</a></li>
-            <li><a href="index.php?id=data_keuangan">Data Keuangan</a></li>
+            <li><a href="index.php?id=data_keuangan&start=0">Data Keuangan</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -225,7 +225,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_inventaris">Input Inventaris</a></li>
-            <li><a href="index.php?id=data_inventaris">Data Inventaris</a></li>
+            <li><a href="index.php?id=data_inventaris&start=0">Data Inventaris</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -236,7 +236,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_membaca&start=0&page=1">Tambah Data</a></li>
-            <li><a href="index.php?id=data_rangking&start=0">Rangking Siswa Membaca</a></li>
+            <li><a href="index.php?id=data_rangking&start=0&start=0">Rangking Siswa Membaca</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -266,7 +266,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_prota">Input Prota</a></li>
-            <li><a href="index.php?id=data_prota">Data Prota</a></li>
+            <li><a href="index.php?id=data_prota&start=0">Data Prota</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -277,7 +277,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_promes">Input Promes</a></li>
-            <li><a href="index.php?id=data_promes">Data Promes</a></li>
+            <li><a href="index.php?id=data_promes&start=0">Data Promes</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -288,7 +288,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_silabus">Input Silabus</a></li>
-            <li><a href="index.php?id=data_silabus">Data Silabus</a></li>
+            <li><a href="index.php?id=data_silabus&start=0">Data Silabus</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -310,7 +310,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_analisis">Input Analisis KD</a></li>
-            <li><a href="index.php?id=data_analisis">Data Analisis KD</a></li>
+            <li><a href="index.php?id=data_analisis&start=0">Data Analisis KD</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -332,7 +332,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_buku_induk">Input Buku Induk</a></li>
-            <li><a href="index.php?id=data_buku_induk">Data Buku Induk</a></li>
+            <li><a href="index.php?id=data_buku_induk&start=0">Data Buku Induk</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -343,7 +343,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_absen_siswa">Input Absen Siswa</a></li>
-            <li><a href="index.php?id=data_absen_siswa">Data Absen Siswa</a></li>
+            <li><a href="index.php?id=data_absen_siswa&start=0">Data Absen Siswa</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -354,7 +354,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_absen_guru">Input Absen Guru</a></li>
-            <li><a href="index.php?id=data_absen_guru">Data Absen Guru</a></li>
+            <li><a href="index.php?id=data_absen_guru&start=0">Data Absen Guru</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -365,7 +365,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_keuangan">Input Keuangan</a></li>
-            <li><a href="index.php?id=data_keuangan">Data Keuangan</a></li>
+            <li><a href="index.php?id=data_keuangan&start=0">Data Keuangan</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -376,7 +376,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_inventaris">Input Inventaris</a></li>
-            <li><a href="index.php?id=data_inventaris">Data Inventaris</a></li>
+            <li><a href="index.php?id=data_inventaris&start=0">Data Inventaris</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -387,7 +387,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_kurikulum">Input Dokumen Kurikulum</a></li>
-            <li><a href="index.php?id=data_kurikulum">Data Dokumen Kurikulum</a></li>
+            <li><a href="index.php?id=data_kurikulum&start=0">Data Dokumen Kurikulum</a></li>
           </ul>
         </li>
         <li class="treeview">
