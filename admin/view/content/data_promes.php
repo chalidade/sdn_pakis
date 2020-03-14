@@ -36,6 +36,7 @@
                                 <th width="15%">Tahun</th>
                                 <th width="10%" style="text-align:center">Kelas</th>
                                 <th width="10%" style="text-align:center">Semester</th>
+                                <th width="10%" style="text-align:center">Status</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
@@ -47,9 +48,10 @@
                                   <td width="15%">{{ data.DTL_TINGKAT }} {{ data.PROMES_TAHUN_AJARAN }}</td>
                                   <td width="10%" style="text-align:center">{{ data.PROMES_KELAS }}</td>
                                   <td width="10%" style="text-align:center">{{ data.PROMES_SEMESTER }}</td>
+                                  <td style="text-align:center;color:red"><b>{{ data.REFF_NAME }}</b></td>
                                   <td width="20%" style="text-align:center">
-                                  <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROTA_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-
+                                    <button type="button" v-bind:onclick="'send(' + data.PROMES_ID + ')'"/ class="btn btn-primary option"> <i class="fa fa-send"></i> </button>
+                                  <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROTA_ID" class="btn btn-success option"><i class="fa fa-eye"></i></button>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.PROTA_ID">
                                       <div class="modal-dialog">
                                         <div class="modal-content">
@@ -140,7 +142,7 @@
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="4">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
@@ -213,9 +215,40 @@ function DELETE_USER(id, start, page) {
     })
 }
 
-function EDIT_USER(id, start, page) {
-  alert(id);
+function send(id) {
+  start   = <?php echo $start; ?>;
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/index', {
+              "action"    : "list",
+              "db"        : "sdnpakis",
+              "table"     : "tx_hdr_promes as A",
+              "whereIn"   : ["PROMES_STATUS", ["0","1"]],
+              "innerJoin" : [{
+                "table"   : "tm_reff as B",
+                "field1"  : "B.REFF_ID",
+                "field2"  : "A.PROMES_STATUS"
+              }],
+              "where"     : [
+                ["REFF_TR_ID", "=", "2"]
+              ],
+              "start": start,
+              "limit": 25
+          })
+        .then(response => (this.info = response["data"]["result"]))
+      }
+    })
 }
+
+
 
   start   = <?php echo $start; ?>;
   var url = "<?php echo $urlApi; ?>";
@@ -231,7 +264,16 @@ function EDIT_USER(id, start, page) {
         .post(url+'/index', {
               "action"    : "list",
               "db"        : "sdnpakis",
-              "table"     : "tx_hdr_promes",
+              "table"     : "tx_hdr_promes as A",
+              "whereIn"   : ["PROMES_STATUS", ["0","1"]],
+              "innerJoin" : [{
+                "table"   : "tm_reff as B",
+                "field1"  : "B.REFF_ID",
+                "field2"  : "A.PROMES_STATUS"
+              }],
+              "where"     : [
+                ["REFF_TR_ID", "=", "2"]
+              ],
               "start": start,
               "limit": 25
           })
