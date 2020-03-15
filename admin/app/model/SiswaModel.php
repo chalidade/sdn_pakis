@@ -29,12 +29,13 @@ switch ($id) {
             'USER_ADDRESS'    => $_POST["USER_ADDRESS"],
             'USER_ROLE'       => '1',
             'USER_PASSWORD'   => $_POST["DTL_NIS"],
-            'USER_BIRTHDATE'  => $_POST["USER_BIRTHDATE"],
+            'USER_BIRTHDATE'  => $_POST["USER_BIRTHDAY"],
             'USER_BIRTHPLACE' => $_POST["USER_BIRTHPLACE"],
             'USER_NIP'        => '',
             'USER_TOKEN'      => '',
             'USER_STATUS'     => '',
             'USER_ACTIVITY'   => '',
+            'USER_PHOTO'      => date("d_m_Y")."_".basename($_FILES[$imageName]["name"])
           ),
         ),
       ),
@@ -55,14 +56,13 @@ switch ($id) {
             'DTL_AYAH'     => $_POST["DTL_AYAH"],
             'DTL_IBU'      => $_POST["DTL_IBU"],
             'DTL_PRESTASI' => '',
-            'DTL_NIS'      => $_POST["DTL_NIS"],
-            'DTL_PHOTO'    => date("d_m_Y")."_".basename($_FILES[$imageName]["name"]),
+            'DTL_NIS'      => $_POST["DTL_NIS"]
           ),
         ),
       ),
     );
 
-    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Siswa");
+    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "User");
 
     break;
 
@@ -88,7 +88,7 @@ function uploadImage($input,$folder) {
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES[$input]["tmp_name"], $target_file)) {
-          // echo "The file ". basename( $_FILES["BERITA_IMAGE"]["name"]). " has been uploaded.";
+          // echo "The file ". basename( $_FILES[$input]["name"]). " has been uploaded.";
       } else {
           // echo "Sorry, there was an error uploading your file.";
       }

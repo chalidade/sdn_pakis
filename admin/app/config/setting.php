@@ -5,6 +5,7 @@ $urlApi         = "http://localhost/uapi";
 $urlAdmin       = "http://localhost/sdn_pakis_baru/admin/index.php";
 $urlPageBerita  = "http://localhost/sdn_pakis_baru/admin/index.php?id=berita&start=";
 $urlPageRpp     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
+$urlProta       = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_prota&start=";
 $urlPromes      = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_promes&start=";
 $urlDataGuru    = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_guru&start=";
 $urlDataSTAFF   = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_staff&start=";
@@ -14,6 +15,7 @@ $urlPageRangking= "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rangk
 $urlAnalisisHB  = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_analisis_hb&start=";
 $urlAbsenSiswa  = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_absen_siswa&guru=";
 
+$publicUser     = "resource/public/User/";
 $publicFolder   = "resource/public/";
 $publicImage    = "../../assets/img/";
 $publicJs       = "../../assets/js/";

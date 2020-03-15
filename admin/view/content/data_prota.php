@@ -26,105 +26,64 @@
                           <div class="tab-pane active" id="tab_1">
                             <div class="table-responsive">
                             <?php
+                            $menu   = $_REQUEST["menu"];
                             $start  = $_REQUEST['start'];
                             $page   = 1;
                              ?>
+                             <a class="btn btn-primary" href="index.php?id=input_prota"><i class="fa fa-book"></i> Buat Pengajuan</a>
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
-                                <th width="6%">No</th>
+                                <th width="3%">No</th>
+                                <th width="20%">No Pengajuan</th>
                                 <th width="25%">Satuan Ajar</th>
                                 <th width="15%">Tahun</th>
                                 <th width="10%" style="text-align:center">Kelas</th>
+                                <th width="15%" style="text-align:center">Status</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="6%">{{ data.PROTA_ID }}</td>
+                                  <td width="3%">{{ data.PROTA_ID }}</td>
+                                  <td width="20%">{{ data.PROTA_NO_PENGAJUAN }}</td>
                                   <td width="25%">
                                     {{data.PROTA_SATUAN_AJAR}}
                                   </td>
                                   <td width="15%">{{ data.DTL_TINGKAT }} {{ data.PROTA_TAHUN_AJAR }}</td>
                                   <td width="10%" style="text-align:center">{{ data.PROTA_KELAS }}</td>
+                                  <td width="15%" style="text-align:center;font-weight:800;color:red">{{ data.STATUS }}</td>
                                   <td width="20%" style="text-align:center">
-                                  <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROTA_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-
+                                    <?php if ($menu == 1) { ?>
+                                      <button type="button" v-bind:onclick="'send(' + data.PROTA_ID +  ', ' + data.PROTA_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
+                                    <?php } ?>
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROTA_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <!-- <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.PROTA_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a> -->
                                     <div class="modal fade" v-bind:id="'modal-default' + data.PROTA_ID">
-                                      <div class="modal-dialog">
+                                      <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">{{data.USER_NAME}}</h4>
+                                            <h4 class="modal-title">{{data.PROTA_NO_PENGAJUAN}}</h4>
                                           </div>
                                           <div class="modal-body" style="text-align:left">
-                                            <form action="app/model/SiswaModel.php?id=insert" method="post" enctype="multipart/form-data">
-                                            <div class="table-responsive">
-                                              <table class="table table-border">
-                                                <tr>
-                                                  <td rowspan="7" width="40%" style="vertical-align:middle">
-                                                    <label class="" for="imgSlider1">
-                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicSiswa ?>' + data.DTL_PHOTO"/ style='width:100%;padding:5px' alt=''>
-                                                      <input type="file" id="imgSlider1" name="DTL_PHOTO" style="display:none">
-                                                      <input type="hidden" name="DTL_PHOTO_BACKUP" v-bind:value="data.DTL_PHOTO">
-                                                      <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
-                                                        <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
-                                                      </div>
-                                                    </label>
-                                                  </td>
-                                                  <td width="20%" style="font-weight:800">NIS</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_NIS" style="width:100%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="20%" style="font-weight:800">Nama Lengkap</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_NAME" style="width: 100%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="20%" style="font-weight:800">Email</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_EMAIL" style="width: 100%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="20%" style="font-weight:800">Alamat</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_ADDRESS" style="width: 100%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="20%" style="font-weight:800">TTL</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.USER_BIRTHPLACE" style="width: 35%;border:none;">, <input type="text" name="DTL_NIS" v-bind:value="data.USER_BIRTHDATE" style="width: 50%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="20%" style="font-weight:800">Nama Ayah</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_AYAH" style="width: 100%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td width="20%" style="font-weight:800">Nama Ibu</td>
-                                                  <td width="1%">:</td>
-                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_IBU" style="width: 100%;border:none;"></td>
-                                                </tr>
-                                                <tr>
-                                                  <td colspan="4" style="font-weight:800"> Rincian Prestasi : </td>
-                                                </tr>
-                                                <tr>
-                                                  <td colspan="4">
-                                                    <textarea name="name" rows="8" cols="60" style="border:none">{{data.DTL_PRESTASI}}</textarea>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td colspan="4">
-                                                    <table width="100%">
-                                                      <tr>
-                                                        <td><button type="submit" class="btn btn-success" name="button" style="width:100%">Edit</button></td>
-                                                        <td width="1%"></td>
-                                                        <td width="10%"><button type="button" v-bind:onclick="'DELETE_USER(' + data.PROTA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:100%"><i class="fa fa-trash"></i></button></td>
-                                                      </tr>
-                                                    </table>
-                                                  </td>
-                                                </tr>
-                                              </table>
+                                              <div class="box-body" style="margin-bottom:30px">
+                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.PROTA_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                              </div>
+                                              <!-- /.box-body -->
+
+                                              <div class="box-footer">
+                                                <?php if($menu != 1) { ?>
+                                                  <table width="100%">
+                                                  <tr>
+                                                    <td><button type="button" v-bind:onclick="'reject(' + data.PROTA_ID + ')'"/ class="btn btn-danger"  style="width:100%"> <i class="fa fa-times"></i> Reject </button></td>
+                                                    <td><button type="button" v-bind:onclick="'approve(' + data.PROTA_ID + ')'"/ class="btn btn-success"  style="width:100%"> <i class="fa fa-check"></i> Approve </button></td>
+                                                  </tr>
+                                                </table>
+                                               <?php } else { ?>
+                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:100%">Close</button>
+                                               <?php } ?>
+                                              </div>
+                                            </form>
                                             </div>
                                           </div>
                                         </div>
@@ -211,12 +170,108 @@ function DELETE_USER(id, start, page) {
     })
 }
 
-function EDIT_USER(id, start, page) {
-  alert(id);
+function send(id, status) {
+  if (status == 0 || status == 3) {
+    var url = "<?php echo $urlApi; ?>";
+    new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+          .post(url+'/store', {
+              "action" : "update",
+              "db"     : "sdnpakis",
+              "table"  : "tx_hdr_prota",
+              "update" :
+              {
+                 "PROTA_STATUS" : "1"
+              },
+               "where" :
+               {
+                "PROTA_ID" : id
+               }
+            })
+        }
+      })
+
+      alert("Pengajuan Dikirim");
+      window.location = "<?php echo $urlProta; ?>0&menu=1";
+  } else {
+    alert("Pengajuan Sudah Pernah Dikirim");
+  }
 }
 
-  start   = <?php echo $start; ?>;
+function reject(id) {
   var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+            "action" : "update",
+            "db"     : "sdnpakis",
+            "table"  : "tx_hdr_prota",
+            "update" :
+          	{
+          		 "PROTA_STATUS" : "3"
+          	},
+             "where" :
+             {
+          		"PROTA_ID" : id
+             }
+          })
+      }
+    })
+
+    alert("Pengajuan Ditolak");
+    window.location = "<?php echo $urlProta; ?>0&menu=2";
+}
+
+function approve(id) {
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+            "action" : "update",
+            "db"     : "sdnpakis",
+            "table"  : "tx_hdr_prota",
+            "update" :
+          	{
+          		 "PROTA_STATUS" : "2"
+          	},
+             "where" :
+             {
+          		"PROTA_ID" : id
+             }
+          })
+      }
+    })
+
+    alert("Pengajuan Diterima");
+    window.location = "<?php echo $urlProta; ?>0&menu=2";
+}
+
+  var menu    = <?php echo $menu; ?>;
+  var start   = <?php echo $start; ?>;
+  var url = "<?php echo $urlApi; ?>";
+
+  if (menu == 1) {
   new Vue({
       el: '#app',
       data () {
@@ -229,11 +284,51 @@ function EDIT_USER(id, start, page) {
         .post(url+'/index', {
               "action"    : "list",
               "db"        : "sdnpakis",
-              "table"     : "tx_hdr_prota",
+              "table"     : "tx_hdr_prota as A",
+              "innerJoin" : [{
+                "table"   : "tm_reff as B",
+                "field1"  : "B.REFF_ID",
+                "field2"  : "A.PROTA_STATUS"
+              }],
+              "where"     : [
+                ["B.REFF_TR_ID", "=", "2"]
+              ],
+              "selectraw" : "A.*, B.REFF_NAME as STATUS",
               "start": start,
               "limit": 25
           })
         .then(response => (this.info = response["data"]["result"]))
       }
     })
+    } else {
+      new Vue({
+          el: '#app',
+          data () {
+            return {
+              info: null
+            }
+          },
+          mounted () {
+            axios
+            .post(url+'/index', {
+                  "action"    : "list",
+                  "db"        : "sdnpakis",
+                  "table"     : "tx_hdr_prota as A",
+                  "innerJoin" : [{
+                    "table"   : "tm_reff as B",
+                    "field1"  : "B.REFF_ID",
+                    "field2"  : "A.PROTA_STATUS"
+                  }],
+                  "where"     : [
+                    ["B.REFF_TR_ID", "=", "2"],
+                    ["PROTA_STATUS", "=", "1"]
+                  ],
+                  "selectraw" : "A.*, B.REFF_NAME as STATUS",
+                  "start": start,
+                  "limit": 25
+              })
+            .then(response => (this.info = response["data"]["result"]))
+          }
+        })
+    }
 </script>

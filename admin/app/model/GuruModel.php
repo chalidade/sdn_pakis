@@ -41,6 +41,7 @@ switch ($id) {
             'USER_TOKEN'      => '',
             'USER_STATUS'     => '',
             'USER_ACTIVITY'   => '',
+            'USER_PHOTO'      => date("d_m_Y")."_".basename($_FILES[$imageName]["name"])
           ),
         ),
       ),
@@ -66,14 +67,13 @@ switch ($id) {
             "DTL_IJAZAH_JURUSAN"=> $_POST["DTL_IJAZAH_JURUSAN"],
             "DTL_TANGGAL_MULAI" => $_POST["DTL_TANGGAL_MULAI"],
             "DTL_GOL"           => $_POST["DTL_GOL"],
-            "DTL_TELPON"        => $_POST["DTL_TELPON"],
-            'DTL_PHOTO'         => date("d_m_Y")."_".basename($_FILES[$imageName]["name"]),
+            "DTL_TELPON"        => $_POST["DTL_TELPON"]
           ),
         ),
       ),
     );
 
-    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Guru");
+    if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "User");
 
     break;
 

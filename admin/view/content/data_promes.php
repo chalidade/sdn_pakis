@@ -30,7 +30,7 @@
                             $start  = $_REQUEST['start'];
                             $page   = 1;
                              ?>
-                             <a class="btn btn-primary" href="index.php?id=input_promes"><i class="fa fa-book"></i> Buat Pengajuan</a>
+                           <a class="btn btn-primary" href="index.php?id=input_promes"><i class="fa fa-book"></i> Buat Pengajuan</a>
                             <table cellpadding="10" id="app" class="table table-border" width="100%" style="margin-top:20px">
                               <tr>
                                 <th width="3%">No</th>

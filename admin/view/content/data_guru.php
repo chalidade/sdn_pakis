@@ -61,15 +61,12 @@
                                             <h4 class="modal-title">{{data.USER_NAME}}</h4>
                                           </div>
                                           <div class="modal-body" style="text-align:left">
-                                            <form action="app/model/SiswaModel.php?id=insert" method="post" enctype="multipart/form-data">
                                             <div class="table-responsive">
                                               <table class="table table-border">
                                                 <tr>
                                                   <td rowspan="7" width="40%" style="vertical-align:middle">
                                                     <label class="" for="imgSlider1">
-                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicGuru ?>' + data.DTL_PHOTO"/ style='width:100%;padding:5px' alt=''>
-                                                      <input type="file" id="imgSlider1" name="DTL_PHOTO" style="display:none">
-                                                      <input type="hidden" name="DTL_PHOTO_BACKUP" v-bind:value="data.DTL_PHOTO">
+                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicUser ?>' + data.USER_PHOTO"/ style='width:100%;padding:5px' alt=''>
                                                       <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
                                                         <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
                                                       </div>

@@ -17,7 +17,6 @@
         <div class="small-box bg-aqua">
           <div class="inner">
             <h3>150</h3>
-
             <p>Total Order</p>
           </div>
           <div class="icon">

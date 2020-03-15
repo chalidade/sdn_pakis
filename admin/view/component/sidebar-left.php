@@ -7,7 +7,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="<?php echo $urlAssets.'user2-160x160.jpg'?>" class="img-circle" alt="User Image">
+        <img onerror="this.onerror=null; this.src='../img/unavailable.png'" src="<?php echo $publicUser.$session["USER_PHOTO"] ?>" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p><?php echo $session['USER_NAME']; ?></p>
@@ -46,11 +46,11 @@
             <!-- <li><a href="index.php?id=input_prota">Input Prota</a></li> -->
             <!-- <li><a href="index.php?id=input_rpp">Input RPP</a></li> -->
             <!-- <li><a href="index.php?id=input_silabus">Input Silabus</a></li> -->
-            <li><a href="index.php?id=data_prota&start=0">Program Tahunan</a></li>
+            <li><a href="index.php?id=data_prota&start=0&menu=1">Program Tahunan</a></li>
             <li><a href="index.php?id=data_promes&start=0&menu=1">Program Semester</a></li>
-            <li><a href="index.php?id=data_silabus&start=0">Silabus</a></li>
-            <li><a href="index.php?id=data_rpp&start=0">RPP</a></li>
-            <li><a href="index.php?id=data_inventaris&start=0">Inventaris</a></li>
+            <li><a href="index.php?id=data_silabus&start=0&menu=1">Silabus</a></li>
+            <li><a href="index.php?id=data_rpp&start=0&menu=1">RPP</a></li>
+            <li><a href="index.php?id=data_inventaris&start=0&menu=1">Inventaris</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -64,11 +64,11 @@
             <!-- <li><a href="index.php?id=input_rpp">Input RPP</a></li> -->
             <!-- <li><a href="index.php?id=input_silabus">Input Silabus</a></li> -->
             <!-- <li><a href="index.php?id=input_promes">Input Promes</a></li> -->
-            <li><a href="index.php?id=data_prota&start=0">Program Tahunan</a></li>
+            <li><a href="index.php?id=data_prota&start=0&menu=2">Program Tahunan</a></li>
             <li><a href="index.php?id=data_promes&start=0&menu=2">Program Semester</a></li>
-            <li><a href="index.php?id=data_silabus&start=0">Silabus</a></li>
-            <li><a href="index.php?id=data_rpp&start=0">RPP</a></li>
-            <li><a href="index.php?id=data_inventaris&start=0">Inventaris</a></li>
+            <li><a href="index.php?id=data_silabus&start=0&menu=2">Silabus</a></li>
+            <li><a href="index.php?id=data_rpp&start=0&menu=2">RPP</a></li>
+            <li><a href="index.php?id=data_inventaris&start=0&menu=2">Inventaris</a></li>
           </ul>
         </li>
         <!-- <li class="treeview">
