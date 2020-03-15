@@ -23,12 +23,17 @@
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data RPP</a></li>
-                        </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
-                            <table class="table table-border">
+                            <?php
+                            $menu   = $_REQUEST["menu"];
+                            $start  = $_REQUEST['start'];
+                            $page   = 1;
+                            if ($menu == 1) {
+                              echo '<a class="btn btn-primary" href="index.php?id=input_rpp" style="margin-bottom:20px"><i class="fa fa-book"></i> Buat Pengajuan</a>';
+                            }
+                             ?>
+                            <table cellpadding="10" id="app" class="table table-border">
                               <tr>
                                 <th width="5%" style="text-align:center">Id</th>
                                 <th width="15%">Muatan Terpadu</th>
@@ -37,12 +42,6 @@
                                 <th width="15%">Pembelajaran</th>
                                 <th width="25%">Option</th>
                               </tr>
-                            </table>
-                            <?php
-                            $start  = $_REQUEST['start'];
-                            $page   = 1;
-                             ?>
-                            <table cellpadding="10" id="app" class="table table-border">
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.RPP_HDR_ID }}</td>

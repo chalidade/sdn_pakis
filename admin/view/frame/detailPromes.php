@@ -152,7 +152,7 @@
         </tr>
     </template>
     </table>
-    <!-- <button type="button" name="button" onclick="window.print()" style="margin-top:20px;">Print</button> -->
+    <button type="button" name="button" onclick="window.print()" style="margin-top:20px;">Print</button>
     </div>
   </body>
 

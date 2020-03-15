@@ -25,10 +25,14 @@
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
                             <div class="table-responsive">
-                            <?php
-                            $start  = $_REQUEST['start'];
-                            $page   = 1;
-                             ?>
+                              <?php
+                              $menu   = $_REQUEST["menu"];
+                              $start  = $_REQUEST['start'];
+                              $page   = 1;
+                              if ($menu == 1) {
+                                echo '<a class="btn btn-primary" href="index.php?id=input_inventaris" style="margin-bottom:20px"><i class="fa fa-book"></i> Buat Pengajuan</a>';
+                              }
+                               ?>
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
                                 <th width="6%">No</th>
