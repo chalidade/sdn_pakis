@@ -33,9 +33,10 @@
       <li class="header">HEADER</li>
 
       <!-- Siswa -->
-      <?php if($session["USER_ROLE"] == 4) { ?>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="index.php?id=home"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+
+        <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 2 ) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-book"></i> <span>Pengajuan</span>
             <span class="pull-right-container">
@@ -53,6 +54,9 @@
             <li><a href="index.php?id=data_inventaris&start=0&menu=1">Inventaris</a></li>
           </ul>
         </li>
+      <?php } ?>
+
+      <?php if($session["USER_ROLE"] == 4) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-book"></i> <span>Persetujuan</span>
             <span class="pull-right-container">
@@ -104,6 +108,9 @@
             <li><a href="index.php?id=data_buku_induk&start=0">Data Buku Induk</a></li>
           </ul>
         </li> -->
+      <?php } ?>
+
+      <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 2 ) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-calendar"></i> <span>Absensi</span>
             <span class="pull-right-container">
@@ -117,6 +124,9 @@
             <li><a href="index.php?id=data_absen_staff&start=0">Staff</a></li>
           </ul>
         </li>
+      <?php } ?>
+
+      <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 3 ) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-money"></i> <span>Administrasi</span>
             <span class="pull-right-container">
@@ -130,6 +140,7 @@
             <li><a href="index.php?id=data_inventaris&start=0">Inventaris</a></li>
           </ul>
         </li>
+      <?php } ?>
         <!-- <li class="treeview">
           <a href="#"><i class="fa fa-folder-o"></i> <span>Dokumen Kurikulum</span>
             <span class="pull-right-container">
@@ -141,6 +152,8 @@
             <li><a href="index.php?id=data_kurikulum&start=0">Data Dokumen Kurikulum</a></li>
           </ul>
         </li> -->
+
+        <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 2 || $session["USER_ROLE"] == 1 ) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-heart"></i> <span>Aku Suka Membaca</span>
             <span class="pull-right-container">
@@ -152,6 +165,9 @@
             <li><a href="index.php?id=data_rangking&start=0">Rangking Siswa Membaca</a></li>
           </ul>
         </li>
+      <?php } ?>
+
+      <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 3 ) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-heart"></i> <span>Guru, Siswa, Staff</span>
             <span class="pull-right-container">
@@ -165,6 +181,9 @@
 
           </ul>
         </li>
+      <?php } ?>
+
+      <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 3 ) { ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-gear"></i> <span>Homepage</span>
             <span class="pull-right-container">
@@ -177,10 +196,11 @@
             <li><a href="index.php?id=berita&start=0">Berita</a></li>
           </ul>
         </li>
+      <?php } ?>
+      
         <li><a href="../auth.php?id=logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
-      <?php } ?>
   </section>
   <!-- /.sidebar -->
 </aside>
