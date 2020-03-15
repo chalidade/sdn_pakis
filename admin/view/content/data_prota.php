@@ -97,7 +97,7 @@
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="6">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
@@ -293,6 +293,7 @@ function approve(id) {
               "where"     : [
                 ["B.REFF_TR_ID", "=", "2"]
               ],
+              "orderBy" : ["PROTA_ID", "DESC"],
               "selectraw" : "A.*, B.REFF_NAME as STATUS",
               "start": start,
               "limit": 25
@@ -323,6 +324,7 @@ function approve(id) {
                     ["B.REFF_TR_ID", "=", "2"],
                     ["PROTA_STATUS", "=", "1"]
                   ],
+                  "orderBy" : ["PROTA_ID", "DESC"],
                   "selectraw" : "A.*, B.REFF_NAME as STATUS",
                   "start": start,
                   "limit": 25

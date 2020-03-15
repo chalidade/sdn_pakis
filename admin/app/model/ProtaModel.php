@@ -37,6 +37,7 @@ switch ($id) {
                       "VALUE": [
                           {
                             "PROTA_ID" : "",
+                            "PROTA_NO_PENGAJUAN" : "'.$_POST["PROTA_NO_PENGAJUAN"].'",
                             "PROTA_SATUAN_AJAR" : "'.$_POST["PROTA_SATUAN_AJAR"].'",
                             "PROTA_TAHUN_AJAR" : "'.$_POST["PROTA_TAHUN_AJAR"].'",
                             "PROTA_KELAS" : "'.$_POST["PROTA_KELAS"].'",
