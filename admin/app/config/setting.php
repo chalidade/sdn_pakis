@@ -6,6 +6,7 @@ $urlAdmin       = "http://localhost/sdn_pakis_baru/admin/index.php";
 $urlPageBerita  = "http://localhost/sdn_pakis_baru/admin/index.php?id=berita&start=";
 $urlPageRpp     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
 $urlProta       = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_prota&start=";
+$urlSilabus     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_silabus&start=";
 $urlPromes      = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_promes&start=";
 $urlDataGuru    = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_guru&start=";
 $urlDataSTAFF   = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_staff&start=";

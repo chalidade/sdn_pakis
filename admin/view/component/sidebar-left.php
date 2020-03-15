@@ -197,7 +197,7 @@
           </ul>
         </li>
       <?php } ?>
-      
+
         <li><a href="../auth.php?id=logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->

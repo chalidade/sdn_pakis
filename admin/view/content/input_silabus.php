@@ -8,6 +8,12 @@
     </h1>
   </section>
 
+  <?php
+  $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_silabus` ORDER BY `SILABUS_HDR_ID` DESC LIMIT 1");
+  $lastId             = json_decode(json_encode(mysqli_fetch_assoc($query)),TRUE);
+  $lastId             = $lastId["SILABUS_HDR_ID"]+1;
+   ?>
+
   <!-- Main content -->
   <section class="content container-fluid">
     <!-- Small boxes (Stat box) -->
@@ -29,6 +35,7 @@
                         <td width="2%">:</td>
                         <td>
                           <input type="text" class="form-control border-bottom-only" name="SILABUS_HDR_SATUAN_PENDIDIKAN" value="">
+                          <input type="hidden" class="form-control border-bottom-only" name="SILABUS_HDR_NO_PENGAJUAN" value="SILABUS<?php echo date('my').$lastId; ?>">
                         </td>
                       </tr>
                       <tr>

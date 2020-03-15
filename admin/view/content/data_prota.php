@@ -29,8 +29,11 @@
                             $menu   = $_REQUEST["menu"];
                             $start  = $_REQUEST['start'];
                             $page   = 1;
-                             ?>
-                             <a class="btn btn-primary" href="index.php?id=input_prota"><i class="fa fa-book"></i> Buat Pengajuan</a>
+
+                            if ($menu == 1) {
+                              echo  '<a class="btn btn-primary" href="index.php?id=input_prota" style="margin-bottom:20px"><i class="fa fa-book"></i> Buat Pengajuan</a>';
+                            }
+                              ?>
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
                                 <th width="3%">No</th>

@@ -27,7 +27,7 @@ $arrdetil = substr($arrdetil, 0,-1);
 
 switch ($id) {
   case 'insert':
-    $page      = "input_silabus";
+    $page      = "data_silabus";
     $json      = '{
                   "action": "saveheaderdetail",
                   "data": [
@@ -41,6 +41,7 @@ switch ($id) {
                       "VALUE": [
                           {
                             "SILABUS_HDR_ID"                : "",
+                            "SILABUS_HDR_NO_PENGAJUAN"      : "'.$_POST["SILABUS_HDR_NO_PENGAJUAN"].'",
                             "SILABUS_HDR_SATUAN_PENDIDIKAN" : "'.$_POST["SILABUS_HDR_SATUAN_PENDIDIKAN"].'",
                             "SILABUS_HDR_KELAS"             : "'.$_POST["SILABUS_HDR_KELAS"].'",
                             "SILABUS_HDR_SEMESTER"          : "'.$_POST["SILABUS_HDR_SEMESTER"].'",
