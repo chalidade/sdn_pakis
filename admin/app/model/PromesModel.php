@@ -46,7 +46,7 @@ $arrdetil = substr($arrdetil, 0,-1);
 
 switch ($id) {
   case 'insert':
-    $page      = "input_promes";
+    $page      = "data_promes";
     $json      = '{
                   "action": "saveheaderdetail",
                   "data": [
@@ -61,6 +61,7 @@ switch ($id) {
                           {
                             "PROMES_ID"                : "'.$_POST["PROMES_ID"].'",
                             "PROMES_SATUAN_PENDIDIKAN" : "'.$_POST["PROMES_SATUAN_PENDIDIKAN"].'",
+                            "PROMES_NO_PENGAJUAN"      : "'.$_POST["PROMES_NO_PENGAJUAN"].'",
                             "PROMES_TAHUN_AJARAN"      : "'.$_POST["PROMES_TAHUN_AJARAN"].'",
                             "PROMES_KELAS"             : "'.$_POST["PROMES_KELAS"].'",
                             "PROMES_SEMESTER"          : "'.$_POST["PROMES_SEMESTER"].'",

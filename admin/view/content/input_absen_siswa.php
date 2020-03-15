@@ -139,7 +139,7 @@ function Kelas() {
   var guru      = document.getElementById("guru").value;
   var tingkat   = document.getElementById("tingkat").value;
   var kelas     = document.getElementById("kelas").value;
-window.location = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_absen_siswa&guru="+guru+"&tingkat="+tingkat+"&kelas="+kelas;
+  window.location = "<?php echo $urlAbsenSiswa; ?>"+guru+"&tingkat="+tingkat+"&kelas="+kelas;
 }
 
 new Vue({
