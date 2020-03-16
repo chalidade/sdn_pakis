@@ -54,7 +54,7 @@
                                       <button type="button" v-bind:onclick="'send(' + data.SARPRAS__HDR_ID +  ', ' + data.SARPRAS_HDR_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.SARPRAS__HDR_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.SARPRAS__HDR_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <a target="_blank" v-bind:href="'view/frame/detailSarpras.php?print=1&id=' + data.SARPRAS__HDR_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.SARPRAS__HDR_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
@@ -65,7 +65,7 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
-                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.SARPRAS__HDR_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                                <iframe v-bind:src="'view/frame/detailSarpras.php?id=' + data.SARPRAS__HDR_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
 
