@@ -70,7 +70,7 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
-                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.PROTA_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                                <iframe v-bind:src="'view/frame/detailProta.php?id=' + data.PROTA_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
 

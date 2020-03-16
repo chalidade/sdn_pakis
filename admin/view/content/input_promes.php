@@ -67,7 +67,7 @@
                     <br>
                     <table class="text-center" border="1" width="100%">
                       <!-- Semester Genap -->
-                      <tr id="genap" style="display:none">
+                      <tr id="ganjil">
                         <th rowspan="2" width='10%'>Tema</th>
                         <th rowspan="2" width='20%'>Sub Tema<br>Kompetensi Dasar</th>
                         <th rowspan="2" width='10%'>Alokasi Waktu</th>
@@ -80,7 +80,7 @@
                         <th width="6%">Option</th>
                       </tr>
                       <!-- Semester Ganjil -->
-                      <tr id="ganjil">
+                      <tr id="genap" style="display:none">
                         <th rowspan="2" width='10%'>Tema</th>
                         <th rowspan="2" width='20%'>Sub Tema<br>Kompetensi Dasar</th>
                         <th rowspan="2" width='10%'>Alokasi Waktu</th>

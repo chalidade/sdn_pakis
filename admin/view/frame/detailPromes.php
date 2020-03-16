@@ -1,3 +1,11 @@
+<?php
+error_reporting(0);
+$id     = $_REQUEST["id"];
+if (!empty($_REQUEST["print"])) {
+
+}
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -12,54 +20,23 @@
       }
       body {
         margin:0px;
-        font-size:14px;
+        font-size:12px;
+        font-family: "Arial"
       }
     </style>
   </head>
 
-  <?php
-  error_reporting(0);
-  $id     = $_REQUEST["id"];
-  ?>
  <body style="padding:10px;height:500px">
     <div id="app" style="width:100%" class="Section1">
-      <h1 style="text-align:center">PROGRAM SEMESTER</h1>
-    <table width="100%" id="myTable" class="table order-list">
-      <tr>
-        <td width="20%"><b>Satuan Pendidikan<b></td>
-        <td width="2%">:</td>
-        <td>
-          <input type="text" style="width:50%;border:none;" name="PROMES_SATUAN_PENDIDIKAN" v-bind:value="header[0].PROMES_SATUAN_PENDIDIKAN">
-        </td>
-      </tr>
-      <tr>
-        <td width="20%"><b>Tahun Ajaran</b></td>
-        <td width="2%">:</td>
-        <td>
-          <input type="text" style="width:50%;border:none;" name="PROMES_TAHUN_AJARAN"  v-bind:value="header[0].PROMES_TAHUN_AJARAN">
-        </td>
-      </tr>
-      <tr>
-        <td width="20%"><b>Kelas</b></td>
-        <td width="2%">:</td>
-        <td>
-          <input type="text" style="width:50%;border:none;" name="PROMES_KELAS"  v-bind:value="header[0].PROMES_KELAS">
-          <input type="hidden" name="PROMES_USER_ID" value="<?php echo $session['USER_ID']; ?>">
-        </td>
-      </tr>
-      <tr>
-        <td width="20%"><b>Semester</b></td>
-        <td width="2%">:</td>
-        <td>
-          <input type="text" style="width:50%;border:none;" name="PROMES_SEMESTER" v-if="header[0].PROMES_SEMESTER == 1" value="Ganjil">
-          <input type="text" style="width:50%;border:none;" name="PROMES_SEMESTER" v-if="header[0].PROMES_SEMESTER == 2" value="Genap">
-        </td>
-      </tr>
-    </table>
+      <h1 style="text-align:center">PROGRAM SEMESTER<br>
+        <font style="font-size:20px;">TAHUN AJARAN {{header[0].PROMES_TAHUN_AJARAN}}</font> <br>
+        <font style="font-size:16px">KELAS : {{header[0].PROMES_KELAS}} SEMESTER : {{header[0].PROMES_SEMESTER}}</font>
+
+      </h1>
     <br>
     <table class="text-center" border="1" width="100%">
       <!-- Semester Genap -->
-      <tr id="genap" v-if="header[0].PROMES_SEMESTER == 2">
+      <tr id="ganjil" v-if="header[0].PROMES_SEMESTER == 1">
         <th rowspan="2" width='10%'>Tema</th>
         <th rowspan="2" width='20%'>Sub Tema<br>Kompetensi Dasar</th>
         <th rowspan="2" width='10%'>Alokasi Waktu (Jam)</th>
@@ -71,7 +48,7 @@
         <th colspan="5" width="10%">Desember</th>
       </tr>
       <!-- Semester Ganjil -->
-      <tr id="ganjil" v-if="header[0].PROMES_SEMESTER == 1">
+      <tr id="genap" v-if="header[0].PROMES_SEMESTER == 2">
         <th rowspan="2" width='10%'>Tema</th>
         <th rowspan="2" width='20%'>Sub Tema<br>Kompetensi Dasar</th>
         <th rowspan="2" width='10%'>Alokasi Waktu (Jam)</th>
@@ -152,7 +129,6 @@
         </tr>
     </template>
     </table>
-    <button type="button" name="button" onclick="window.print()" style="margin-top:20px;">Print</button>
     </div>
   </body>
 
