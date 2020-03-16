@@ -38,7 +38,7 @@
                                 <th width="5%" style="text-align:center">Id</th>
                                 <th width="15%">No Pengajuan</th>
                                 <th width="15%">Muatan Terpadu</th>
-                                <th width="15%">Tema</th>
+                                <th width="25%">Tema</th>
                                 <th width="15%">Sub Tema</th>
                                 <th width="15%">Status</th>
                                 <th width="25%">Option</th>
@@ -58,7 +58,7 @@
                                       <button type="button" v-bind:onclick="'send(' + data.RPP_HDR_ID +  ', ' + data.RPP_HDR_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.RPP_HDR_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.RPP_HDR_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <a target="_blank" v-bind:href="'view/frame/detailRpp.php?print=1&id=' + data.RPP_HDR_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.RPP_HDR_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
@@ -69,7 +69,7 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
-                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.RPP_HDR_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                                <iframe v-bind:src="'view/frame/detailRpp.php?id=' + data.RPP_HDR_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
 
