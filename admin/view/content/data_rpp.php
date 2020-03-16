@@ -36,30 +36,69 @@
                             <table cellpadding="10" id="app" class="table table-border">
                               <tr>
                                 <th width="5%" style="text-align:center">Id</th>
+                                <th width="15%">No Pengajuan</th>
                                 <th width="15%">Muatan Terpadu</th>
                                 <th width="15%">Tema</th>
                                 <th width="15%">Sub Tema</th>
-                                <th width="15%">Pembelajaran</th>
+                                <th width="15%">Status</th>
                                 <th width="25%">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.RPP_HDR_ID }}</td>
+                                  <td width="15%">{{data.RPP_HDR_NO_PENGAJUAN}}</td>
                                   <td width="12%">
                                     {{data.RPP_HDR_MUATAN_TERPADU}}
                                   </td>
                                   <td width="12%">{{ data.RPP_HDR_TEMA }}</td>
                                   <td width="13%">{{ data.RPP_HDR_SUB_TEMA }}</td>
-                                  <td width="13%">{{ data.RPP_HDR_PEMBELAJARAN }}</td>
+                                  <td width="13%" style="font-weight:800;color:red">{{ data.STATUS }}</td>
                                   <td width="20%">
-                                    <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_RPP(' + data.RPP_HDR_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_USER('tx_hdr_buku_membaca', 2,'USER_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
+                                    <?php if ($menu == 1) { ?>
+                                      <button type="button" v-bind:onclick="'send(' + data.RPP_HDR_ID +  ', ' + data.RPP_HDR_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
+                                    <?php } ?>
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.RPP_HDR_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.RPP_HDR_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <div class="modal fade" v-bind:id="'modal-default' + data.RPP_HDR_ID">
+                                      <div class="modal-dialog" style="width:80%">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" style="text-align:center">{{data.RPP_HDR_NO_PENGAJUAN}}</h4>
+                                          </div>
+                                          <div class="modal-body" style="text-align:left">
+                                              <div class="box-body" style="margin-bottom:30px">
+                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.RPP_HDR_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                              </div>
+                                              <!-- /.box-body -->
+
+                                              <div class="box-footer">
+                                                <?php if($menu != 1) { ?>
+                                                  <table width="100%">
+                                                  <tr>
+                                                    <td><button type="button" v-bind:onclick="'reject(' + data.RPP_HDR_ID + ')'"/ class="btn btn-danger"  style="width:100%"> <i class="fa fa-times"></i> Reject </button></td>
+                                                    <td><button type="button" v-bind:onclick="'approve(' + data.RPP_HDR_ID + ')'"/ class="btn btn-success"  style="width:100%"> <i class="fa fa-check"></i> Approve </button></td>
+                                                  </tr>
+                                                </table>
+                                               <?php } else { ?>
+                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:100%">Close</button>
+                                               <?php } ?>
+                                              </div>
+                                            </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
                                   </td>
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="5">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
@@ -122,8 +161,109 @@ function DELETE_RPP(id, start, page) {
     })
 }
 
-  start   = <?php echo $start; ?>;
+function send(id, status) {
+  if (status == 0 || status == 3) {
+    var url = "<?php echo $urlApi; ?>";
+    new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+          .post(url+'/store', {
+              "action" : "update",
+              "db"     : "sdnpakis",
+              "table"  : "tx_hdr_rpp",
+              "update" :
+              {
+                 "RPP_HDR_STATUS" : "1"
+              },
+               "where" :
+               {
+                "RPP_HDR_ID" : id
+               }
+            })
+        }
+      })
+
+      alert("Pengajuan Dikirim");
+      window.location = "<?php echo $urlRpp; ?>0&menu=1";
+  } else {
+    alert("Pengajuan Sudah Pernah Dikirim");
+  }
+}
+
+function reject(id) {
   var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+            "action" : "update",
+            "db"     : "sdnpakis",
+            "table"  : "tx_hdr_rpp",
+            "update" :
+          	{
+          		 "RPP_HDR_STATUS" : "3"
+          	},
+             "where" :
+             {
+          		"RPP_HDR_ID" : id
+             }
+          })
+      }
+    })
+
+    alert("Pengajuan Ditolak");
+    window.location = "<?php echo $urlRpp; ?>0&menu=2";
+}
+
+function approve(id) {
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+            "action" : "update",
+            "db"     : "sdnpakis",
+            "table"  : "tx_hdr_rpp",
+            "update" :
+          	{
+          		 "RPP_HDR_STATUS" : "2"
+          	},
+             "where" :
+             {
+          		"RPP_HDR_ID" : id
+             }
+          })
+      }
+    })
+
+    alert("Pengajuan Diterima");
+    window.location = "<?php echo $urlRpp; ?>0&menu=2";
+}
+
+
+  var start   = <?php echo $start; ?>;
+  var url = "<?php echo $urlApi; ?>";
+  var menu    = <?php echo $menu; ?>;
+
+  if (menu == 1) {
   new Vue({
       el: '#app',
       data () {
@@ -136,7 +276,16 @@ function DELETE_RPP(id, start, page) {
         .post(url+'/index', {
           	"action"       : "list",
           	"db"           : "sdnpakis",
-          	"table"        : "tx_hdr_rpp",
+          	"table"        : "tx_hdr_rpp as A",
+            "innerJoin" : [{
+              "table"   : "tm_reff as B",
+              "field1"  : "B.REFF_ID",
+              "field2"  : "A.RPP_HDR_STATUS"
+            }],
+            "where"     : [
+              ["B.REFF_TR_ID", "=", "2"]
+            ],
+            "selectraw" : "A.*, B.REFF_NAME as STATUS",
           	"start"        : start,
           	"limit"        : "25"
 
@@ -144,4 +293,36 @@ function DELETE_RPP(id, start, page) {
         .then(response => (this.info = response["data"]["result"]))
       }
     })
+  } else {
+    new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+          .post(url+'/index', {
+            	"action"       : "list",
+            	"db"           : "sdnpakis",
+            	"table"        : "tx_hdr_rpp as A",
+              "innerJoin" : [{
+                "table"   : "tm_reff as B",
+                "field1"  : "B.REFF_ID",
+                "field2"  : "A.RPP_HDR_STATUS"
+              }],
+              "where"     : [
+                ["B.REFF_TR_ID", "=", "2"],
+                ["RPP_HDR_STATUS", "=", "1"]
+              ],
+              "selectraw" : "A.*, B.REFF_NAME as STATUS",
+            	"start"        : start,
+            	"limit"        : "25"
+
+            })
+          .then(response => (this.info = response["data"]["result"]))
+        }
+      })
+  }
 </script>
