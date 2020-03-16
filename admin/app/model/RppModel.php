@@ -22,7 +22,7 @@ $arrdetil .= '
 
 switch ($id) {
   case 'insert':
-    $page      = "input_rpp";
+    $page      = "data_rpp";
     $json      = '{
                   "action": "saveheaderdetail",
                   "data": [
@@ -39,6 +39,7 @@ switch ($id) {
                             "RPP_HDR_SATUAN_PENDIDIKAN" : "'.$_POST["RPP_HDR_SATUAN_PENDIDIKAN"].'",
                             "RPP_HDR_MUATAN_TERPADU"    : "'.$_POST["RPP_HDR_MUATAN_TERPADU"].'",
                             "RPP_HDR_KELAS"             : "'.$_POST["RPP_HDR_KELAS"].'",
+                            "RPP_HDR_NO_PENGAJUAN"      : "'.$_POST["RPP_HDR_NO_PENGAJUAN"].'",
                             "RPP_HDR_SEMESTER"          : "'.$_POST["RPP_HDR_SEMESTER"].'",
                             "RPP_HDR_TEMA"              : "'.$_POST["RPP_HDR_TEMA"].'",
                             "RPP_HDR_SUB_TEMA"          : "'.$_POST["RPP_HDR_SUB_TEMA"].'",

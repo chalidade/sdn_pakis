@@ -285,6 +285,7 @@ function approve(id) {
             "where"     : [
               ["B.REFF_TR_ID", "=", "2"]
             ],
+            "orderBy"   : ["RPP_HDR_ID", "DESC"],
             "selectraw" : "A.*, B.REFF_NAME as STATUS",
           	"start"        : start,
           	"limit"        : "25"
@@ -316,6 +317,7 @@ function approve(id) {
                 ["B.REFF_TR_ID", "=", "2"],
                 ["RPP_HDR_STATUS", "=", "1"]
               ],
+              "orderBy"   : ["RPP_HDR_ID", "DESC"],
               "selectraw" : "A.*, B.REFF_NAME as STATUS",
             	"start"        : start,
             	"limit"        : "25"
