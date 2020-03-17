@@ -38,11 +38,19 @@ switch ($id) {
                             "ABSEN_TINGKAT"      : "'.$_POST["ABSEN_TINGKAT"].'",
                             "ABSEN_GURU"         : "'.$_POST["ABSEN_GURU"].'",
                             "ABSEN_KELAS"        : "'.$_POST["ABSEN_KELAS"].'",
-                            "ABSEN_DATA"         : '.$ABSEN_DATA.',
                             "ABSEN_USER_ID"      : "'.$_POST["ABSEN_USER_ID"].'"
                           }
                       ]
-                  }}';
+                  },
+                  "DETAIL": {
+                      "DB": "'.$databaseApi.'",
+                      "TABLE": "tx_dtl_absen_siswa",
+                      "FK": [
+                          "DTL_HDR_ID",
+                          "ABSEN_ID"
+                      ],
+                      "VALUE": ['.$arrdetil.']}
+                }';
     break;
 
   default:

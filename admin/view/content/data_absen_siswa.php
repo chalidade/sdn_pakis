@@ -41,21 +41,19 @@
                                  </td>
                                  <td>
                                    <!-- search form -->
-                                    <form action="#" method="get"class="sidebar-form" style="background-color:#fff">
+                                    <!-- <form action="#" method="get"class="sidebar-form" style="background-color:#fff">
                                       <div class="input-group">
                                         <input type="text" name="q" class="form-control" placeholder="Search..." style="background: #fff;">
-                                            <!-- <span class="input-group-btn" style="width: 50%;">
+                                            <span class="input-group-btn" style="width: 50%;">
                                               <select class="form-control" style="border:none;border-left:solid thin #242424">
-                                                <option value="ABSEN_NO_PENGAJUAN">No Pengajuan</option>
-                                                <option value="ABSEN_SATUAN_PENDIDIKAN">Satuan Pendidikan</option>
-                                                <option value="ABSEN_KELAS">Kelas</option>
-                                                <option value="SEMESTER">Semester</option>
-                                                <option value="ABSEN_TAHUN_AJARAN">Tahun</option>
+                                                <option value="DTL_NAMA_SISWA">Nama</option>
+                                                <option value="ABSEN_TINGKAT">Tingkat</option>
+                                                <option value="ABSEN_UPDATE_DATE">Tanggal</option>
                                               </select>
                                               </button>
-                                            </span> -->
+                                            </span>
                                       </div>
-                                    </form>
+                                    </form> -->
                                     <!-- /.search form -->
                                  </td>
                                </tr>
