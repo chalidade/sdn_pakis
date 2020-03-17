@@ -29,10 +29,37 @@
                             $menu   = $_REQUEST["menu"];
                             $start  = $_REQUEST['start'];
                             $page   = 1;
-                            if ($menu == 1) {
-                              echo '<a class="btn btn-primary" href="index.php?id=input_promes"><i class="fa fa-book"></i> Buat Pengajuan</a>';
-                            }
                              ?>
+                             <table width="100%">
+                               <tr>
+                                 <td width="70%">
+                                   <?php
+                                   if ($menu == 1) {
+                                     echo '<a class="btn btn-primary" href="index.php?id=input_promes"><i class="fa fa-book"></i> Buat Pengajuan</a>';
+                                   }
+                                   ?>
+                                 </td>
+                                 <td>
+                                   <!-- search form -->
+                                    <form action="#" method="get"class="sidebar-form" style="background-color:#fff">
+                                      <div class="input-group">
+                                        <input type="text" name="q" class="form-control" placeholder="Search..." style="background: #fff;">
+                                            <span class="input-group-btn" style="width: 50%;">
+                                              <select class="form-control" style="border:none;border-left:solid thin #242424">
+                                                <option value="PROMES_NO_PENGAJUAN">No Pengajuan</option>
+                                                <option value="PROMES_SATUAN_PENDIDIKAN">Satuan Pendidikan</option>
+                                                <option value="PROMES_KELAS">Kelas</option>
+                                                <option value="SEMESTER">Semester</option>
+                                                <option value="PROMES_TAHUN_AJARAN">Tahun</option>
+                                              </select>
+                                              </button>
+                                            </span>
+                                      </div>
+                                    </form>
+                                    <!-- /.search form -->
+                                 </td>
+                               </tr>
+                             </table>
                             <table cellpadding="10" id="app" class="table table-border" width="100%" style="margin-top:20px">
                               <tr>
                                 <th width="3%">No</th>
