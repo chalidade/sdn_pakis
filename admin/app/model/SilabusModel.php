@@ -18,8 +18,7 @@ for ($i=0; $i < $total; $i++) {
               "SILABUS_DTL_PENLAIAN"         : "'.$_POST["SILABUS_DTL_PENLAIAN"][$i].'",
               "SILABUS_DTL_ALOKASI_WAKTU"    : "'.$_POST["SILABUS_DTL_ALOKASI_WAKTU"][$i].'",
               "SILABUS_DTL_SUMBER_BELAJAR"   : "'.$_POST["SILABUS_DTL_SUMBER_BELAJAR"][$i].'",
-              "SILABUS_DTL_UPDATE_BY"        : "'.$_POST["SILABUS_DTL_UPDATE_BY"].'",
-              "SILABUS_DTL_UPDATE_DATE"      : ""
+              "SILABUS_DTL_UPDATE_BY"        : "'.$_POST["SILABUS_DTL_UPDATE_BY"].'"
             },';
 }
 
@@ -46,8 +45,7 @@ switch ($id) {
                             "SILABUS_HDR_KELAS"             : "'.$_POST["SILABUS_HDR_KELAS"].'",
                             "SILABUS_HDR_SEMESTER"          : "'.$_POST["SILABUS_HDR_SEMESTER"].'",
                             "SILABUS_HDR_KOMPETENSI_INTI"   : '.$kompetensiInti.',
-                            "SILABUS_HDR_UPDATE_BY"         : "'.$_POST["SILABUS_HDR_UPDATE_BY"].'",
-                            "SILABUS_HDR_UPDATE_DATE"       : ""
+                            "SILABUS_HDR_UPDATE_BY"         : "'.$_POST["SILABUS_HDR_UPDATE_BY"].'"
                           }
                       ]
                   },

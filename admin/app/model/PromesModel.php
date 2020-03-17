@@ -37,8 +37,7 @@ for ($i=0; $i < $total; $i++) {
               "DTL_BLN_LIMA_B"    : "'.$_POST["DTL_BLN_LIMA_B"][$i].'",
               "DTL_BLN_LIMA_C"    : "'.$_POST["DTL_BLN_LIMA_C"][$i].'",
               "DTL_BLN_LIMA_D"    : "'.$_POST["DTL_BLN_LIMA_D"][$i].'",
-              "DTL_BLN_LIMA_E"    : "'.$_POST["DTL_BLN_LIMA_E"][$i].'",
-              "DTL_UPDATE_DATE"   : ""
+              "DTL_BLN_LIMA_E"    : "'.$_POST["DTL_BLN_LIMA_E"][$i].'"
             },';
 }
 

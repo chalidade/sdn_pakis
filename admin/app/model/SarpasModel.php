@@ -16,8 +16,7 @@ for ($i=0; $i < $total; $i++) {
               "SARPRAS_DTL_KONDISI_BAIK" : "'.$_POST["SARPRAS_DTL_KONDISI_BAIK"][$i].'",
               "SARPRAS_DTL_KONDISI_RUSAK": "'.$_POST["SARPRAS_DTL_KONDISI_RUSAK"][$i].'",
               "SARPRAS_DTL_KETERANGAN"   : "'.$_POST["SARPRAS_DTL_KETERANGAN"][$i].'",
-              "SARPRAS_DTL_UPDATE_BY"    : "'.$_POST["SARPRAS_DTL_UPDATE_BY"].'",
-              "SARPRAS_DTL_UPDATE_DATE"  : ""
+              "SARPRAS_DTL_UPDATE_BY"    : "'.$_POST["SARPRAS_DTL_UPDATE_BY"].'"
             },';
 }
 
@@ -42,8 +41,7 @@ switch ($id) {
                             "SARPRAS_HDR_NAMA_SEKOLAH"   : "'.$_POST["SARPRAS_HDR_NAMA_SEKOLAH"].'",
                             "SARPRAS_HDR_ALAMAT_SEKOLAH" : "'.$_POST["SARPRAS_HDR_ALAMAT_SEKOLAH"].'",
                             "SARPRAS_HDR_KECAMATAN"      : "'.$_POST["SARPRAS_HDR_KECAMATAN"].'",
-                            "SARPRAS_HDR_UPDATE_BY"      : "'.$_POST["SARPRAS_HDR_UPDATE_BY"].'",
-                            "SARPRAS_HDR_UPDATE_DATE"    : ""
+                            "SARPRAS_HDR_UPDATE_BY"      : "'.$_POST["SARPRAS_HDR_UPDATE_BY"].'"
                           }
                       ]
                   },

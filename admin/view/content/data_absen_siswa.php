@@ -16,7 +16,7 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Data Program Semester</h2>
+                  <h2 class="page-header">Data Absen Siswa</h2>
 
                   <div class="row">
                     <div class="col-md-12">
@@ -46,11 +46,11 @@
                                         <input type="text" name="q" class="form-control" placeholder="Search..." style="background: #fff;">
                                             <!-- <span class="input-group-btn" style="width: 50%;">
                                               <select class="form-control" style="border:none;border-left:solid thin #242424">
-                                                <option value="PROMES_NO_PENGAJUAN">No Pengajuan</option>
-                                                <option value="PROMES_SATUAN_PENDIDIKAN">Satuan Pendidikan</option>
-                                                <option value="PROMES_KELAS">Kelas</option>
+                                                <option value="ABSEN_NO_PENGAJUAN">No Pengajuan</option>
+                                                <option value="ABSEN_SATUAN_PENDIDIKAN">Satuan Pendidikan</option>
+                                                <option value="ABSEN_KELAS">Kelas</option>
                                                 <option value="SEMESTER">Semester</option>
-                                                <option value="PROMES_TAHUN_AJARAN">Tahun</option>
+                                                <option value="ABSEN_TAHUN_AJARAN">Tahun</option>
                                               </select>
                                               </button>
                                             </span> -->
@@ -62,41 +62,41 @@
                              </table>
                             <table cellpadding="10" id="app" class="table table-border" width="100%" style="margin-top:20px">
                               <tr>
-                                <th width="3%">No</th>
-                                <th width="20%">No Request</th>
-                                <th width="25%">Nama Guru</th>
+                                <th width="5%">No</th>
+                                <th width="25%">No Request</th>
+                                <th width="15%">Nama Guru</th>
                                 <th width="5%" style="text-align:center">Kelas</th>
-                                <th width="10%" style="text-align:center">Tanggal</th>
-                                <th width="20%" style="text-align:center">Status</th>
+                                <th width="20%" style="text-align:center">Tanggal</th>
+                                <!-- <th width="20%" style="text-align:center">Status</th> -->
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="3%">{{ data.PROMES_ID }}</td>
-                                  <td>{{data.PROMES_NO_PENGAJUAN}}</td>
+                                  <td width="3%">{{ data.ABSEN_ID }}</td>
+                                  <td>{{data.ABSEN_NO_PENGAJUAN}}</td>
                                   <td width="25%">
-                                    {{data.PROMES_SATUAN_PENDIDIKAN}}
+                                    {{data.ABSEN_GURU}}
                                   </td>
-                                  <td width="5%" style="text-align:center">{{ data.PROMES_KELAS }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.SEMESTER }}</td>
-                                  <td style="text-align:center;color:red"><b>{{ data.STATUS }}</b></td>
+                                  <td width="5%" style="text-align:center">{{ data.ABSEN_TINGKAT }} {{ data.ABSEN_KELAS }}</td>
+                                  <td width="10%" style="text-align:center">{{ data.ABSEN_UPDATE_DATE }}</td>
+                                  <!-- <td style="text-align:center;color:red"><b>{{ data.STATUS }}</b></td> -->
                                   <td width="20%" style="text-align:center">
                                     <?php if ($menu == 1) { ?>
-                                      <button type="button" v-bind:onclick="'send(' + data.PROMES_ID +  ', ' + data.PROMES_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
+                                      <!-- <button type="button" v-bind:onclick="'send(' + data.ABSEN_ID +  ', ' + data.ABSEN_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button> -->
                                     <?php } ?>
-                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROMES_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.PROMES_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
-                                    <div class="modal fade" v-bind:id="'modal-default' + data.PROMES_ID">
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.ABSEN_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.ABSEN_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <div class="modal fade" v-bind:id="'modal-default' + data.ABSEN_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">{{data.PROMES_NO_PENGAJUAN}}</h4>
+                                            <h4 class="modal-title">{{data.ABSEN_NO_PENGAJUAN}}</h4>
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
-                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.PROMES_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.ABSEN_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
 
@@ -104,8 +104,8 @@
                                                 <?php if($menu != 1) { ?>
                                                   <table width="100%">
                                                   <tr>
-                                                    <td><button type="button" v-bind:onclick="'reject(' + data.PROMES_ID + ')'"/ class="btn btn-danger"  style="width:100%"> <i class="fa fa-times"></i> Reject </button></td>
-                                                    <td><button type="button" v-bind:onclick="'approve(' + data.PROMES_ID + ')'"/ class="btn btn-success"  style="width:100%"> <i class="fa fa-check"></i> Approve </button></td>
+                                                    <td><button type="button" v-bind:onclick="'reject(' + data.ABSEN_ID + ')'"/ class="btn btn-danger"  style="width:100%"> <i class="fa fa-times"></i> Reject </button></td>
+                                                    <td><button type="button" v-bind:onclick="'approve(' + data.ABSEN_ID + ')'"/ class="btn btn-success"  style="width:100%"> <i class="fa fa-check"></i> Approve </button></td>
                                                   </tr>
                                                 </table>
                                                <?php } else { ?>
@@ -213,15 +213,15 @@ function send(id, status) {
           axios
           .post(url+'/store', {
               "action" : "update",
-              "db"     : "sdnpakis",
-              "table"  : "tx_hdr_promes",
+              "db"     : "<?php echo $databaseApi; ?>",
+              "table"  : "tx_hdr_absen_siswa",
               "update" :
               {
-                 "PROMES_STATUS" : "1"
+                 "ABSEN_STATUS" : "1"
               },
                "where" :
                {
-                "PROMES_ID" : id
+                "ABSEN_ID" : id
                }
             })
         }
@@ -247,15 +247,15 @@ function reject(id) {
         axios
         .post(url+'/store', {
             "action" : "update",
-            "db"     : "sdnpakis",
-            "table"  : "tx_hdr_promes",
+            "db"     : "<?php echo $databaseApi; ?>",
+            "table"  : "tx_hdr_absen_siswa",
             "update" :
           	{
-          		 "PROMES_STATUS" : "3"
+          		 "ABSEN_STATUS" : "3"
           	},
              "where" :
              {
-          		"PROMES_ID" : id
+          		"ABSEN_ID" : id
              }
           })
       }
@@ -278,15 +278,15 @@ function approve(id) {
         axios
         .post(url+'/store', {
             "action" : "update",
-            "db"     : "sdnpakis",
-            "table"  : "tx_hdr_promes",
+            "db"     : "<?php echo $databaseApi; ?>",
+            "table"  : "tx_hdr_absen_siswa",
             "update" :
           	{
-          		 "PROMES_STATUS" : "2"
+          		 "ABSEN_STATUS" : "2"
           	},
              "where" :
              {
-          		"PROMES_ID" : id
+          		"ABSEN_ID" : id
              }
           })
       }
@@ -313,24 +313,18 @@ function approve(id) {
         axios
         .post(url+'/index', {
           "action"    : "list",
-          "db"        : "sdnpakis",
-          "table"     : "tx_hdr_promes as A",
+          "db"        : "<?php echo $databaseApi; ?>",
+          "table"     : "tx_hdr_absen_siswa as A",
           "innerJoin" : [{
             "table"   : "tm_reff as B",
             "field1"  : "B.REFF_ID",
-            "field2"  : "A.PROMES_STATUS"
+            "field2"  : "A.ABSEN_STATUS"
           }],
-          "leftJoin" : [{
-            "table"   : "tm_reff as C",
-            "field1"  : "C.REFF_ID",
-            "field2"  : "A.PROMES_SEMESTER"
-          }],
-          "orderBy"   : ["PROMES_ID", "DESC"],
+          "orderBy"   : ["ABSEN_ID", "DESC"],
           "where"     : [
-            ["B.REFF_TR_ID", "=", "2"],
-            ["C.REFF_TR_ID", "=", "3"]
+            ["B.REFF_TR_ID", "=", "2"]
           ],
-          "selectraw" : "A.*, B.REFF_NAME as STATUS, C.REFF_NAME as SEMESTER",
+          "selectraw" : "A.*, B.REFF_NAME as STATUS",
           "start": start,
           "limit": 25
         })
@@ -349,27 +343,21 @@ function approve(id) {
         axios
         .post(url+'/index', {
           "action"    : "list",
-          "db"        : "sdnpakis",
-          "table"     : "tx_hdr_promes as A",
-          "whereIn"   : ["PROMES_STATUS", ["0","1"]],
-          "orderBy"   : ["PROMES_ID", "DESC"],
+          "db"        : "<?php echo $databaseApi; ?>",
+          "table"     : "tx_hdr_absen_siswa as A",
+          "whereIn"   : ["ABSEN_STATUS", ["0","1"]],
+          "orderBy"   : ["ABSEN_ID", "DESC"],
           "innerJoin" : [{
             "table"   : "tm_reff as B",
             "field1"  : "B.REFF_ID",
-            "field2"  : "A.PROMES_STATUS"
+            "field2"  : "A.ABSEN_STATUS"
           }],
-          "leftJoin" : [{
-            "table"   : "tm_reff as C",
-            "field1"  : "C.REFF_ID",
-            "field2"  : "A.PROMES_SEMESTER"
-          }],
-          "orderBy"   : ["PROMES_ID", "DESC"],
+          "orderBy"   : ["ABSEN_ID", "DESC"],
           "where"     : [
             ["B.REFF_TR_ID", "=", "2"],
-            ["C.REFF_TR_ID", "=", "3"],
-            ["PROMES_STATUS", "=", "1"]
+            ["ABSEN_STATUS", "=", "1"]
           ],
-          "selectraw" : "A.*, B.REFF_NAME as STATUS, C.REFF_NAME as SEMESTER",
+          "selectraw" : "A.*, B.REFF_NAME as STATUS",
           "start": start,
           "limit": 25
         })

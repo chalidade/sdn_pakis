@@ -16,8 +16,7 @@ $arrdetil .= '
             "RPP_DTL_SUMBER_BELAJAR"        : '.json_encode($_POST["RPP_DTL_SUMBER_BELAJAR"]).',
             "RPP_DTL_KEGIATAN_PEMBELAJARAN" : '.json_encode($_POST["RPP_DTL_KEGIATAN_PEMBELAJARAN"]).',
             "RPP_DTL_PENILAIAN"             : '.json_encode($_POST["RPP_DTL_PENILAIAN"]).',
-            "RPP_DTL_UPDATE_BY"             : "'.$_POST["RPP_DTL_UPDATE_BY"].'",
-            "RPP_DTL_UPDATE_DATE"           : "'.$_POST["RPP_DTL_UPDATE_DATE"].'"
+            "RPP_DTL_UPDATE_BY"             : "'.$_POST["RPP_DTL_UPDATE_BY"].'"
           }';
 
 switch ($id) {
@@ -46,8 +45,7 @@ switch ($id) {
                             "RPP_HDR_PEMBELAJARAN"      : "'.$_POST["RPP_HDR_PEMBELAJARAN"].'",
                             "RPP_HDR_MATERI_POKOK"      : "'.$_POST["RPP_HDR_MATERI_POKOK"].'",
                             "RPP_HDR_ALOKASI_WAKTU"     : "'.$_POST["RPP_HDR_ALOKASI_WAKTU"].'",
-                            "RPP_HDR_UPDATE_BY"         : "'.$_POST["RPP_HDR_UPDATE_BY"].'",
-                            "RPP_HDR_UPDATE_DATE"       : "'.$_POST["RPP_HDR_UPDATE_DATE"].'"
+                            "RPP_HDR_UPDATE_BY"         : "'.$_POST["RPP_HDR_UPDATE_BY"].'"
                           }
                       ]
                   },

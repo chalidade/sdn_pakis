@@ -12,7 +12,7 @@
   $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_absen_siswa` ORDER BY `ABSEN_ID` DESC LIMIT 1");
   $lastId             = json_decode(json_encode(mysqli_fetch_assoc($query)),TRUE);
   $lastId             = $lastId["ABSEN_ID"]+1;
-  if ($query == 0) {
+  if (empty($query)) {
     $lastId = 1;
   }
    ?>
@@ -30,7 +30,7 @@
           </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="app/model/PromesModel.php?id=siswa" method="post" enctype="multipart/form-data">
+                <form role="form" action="app/model/AbsenModel.php?id=siswa" method="post" enctype="multipart/form-data">
                   <div class="box-body">
                     <table width="100%" class="table order-list">
                       <tr>
@@ -43,6 +43,7 @@
                             <input type="text" class="form-control border-bottom-only" name="ABSEN_GURU" id="guru" value="">
                           <?php } ?>
                           <input type="hidden" class="form-control border-bottom-only" name="ABSEN_NO_PENGAJUAN" value="ABSEN<?php echo date('dmy').$lastId; ?>">
+                          <input type="hidden" class="form-control border-bottom-only" name="ABSEN_USER_ID" value="<?php echo $session["USER_ID"]; ?>">
                         </td>
                       </tr>
                       <tr>
@@ -51,9 +52,9 @@
                         <td>
                           <select class="form-control" id="tingkat" name="ABSEN_TINGKAT">
                             <?php if (isset($_REQUEST['tingkat'])) { ?>
-                              <option  disabled selected value="<?php $tingkat = $_REQUEST['tingkat']; echo $tingkat; ?>"><?php echo $tingkat; ?></option>
+                              <option  selected value="<?php $tingkat = $_REQUEST['tingkat']; echo $tingkat; ?>"><?php echo $tingkat; ?></option>
                             <?php } else { ?>
-                              <option selected disabled>-- Tingkat --</option>
+                              <option selected>-- Tingkat --</option>
                             <?php } ?>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -66,9 +67,9 @@
                         <td>
                           <select class="form-control" id="kelas" onchange="Kelas()" name="ABSEN_KELAS">
                             <?php if (isset($_REQUEST['kelas'])) { ?>
-                              <option disabled selected value="<?php $kelas = $_REQUEST['kelas']; echo $kelas; ?>"><?php echo $kelas; ?></option>
+                              <option selected value="<?php $kelas = $_REQUEST['kelas']; echo $kelas; ?>"><?php echo $kelas; ?></option>
                             <?php } else { ?>
-                              <option selected disabled>-- Kelas --</option>
+                              <option selected>-- Kelas --</option>
                             <?php } ?>
                             <option value="A">A</option>
                             <option value="B">B</option>
@@ -87,21 +88,25 @@
                       <tr style="text-align:center;">
                         <td rowspan="2" style="vertical-align:middle;">NIS</td>
                         <td rowspan="2" style="vertical-align:middle;">Nama Siswa</td>
-                        <td colspan="2">Absensi</td>
+                        <td colspan="4">Absensi</td>
                         <td rowspan="2" style="vertical-align:middle;">Keterangan</td>
                       </tr>
                       <tr style="text-align:center">
                         <td>Hadir</td>
-                        <td>Absen</td>
+                        <td>Izin</td>
+                        <td>Sakit</td>
+                        <td>Alfa</td>
                       </tr>
                       <template v-for="data in info">
                         <tr>
-                          <td width="6%">{{ data.DTL_NIS }}</td>
+                          <td width="6%"><input type="input" name="nis[]" v-bind:value="data.DTL_NIS" style="border:none"></td>
                           <td width="25%">
-                            {{data.USER_NAME}}
+                            <input type="input" name="username[]" v-bind:value="data.USER_NAME" style="border:none">
                           </td>
-                          <td><center><input type="checkbox" name="absen[]" value="1"></center> </td>
-                          <td><center><input type="checkbox" name="absen[]" value="0"></center></td>
+                          <td><center><input type="checkbox" name="absen[]" value="0"></center> </td>
+                          <td><center><input type="checkbox" name="absen[]" value="1"></center></td>
+                          <td><center><input type="checkbox" name="absen[]" value="2"></center></td>
+                          <td><center><input type="checkbox" name="absen[]" value="3"></center></td>
                           <td><input type="text" class="form-control" name="keterangan[]"></td>
                         </tr>
                       </template>
