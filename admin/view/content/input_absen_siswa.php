@@ -8,6 +8,15 @@
     </h1>
   </section>
 
+  <?php
+  $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_absen_siswa` ORDER BY `ABSEN_ID` DESC LIMIT 1");
+  $lastId             = json_decode(json_encode(mysqli_fetch_assoc($query)),TRUE);
+  $lastId             = $lastId["ABSEN_ID"]+1;
+  if ($query == 0) {
+    $lastId = 1;
+  }
+   ?>
+
   <!-- Main content -->
   <section class="content container-fluid">
     <!-- Small boxes (Stat box) -->
@@ -21,7 +30,7 @@
           </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="proses/route.php?page=input_booking" method="post" enctype="multipart/form-data">
+                <form role="form" action="app/model/PromesModel.php?id=siswa" method="post" enctype="multipart/form-data">
                   <div class="box-body">
                     <table width="100%" class="table order-list">
                       <tr>
@@ -29,17 +38,18 @@
                         <td width="2%">:</td>
                         <td colspan="2">
                           <?php if (isset($_REQUEST['guru'])) { ?>
-                            <input type="text" class="form-control border-bottom-only" name="" id="guru" value="<?php echo $_REQUEST['guru']; ?>">
+                            <input type="text" class="form-control border-bottom-only" name="ABSEN_GURU" id="guru" value="<?php echo $_REQUEST['guru']; ?>">
                           <?php } else { ?>
-                            <input type="text" class="form-control border-bottom-only" name="" id="guru" value="">
+                            <input type="text" class="form-control border-bottom-only" name="ABSEN_GURU" id="guru" value="">
                           <?php } ?>
+                          <input type="hidden" class="form-control border-bottom-only" name="ABSEN_NO_PENGAJUAN" value="ABSEN<?php echo date('dmy').$lastId; ?>">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Tingkat / Kelas</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <select class="form-control" id="tingkat" name="tingkat">
+                          <select class="form-control" id="tingkat" name="ABSEN_TINGKAT">
                             <?php if (isset($_REQUEST['tingkat'])) { ?>
                               <option  disabled selected value="<?php $tingkat = $_REQUEST['tingkat']; echo $tingkat; ?>"><?php echo $tingkat; ?></option>
                             <?php } else { ?>
@@ -54,7 +64,7 @@
                           </select>
                         </td>
                         <td>
-                          <select class="form-control" id="kelas" onchange="Kelas()" name="kelas">
+                          <select class="form-control" id="kelas" onchange="Kelas()" name="ABSEN_KELAS">
                             <?php if (isset($_REQUEST['kelas'])) { ?>
                               <option disabled selected value="<?php $kelas = $_REQUEST['kelas']; echo $kelas; ?>"><?php echo $kelas; ?></option>
                             <?php } else { ?>
@@ -95,6 +105,7 @@
                           <td><input type="text" class="form-control" name="keterangan[]"></td>
                         </tr>
                       </template>
+                    </form>
                     <!-- <tr>
                       <td>#</td>
                       <td>Jumlah</td>

@@ -119,7 +119,7 @@
           </a>
           <ul class="treeview-menu">
             <!-- <li><a href="index.php?id=input_absen_siswa">Input Absen Siswa</a></li> -->
-            <li><a href="index.php?id=input_absen_siswa&start=0">Siswa</a></li>
+            <li><a href="index.php?id=data_absen_siswa&start=0&menu=1">Siswa</a></li>
             <li><a href="index.php?id=data_absen_guru&start=0">Guru</a></li>
             <li><a href="index.php?id=data_absen_staff&start=0">Staff</a></li>
           </ul>
