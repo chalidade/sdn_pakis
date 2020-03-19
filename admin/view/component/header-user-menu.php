@@ -20,7 +20,7 @@
     <!-- Menu Footer-->
     <li class="user-footer">
       <div class="pull-left">
-        <a href="#" class="btn btn-default btn-flat">Profile</a>
+        <a data-toggle="modal" data-target="#detail" class="btn btn-default btn-flat">Profile</a>
       </div>
       <div class="pull-right">
         <a href="../auth.php?id=logout" class="btn btn-default btn-flat">Sign out</a>

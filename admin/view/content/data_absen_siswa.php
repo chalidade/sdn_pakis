@@ -83,7 +83,7 @@
                                       <!-- <button type="button" v-bind:onclick="'send(' + data.ABSEN_ID +  ', ' + data.ABSEN_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button> -->
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.ABSEN_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.ABSEN_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <a target="_blank" v-bind:href="'view/frame/detailAbsenSiswa.php?print=1&id=' + data.ABSEN_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.ABSEN_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
@@ -94,7 +94,7 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
-                                                <iframe v-bind:src="'view/frame/detailPromes.php?id=' + data.ABSEN_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                                <iframe v-bind:src="'view/frame/detailAbsenSiswa.php?id=' + data.ABSEN_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
 

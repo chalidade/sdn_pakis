@@ -70,3 +70,22 @@ desired effect
 -->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+  <div class="modal fade" id="detail">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" style="text-align:center"><?php echo $session["USER_NAME"]; ?></h4>
+        </div>
+        <div class="modal-body" style="text-align:left">
+          <div class="table-responsive">
+            <iframe src="view/frame/detailSiswa.php?id=<?php echo $session["USER_ID"]; ?>" width="100%" height="500" style="border:none"></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->

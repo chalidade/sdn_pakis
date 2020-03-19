@@ -51,7 +51,6 @@
             <li><a href="index.php?id=data_promes&start=0&menu=1">Program Semester</a></li>
             <li><a href="index.php?id=data_silabus&start=0&menu=1">Silabus</a></li>
             <li><a href="index.php?id=data_rpp&start=0&menu=1">RPP</a></li>
-            <li><a href="index.php?id=data_inventaris&start=0&menu=1">Inventaris</a></li>
           </ul>
         </li>
       <?php } ?>
@@ -137,7 +136,7 @@
             <!-- <li><a href="index.php?id=input_keuangan">Input Keuangan</a></li> -->
             <!-- <li><a href="index.php?id=input_inventaris">Input Inventaris</a></li> -->
             <li><a href="index.php?id=data_keuangan&start=0">Keuangan</a></li>
-            <li><a href="index.php?id=data_inventaris&start=0">Inventaris</a></li>
+            <li><a href="index.php?id=data_inventaris&start=0&menu=1">Inventaris</a></li>
           </ul>
         </li>
       <?php } ?>
