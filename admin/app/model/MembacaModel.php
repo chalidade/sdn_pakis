@@ -11,7 +11,7 @@ switch ($id) {
     $page = "input_membaca";
     $json = array(
     "action"                   => "simpleSave",
-    "db"                       => $database,
+    "db"                       => "sdnpakis",
     "table"                    => "tx_hdr_buku_membaca",
     "primaryKey"               => "MEMBACA_ID",
     "value"                    => [
@@ -32,7 +32,7 @@ switch ($id) {
     if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Membaca");
 
     break;
-    
+
   default:
     $json = array(
       "ERROR" => "No Format JSON FOUND"
