@@ -36,20 +36,22 @@
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
                                 <th width="6%">No</th>
-                                <th width="20%">Nomor Pengajuan</th>
-                                <th width="25%">Satuan Pendidikan</th>
+                                <th width="15%">Nomor Pengajuan</th>
+                                <th width="15%">Satuan Pendidikan</th>
                                 <th width="10%" style="text-align:center">Kelas</th>
                                 <th width="10%" style="text-align:center">Semester</th>
+                                <th width="15%" style="text-align:center">Remark</th>
                                 <th width="15%" style="text-align:center">Status</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template v-for="data in info">
                                 <tr>
                                   <td width="6%">{{ data.SILABUS_HDR_ID }}</td>
-                                  <td width="20%">{{ data.SILABUS_HDR_NO_PENGAJUAN }}</td>
-                                  <td width="25%">{{data.SILABUS_HDR_SATUAN_PENDIDIKAN}}</td>
+                                  <td width="15%">{{ data.SILABUS_HDR_NO_PENGAJUAN }}</td>
+                                  <td width="15%">{{data.SILABUS_HDR_SATUAN_PENDIDIKAN}}</td>
                                   <td width="10%" style="text-align:center">{{ data.SILABUS_HDR_KELAS }}</td>
                                   <td width="10%" style="text-align:center">{{ data.SEMESTER }}</td>
+                                  <td width="15%" style="text-align:center">{{ data.SILABUS_REMARK }}</td>
                                   <td width="15%" style="text-align:center;font-weight:800;color:red">{{ data.STATUS }}</td>
                                   <td width="20%" style="text-align:center">
                                     <?php if ($menu == 1) { ?>
@@ -205,6 +207,7 @@ function send(id, status) {
 }
 
 function reject(id) {
+  var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -221,7 +224,8 @@ function reject(id) {
             "table"  : "tx_hdr_silabus",
             "update" :
           	{
-          		 "SILABUS_HDR_STATUS" : "3"
+          		 "SILABUS_HDR_STATUS" : "3",
+               "SILABUS_REMARK" : remark
           	},
              "where" :
              {
