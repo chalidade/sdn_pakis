@@ -2,11 +2,11 @@
 <footer class="main-footer">
   <!-- To the right -->
   <div class="pull-right hidden-xs">
-    CV Travel Anda
+    SDN PAKIS 5 SURABAYA
   </div>
   <script>
     	initSample();
   </script>
   <!-- Default to the left -->
-  <strong>Copyright &copy; 2016 <a href="#">Travel Anda</a>.</strong> All rights reserved.
+  <strong>Copyright &copy; 2016 <a href="http://sdnpakis5sby.sch.id">SDN PAKIS 5 SURABAYA</a>.</strong> All rights reserved.
 </footer>

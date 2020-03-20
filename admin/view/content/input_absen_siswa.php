@@ -185,7 +185,7 @@ new Vue({
           "1"
         ],
         ["DTL_TINGKAT", "=",tingkatA],
-        ["DTL_KELAS", "=","A"]
+        ["DTL_KELAS", "=",kelasA]
       ],
       "start": 0,
       "limit": 25

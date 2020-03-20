@@ -63,11 +63,11 @@
                             <table cellpadding="10" id="app" class="table table-border" width="100%" style="margin-top:20px">
                               <tr>
                                 <!-- <th width="3%">No</th> -->
-                                <th width="20%">No Pengajuan</th>
-                                <th width="15%">Satuan Pendidikan</th>
+                                <th width="15%">No Pengajuan</th>
+                                <th width="20%">Satuan Pendidikan</th>
                                 <th width="5%" style="text-align:center">Kelas/Semester</th>
                                 <th width="10%">Tahun</th>
-                                <th width="10%" style="text-align:center">Remark</th>
+                                <th width="15%" style="text-align:center">Remark</th>
                                 <th width="15%" style="text-align:center">Status</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
@@ -75,12 +75,12 @@
                                 <tr>
                                   <!-- <td width="3%">{{ data.PROMES_ID }}</td> -->
                                   <td>{{data.PROMES_NO_PENGAJUAN}}</td>
-                                  <td width="25%">
+                                  <td width="20%">
                                     {{data.PROMES_SATUAN_PENDIDIKAN}}
                                   </td>
                                   <td width="5%" style="text-align:center">{{ data.DTL_TINGKAT }} {{ data.PROMES_KELAS }} / {{ data.SEMESTER }}</td>
                                   <td width="10%" style="text-align:center"> {{ data.PROMES_TAHUN_AJARAN }}</td>
-                                  <td width="10%" style="text-align:center">{{data.PROMES_REMARK}}</td>
+                                  <td width="15%" style="text-align:left;">{{data.PROMES_REMARK}}</td>
                                   <td style="text-align:center;color:red"><b>{{ data.STATUS }}</b></td>
                                   <td width="20%" style="text-align:center">
                                     <?php if ($menu == 1) { ?>
