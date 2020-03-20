@@ -24,7 +24,7 @@ $arrdetil = substr($arrdetil, 0,-1);
 
 switch ($id) {
   case 'insert':
-    $page      = "input_inventaris";
+    $page      = "data_inventaris";
     $json      = '{
                   "action": "saveheaderdetail",
                   "data": [
@@ -38,6 +38,7 @@ switch ($id) {
                       "VALUE": [
                           {
                             "SARPRAS__HDR_ID"            : "",
+                            "SARPRAS_HDR_NO_PENGAJUAN"   : "'.$_POST["SARPRAS_HDR_NO_PENGAJUAN"].'",
                             "SARPRAS_HDR_NAMA_SEKOLAH"   : "'.$_POST["SARPRAS_HDR_NAMA_SEKOLAH"].'",
                             "SARPRAS_HDR_ALAMAT_SEKOLAH" : "'.$_POST["SARPRAS_HDR_ALAMAT_SEKOLAH"].'",
                             "SARPRAS_HDR_KECAMATAN"      : "'.$_POST["SARPRAS_HDR_KECAMATAN"].'",

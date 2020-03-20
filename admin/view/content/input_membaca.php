@@ -24,8 +24,8 @@
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Siswa</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Tambah Data Siswa</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Membaca</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Laporan Membaca</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
@@ -53,9 +53,7 @@
                                   <td width="25%">{{ data.MEMBACA_SISWA }}</td>
                                   <td width="10%" style="text-align:center">{{ data.MEMBACA_TANGGAL }}</td>
                                   <td width="20%" style="text-align:center">
-                                    <button type="button" v-bind:onclick="'EDIT_MEMBACA(' + data.MEMBACA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_MEMBACA(' + data.MEMBACA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_MEMBACA('tx_hdr_buku_membaca', 2,'MEMBACA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
+                                    <button type="button" onclick="VIEW_MEMBACA('tx_hdr_buku_membaca', 2,'MEMBACA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
                                   </td>
                                 </tr>
                               </template>

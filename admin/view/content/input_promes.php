@@ -34,7 +34,7 @@
                         <td width="15%"><b>Satuan Pendidikan<b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="PROMES_SATUAN_PENDIDIKAN" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="PROMES_SATUAN_PENDIDIKAN" value="">
                           <input type="hidden" class="form-control border-bottom-only" name="PROMES_NO_PENGAJUAN" value="PROMES<?php echo date('my').$lastId; ?>">
                         </td>
                       </tr>
@@ -42,14 +42,14 @@
                         <td width="15%"><b>Tahun Ajaran</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="PROMES_TAHUN_AJARAN" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="PROMES_TAHUN_AJARAN" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Kelas</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="PROMES_KELAS" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="PROMES_KELAS" value="">
                           <input type="hidden" name="PROMES_USER_ID" value="<?php echo $session['USER_ID']; ?>">
                         </td>
                       </tr>
@@ -170,39 +170,39 @@
     $("#rmrowthis"+btnid).remove();
     $("#tableSemester"+btnid).append(
         "<tr class='protasem"+btnid+"' id='protarow"+total_element+"'>"+
-        "<td width='10%'><input type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='20%'><input type='text' name='DTL_KOMPETENSI[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='10%'><input type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_SATU_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_SATU_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_SATU_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_SATU_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_SATU_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_DUA_A[]'   style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_DUA_B[]'   style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_DUA_C[]'   style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_DUA_D[]'   style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_DUA_E[]'   style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_TIGA_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_TIGA_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_TIGA_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_TIGA_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_TIGA_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_EMPAT_A[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_EMPAT_B[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_EMPAT_C[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_EMPAT_D[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_EMPAT_E[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_LIMA_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_LIMA_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_LIMA_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_LIMA_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_LIMA_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_ENAM_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_ENAM_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_ENAM_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_ENAM_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td><input type='text' name='DTL_BLN_ENAM_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input required type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='20%'><input required type='text' name='DTL_KOMPETENSI[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='10%'><input required type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_SATU_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_SATU_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_SATU_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_SATU_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_SATU_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_DUA_A[]'   style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_DUA_B[]'   style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_DUA_C[]'   style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_DUA_D[]'   style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_DUA_E[]'   style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_TIGA_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_TIGA_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_TIGA_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_TIGA_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_TIGA_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_EMPAT_A[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_EMPAT_B[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_EMPAT_C[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_EMPAT_D[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_EMPAT_E[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_LIMA_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_LIMA_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_LIMA_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_LIMA_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_LIMA_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_ENAM_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_ENAM_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_ENAM_C[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_ENAM_D[]'  style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td><input required type='text' name='DTL_BLN_ENAM_E[]'  style='width:100%;border:none;text-align:center'></input></td>"+
         "<td width='6%'><button type='button' class='btn btn-danger remove' id='"+total_element+"' name='button' style='width:100%;border-radius:0px;height:30px'><i class='fa fa-trash'></i></button></td>"+
         "</tr>"
       );

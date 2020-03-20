@@ -41,7 +41,7 @@
                                  </td>
                                  <td>
                                    <!-- search form -->
-                                    <form action="#" method="get"class="sidebar-form" style="background-color:#fff">
+                                    <!-- <form action="#" method="get"class="sidebar-form" style="background-color:#fff">
                                       <div class="input-group">
                                         <input type="text" name="q" class="form-control" placeholder="Search..." style="background: #fff;">
                                             <span class="input-group-btn" style="width: 50%;">
@@ -55,7 +55,7 @@
                                               </button>
                                             </span>
                                       </div>
-                                    </form>
+                                    </form> -->
                                     <!-- /.search form -->
                                  </td>
                                </tr>

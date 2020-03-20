@@ -11,7 +11,7 @@
   <?php
   $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_prota` ORDER BY `PROTA_ID` DESC LIMIT 1");
   $lastId             = json_decode(json_encode(mysqli_fetch_assoc($query)),TRUE);
-  $lastId             = $lastId["PROMES_ID"]+1;
+  $lastId             = $lastId["PROTA_ID"]+1;
    ?>
 
   <!-- Main content -->

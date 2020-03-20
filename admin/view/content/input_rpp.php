@@ -9,9 +9,9 @@
   </section>
 
   <?php
-  $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_rpp` ORDER BY `PROMES_ID` DESC LIMIT 1");
+  $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_rpp` ORDER BY `RPP_HDR_ID` DESC LIMIT 1");
   $lastId             = json_decode(json_encode(mysqli_fetch_assoc($query)),TRUE);
-  $lastId             = $lastId["PROMES_ID"]+1;
+  $lastId             = $lastId["RPP_HDR_ID"]+1;
    ?>
 
   <!-- Main content -->
@@ -34,7 +34,7 @@
                         <td width="15%"><b>Satuan Pendidikan<b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_SATUAN_PENDIDIKAN" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_SATUAN_PENDIDIKAN" value="">
                           <input type="hidden" class="form-control border-bottom-only" name="RPP_HDR_NO_PENGAJUAN" value="RPP<?php echo date('my').$lastId; ?>">
 
                         </td>
@@ -43,14 +43,14 @@
                         <td width="15%"><b>Muatan Terpadu</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_MUATAN_TERPADU" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_MUATAN_TERPADU" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Kelas</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_KELAS" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_KELAS" value="">
                         </td>
                       </tr>
                       <tr>
@@ -67,35 +67,35 @@
                         <td width="15%"><b>Tema</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_TEMA" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_TEMA" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Sub Tema</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_SUB_TEMA" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_SUB_TEMA" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Pembelajaran</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_PEMBELAJARAN" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_PEMBELAJARAN" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Materi Pokok</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_MATERI_POKOK" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_MATERI_POKOK" value="">
                         </td>
                       </tr>
                       <tr>
                         <td width="15%"><b>Alokasi Waktu</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="RPP_HDR_ALOKASI_WAKTU" value="">
+                          <input required type="text" class="form-control border-bottom-only" name="RPP_HDR_ALOKASI_WAKTU" value="">
                           <input type="hidden" name="RPP_HDR_UPDATE_BY" value="<?php echo $session["USER_ID"]; ?>">
                         </td>
                       </tr>
