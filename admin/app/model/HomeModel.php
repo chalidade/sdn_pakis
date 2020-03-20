@@ -39,7 +39,7 @@ switch ($id) {
 
       $json = array(
         "action"                => "simpleSave",
-        "db"                    => $database,
+        "db"                    => $databaseApi,
         "table"                 => "tx_home_slider",
         "primaryKey"            => "SLIDER_ID",
         "value"                 => [
@@ -89,7 +89,7 @@ switch ($id) {
 
       $json = array(
         "action"                => "simpleSave",
-        "db"                    => $database,
+        "db"                    => $databaseApi,
         "table"                 => "tx_home_pengantar",
         "primaryKey"            => "PENGANTAR_ID",
         "value"                 => [
@@ -163,7 +163,7 @@ switch ($id) {
 
       $json = array(
         "action"                => "simpleSave",
-        "db"                    => $database,
+        "db"                    => $databaseApi,
         "table"                 => "tx_home_fasilitas",
         "primaryKey"            => "FASILITAS_ID",
         "value"                 => [
@@ -213,7 +213,7 @@ switch ($id) {
 }
 
 function uploadImage($input,$folder) {
-  $target_dir = "../resource/public/$folder/";
+  $target_dir = "../../resource/public/$folder/";
   $target_file = $target_dir . date("d_m_Y")."_".basename($_FILES[$input]["name"]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -227,7 +227,7 @@ function uploadImage($input,$folder) {
   // if everything is ok, try to upload file
   } else {
       if (move_uploaded_file($_FILES[$input]["tmp_name"], $target_file)) {
-          // echo "The file ". basename( $_FILES["MEMBACA_COVER"]["name"]). " has been uploaded.";
+          // echo "The file ". basename( $_FILES[$input]["name"]). " has been uploaded.";
       } else {
           // echo "Sorry, there was an error uploading your file.";
       }

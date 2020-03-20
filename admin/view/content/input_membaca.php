@@ -94,8 +94,13 @@
                                     <input type="date" id="title" class="form-control" name="MEMBACA_TANGGAL" value="" style="line-height:15px">
                                   </label>
                                   <label for="title" style="width:100%">
-                                    Nama Siswa
-                                    <input type="input" id="title" class="form-control" name="MEMBACA_SISWA" value="">
+                                    NIS
+                                    <?php if ($session["USER_ROLE"] == 1) { ?>
+                                      <input type="input" id="title" class="form-control" disabled value="<?php echo $siswa["DTL_NIS"]; ?>">
+                                      <input type="hidden" id="title" class="form-control" name="MEMBACA_SISWA" value="<?php echo $siswa["DTL_NIS"]; ?>">
+                                    <?php } else { ?>
+                                      <input type="input" id="title" class="form-control" name="MEMBACA_SISWA" value="">
+                                    <?php } ?>
                                   </label>
                                   <label for="title" style="width:100%">
                                     Nama Guru
@@ -174,7 +179,7 @@
             action: 'list',
             db: 'sdnpakis',
             table: 'tx_hdr_buku_membaca',
-            where : [['MEMBACA_SISWA','=', '<?php echo $session["USER_ID"]; ?>']],
+            where : [['MEMBACA_SISWA','=', '<?php echo $siswa["DTL_NIS"]; ?>']],
             start: start,
             orderBy: ['MEMBACA_ID', 'DESC'],
             limit: 25

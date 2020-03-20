@@ -3,11 +3,18 @@
 // $file   = substr($my_url, strrpos($my_url, '/' )+1);
 error_reporting(0);
 session_start();
-$session     = json_decode($_SESSION['USER'], TRUE);
-if (empty($session)) echo "<script type='text/javascript'> alert('You Must Login First'); window.location.href = '../login.php'; </script>";
-$file        = $_REQUEST['id'].".php";
 include "app/config/setting.php";
 include "app/config/connection.php";
+$session     = json_decode($_SESSION['USER'], TRUE);
+$file        = $_REQUEST['id'].".php";
+
+if ($session["USER_ROLE"] == 1) {
+  $userId = $session["USER_ID"];
+  $query  = mysqli_query($mysqli, "SELECT * FROM `tx_dtl_user_siswa` WHERE `DTL_HDR_ID`= '$userId'");
+  $siswa  = mysqli_fetch_assoc($query);
+}
+
+if (empty($session)) echo "<script type='text/javascript'> alert('You Must Login First'); window.location.href = '../login.php'; </script>";
  ?>
 <!DOCTYPE html>
 <!--

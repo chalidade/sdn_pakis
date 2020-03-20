@@ -31,7 +31,7 @@
                             <div class="table-responsive">
                             <table class="table table-border" width="100%">
                               <tr>
-                                <th style="text-align:center">Rangking</th>
+                                <!-- <th style="text-align:center">Rangking</th> -->
                                 <th width="15%" style="text-align:center">Foto</th>
                                 <th>Nama Siswa</th>
                                 <th>NIS</th>
@@ -41,10 +41,10 @@
                               </tr>
                               <template v-for="data in rangking">
                               <tr>
-                                <td style="font-size:30px;font-weight:800;text-align:center;vertical-align:middle">{{no++}}</td>
+                                <!-- <td style="font-size:30px;font-weight:800;text-align:center;vertical-align:middle">{{no++}}</td> -->
                                 <td>
                                   <center>
-                                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicSiswa ?>' + data.DTL_PHOTO"/ style='width:100px;padding:5px' alt=''>
+                                    <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicUser ?>' + data.USER_PHOTO"/ style='width:100px;padding:5px' alt=''>
                                   </center>
                                 </td>
                                 <td> {{data.USER_NAME}}</td>
@@ -99,14 +99,14 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
-start   = <?php echo $start; ?>;
-var url = "<?php echo $urlApi; ?>";
+start     = <?php echo $start; ?>;
+var url   = "<?php echo $urlApi; ?>";
+var nomor = 0;
 new Vue({
     el: '#app',
     data () {
       return {
-        rangking: null,
-        no: start-2499,
+        rangking: null
       }
     },
     mounted () {
@@ -115,23 +115,23 @@ new Vue({
           action: 'list',
           db: 'sdnpakis',
           table: 'tx_hdr_buku_membaca as A',
+          innerJoin: [
+            {
+              table: 'tx_dtl_user_siswa as B',
+              field1: 'B.DTL_NIS',
+              field2: 'A.MEMBACA_SISWA'
+            },
+            {
+              table: 'tx_hdr_user as C',
+              field1: 'B.DTL_HDR_ID',
+              field2: 'C.USER_ID'
+            }
+          ],
           selectraw: 'COUNT(A.MEMBACA_SISWA) AS total, B.*, C.*',
           groupbyraw: 'A.MEMBACA_SISWA',
           orderBy: [
               'total',
               'DESC'
-          ],
-          leftJoin: [
-              {
-                  table: 'tx_hdr_user as B',
-                  field1: 'B.USER_ID',
-                  field2: 'A.MEMBACA_SISWA'
-              },
-              {
-                  table: 'tx_dtl_user_siswa as C',
-                  field1: 'B.USER_ID',
-                  field2: 'C.DTL_HDR_ID'
-              }
           ],
           start: start,
           limit: '25'
