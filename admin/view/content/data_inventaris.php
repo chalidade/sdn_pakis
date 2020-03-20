@@ -36,18 +36,20 @@
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
                                 <th width="6%">No</th>
-                                <th width="25%">No Pengajuan</th>
-                                <th width="25%">Nama Sekolah</th>
+                                <th width="15%">No Pengajuan</th>
+                                <th width="15%">Nama Sekolah</th>
                                 <th width="20%">Staff</th>
+                                <th>Remark</th>
                                 <th width="15%" style="text-align:center">Status</th>
                                 <th width="15%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="6%">{{ data.SARPRAS__HDR_ID }}</td>
-                                  <td width="25%">{{ data.SARPRAS_HDR_NO_PENGAJUAN }}</td>
-                                  <td width="25%">{{data.SARPRAS_HDR_NAMA_SEKOLAH}}</td>
+                                  <td width="15%">{{ data.SARPRAS_HDR_NO_PENGAJUAN }}</td>
+                                  <td width="15%">{{data.SARPRAS_HDR_NAMA_SEKOLAH}}</td>
                                   <td width="20%">{{ data.STAFF }}</td>
+                                  <td>{{data.SARPRAS_HDR_REMARK}}</td>
                                   <td width="15%" style="text-align:center;font-weight:800;color:red">{{ data.STATUS }}</td>
                                   <td width="15%" style="text-align:center">
                                     <?php if ($menu == 1) { ?>
@@ -95,7 +97,7 @@
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="7">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
@@ -204,6 +206,7 @@ function send(id, status) {
 }
 
 function reject(id) {
+  var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -220,7 +223,8 @@ function reject(id) {
             "table"  : "tx_hdr_sarpras",
             "update" :
           	{
-          		 "SARPRAS_HDR_STATUS" : "3"
+          		 "SARPRAS_HDR_STATUS" : "3",
+               "SARPRAS_HDR_REMARK" : remark
           	},
              "where" :
              {
