@@ -37,22 +37,24 @@
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
                               <tr>
                                 <th width="3%">No</th>
-                                <th width="20%">No Pengajuan</th>
-                                <th width="25%">Satuan Ajar</th>
-                                <th width="15%">Tahun</th>
+                                <th width="15%">No Pengajuan</th>
+                                <th width="15%">Satuan Ajar</th>
+                                <th width="10%">Tahun</th>
                                 <th width="10%" style="text-align:center">Kelas</th>
+                                <th width="15%" style="text-align:center">Remark</th>
                                 <th width="15%" style="text-align:center">Status</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="3%">{{ data.PROTA_ID }}</td>
-                                  <td width="20%">{{ data.PROTA_NO_PENGAJUAN }}</td>
-                                  <td width="25%">
+                                  <td width="15%">{{ data.PROTA_NO_PENGAJUAN }}</td>
+                                  <td width="15%">
                                     {{data.PROTA_SATUAN_AJAR}}
                                   </td>
                                   <td width="15%">{{ data.DTL_TINGKAT }} {{ data.PROTA_TAHUN_AJAR }}</td>
                                   <td width="10%" style="text-align:center">{{ data.PROTA_KELAS }}</td>
+                                  <td width="10%" style="text-align:center">{{ data.PROTA_REMARK }}</td>
                                   <td width="15%" style="text-align:center;font-weight:800;color:red">{{ data.STATUS }}</td>
                                   <td width="20%" style="text-align:center">
                                     <?php if ($menu == 1) { ?>
@@ -209,6 +211,7 @@ function send(id, status) {
 }
 
 function reject(id) {
+  var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -225,7 +228,8 @@ function reject(id) {
             "table"  : "tx_hdr_prota",
             "update" :
           	{
-          		 "PROTA_STATUS" : "3"
+          		 "PROTA_STATUS" : "3",
+               "PROTA_REMARK" : remark
           	},
              "where" :
              {
