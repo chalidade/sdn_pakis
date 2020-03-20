@@ -216,8 +216,30 @@
                                   Kelas
                                   <table width="100%">
                                     <tr>
-                                      <td width="30%"><input required type="text" id="title" class="form-control" name="DTL_TINGKAT" value="" placeholder="6"></td>
-                                      <td><input required type="text" id="title" class="form-control" name="DTL_KELAS" value="" placeholder="A"></td>
+                                      <td width="30%">
+                                        <select class="form-control" id="tingkat" name="DTL_TINGKAT">
+                                          <option selected>-- Tingkat --</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                        </select>
+                                      </td>
+                                      <td>
+                                        <select class="form-control" id="title" onchange="Kelas()" name="DTL_KELAS">
+                                          <option selected>-- Kelas --</option>
+                                          <option value="A">A</option>
+                                          <option value="B">B</option>
+                                          <option value="C">C</option>
+                                          <option value="D">D</option>
+                                          <option value="E">E</option>
+                                          <option value="F">F</option>
+                                          <option value="G">G</option>
+                                          <option value="H">H</option>
+                                        </select>
+                                      </td>
                                     </tr>
                                   </table>
                                 </label>
