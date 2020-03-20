@@ -36,23 +36,25 @@
                             <table cellpadding="10" id="app" class="table table-border">
                               <tr>
                                 <th width="5%" style="text-align:center">Id</th>
-                                <th width="15%">No Pengajuan</th>
+                                <th width="12%">No Pengajuan</th>
                                 <th width="15%">Muatan Terpadu</th>
-                                <th width="25%">Tema</th>
+                                <th width="10%">Tema</th>
                                 <th width="15%">Sub Tema</th>
-                                <th width="15%">Status</th>
-                                <th width="25%">Option</th>
+                                <th width="15%">Remark</th>
+                                <th width="12%">Status</th>
+                                <th width="20%">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.RPP_HDR_ID }}</td>
-                                  <td width="15%">{{data.RPP_HDR_NO_PENGAJUAN}}</td>
-                                  <td width="12%">
+                                  <td width="12%">{{data.RPP_HDR_NO_PENGAJUAN}}</td>
+                                  <td width="15%">
                                     {{data.RPP_HDR_MUATAN_TERPADU}}
                                   </td>
-                                  <td width="12%">{{ data.RPP_HDR_TEMA }}</td>
-                                  <td width="13%">{{ data.RPP_HDR_SUB_TEMA }}</td>
-                                  <td width="13%" style="font-weight:800;color:red">{{ data.STATUS }}</td>
+                                  <td width="15%">{{ data.RPP_HDR_TEMA }}</td>
+                                  <td width="15%">{{ data.RPP_HDR_SUB_TEMA }}</td>
+                                  <td width="15%">{{ data.RPP_HDR_REMARK }}</td>
+                                  <td width="12%" style="font-weight:800;color:red">{{ data.STATUS }}</font></td>
                                   <td width="20%">
                                     <?php if ($menu == 1) { ?>
                                       <button type="button" v-bind:onclick="'send(' + data.RPP_HDR_ID +  ', ' + data.RPP_HDR_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
@@ -197,6 +199,7 @@ function send(id, status) {
 }
 
 function reject(id) {
+  var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -213,7 +216,8 @@ function reject(id) {
             "table"  : "tx_hdr_rpp",
             "update" :
           	{
-          		 "RPP_HDR_STATUS" : "3"
+          		 "RPP_HDR_STATUS" : "3",
+               "RPP_HDR_REMARK" : remark
           	},
              "where" :
              {
