@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 include "../../app/config/connection.php";
+include "../../app/config/setting.php";
 $id        = $_REQUEST["id"];
 $sql       = mysqli_query($mysqli, "SELECT * FROM `tx_dtl_rpp` WHERE `RPP_HDR_ID` = '$id'");
 $detail    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
@@ -175,7 +176,7 @@ if (!empty($_REQUEST["print"])) {
   </body>
 
   <script type="text/javascript">
-  var url = "http://localhost/uapi";
+  var url = "<?php echo $urlApi; ?>";
   var id  = "<?php echo $id; ?>";
   new Vue({
       el: '#app',

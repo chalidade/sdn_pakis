@@ -1,4 +1,5 @@
 <?php
+include "../../app/config/setting.php";
 error_reporting(0);
 $id     = $_REQUEST["id"];
 if (!empty($_REQUEST["print"])) {

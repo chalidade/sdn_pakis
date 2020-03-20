@@ -1,4 +1,5 @@
 <?php
+include "../../app/config/setting.php";
 error_reporting(0);
 $id     = $_REQUEST["id"];
 if (!empty($_REQUEST["print"])) {
@@ -77,7 +78,7 @@ if (!empty($_REQUEST["print"])) {
   </body>
 
   <script type="text/javascript">
-  var url = "http://localhost/uapi";
+  var url = "<?php echo $urlApi; ?>";
   var id  = "<?php echo $id; ?>";
   new Vue({
       el: '#app',
