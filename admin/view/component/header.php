@@ -80,7 +80,10 @@ desired effect
         </div>
         <div class="modal-body" style="text-align:left">
           <div class="table-responsive">
-            <iframe src="view/frame/detailSiswa.php?id=<?php echo $session["USER_ID"]; ?>" width="100%" height="500" style="border:none"></iframe>
+            <?php
+            if ($session["USER_ROLE"] == 1) {
+              echo '<iframe src="view/frame/detailSiswa.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
+            } ?>
           </div>
         </div>
       </div>

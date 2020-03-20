@@ -64,11 +64,11 @@
                               <tr>
                                 <th width="3%">No</th>
                                 <th width="20%">No Pengajuan</th>
-                                <th width="25%">Satuan Pendidikan</th>
-                                <th width="5%" style="text-align:center">Kelas</th>
-                                <th width="10%" style="text-align:center">Semester</th>
-                                <th width="5%">Tahun</th>
-                                <th width="20%" style="text-align:center">Status</th>
+                                <th width="15%">Satuan Pendidikan</th>
+                                <th width="5%" style="text-align:center">Kelas/Semester</th>
+                                <th width="10%">Tahun</th>
+                                <th width="10%" style="text-align:center">Remark</th>
+                                <th width="15%" style="text-align:center">Status</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
@@ -78,9 +78,9 @@
                                   <td width="25%">
                                     {{data.PROMES_SATUAN_PENDIDIKAN}}
                                   </td>
-                                  <td width="5%" style="text-align:center">{{ data.PROMES_KELAS }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.SEMESTER }}</td>
-                                  <td width="5%">{{ data.DTL_TINGKAT }} {{ data.PROMES_TAHUN_AJARAN }}</td>
+                                  <td width="5%" style="text-align:center">{{ data.DTL_TINGKAT }} {{ data.PROMES_KELAS }} / {{ data.SEMESTER }}</td>
+                                  <td width="10%" style="text-align:center"> {{ data.PROMES_TAHUN_AJARAN }}</td>
+                                  <td width="10%" style="text-align:center">{{data.PROMES_REMARK}}</td>
                                   <td style="text-align:center;color:red"><b>{{ data.STATUS }}</b></td>
                                   <td width="20%" style="text-align:center">
                                     <?php if ($menu == 1) { ?>
@@ -237,6 +237,7 @@ function send(id, status) {
 }
 
 function reject(id) {
+  var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -253,7 +254,8 @@ function reject(id) {
             "table"  : "tx_hdr_promes",
             "update" :
           	{
-          		 "PROMES_STATUS" : "3"
+          		 "PROMES_STATUS" : "3",
+               "PROMES_REMARK" : remark
           	},
              "where" :
              {
