@@ -62,7 +62,7 @@
                              </table>
                             <table cellpadding="10" id="app" class="table table-border" width="100%" style="margin-top:20px">
                               <tr>
-                                <th width="3%">No</th>
+                                <!-- <th width="3%">No</th> -->
                                 <th width="20%">No Pengajuan</th>
                                 <th width="15%">Satuan Pendidikan</th>
                                 <th width="5%" style="text-align:center">Kelas/Semester</th>
@@ -73,7 +73,7 @@
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="3%">{{ data.PROMES_ID }}</td>
+                                  <!-- <td width="3%">{{ data.PROMES_ID }}</td> -->
                                   <td>{{data.PROMES_NO_PENGAJUAN}}</td>
                                   <td width="25%">
                                     {{data.PROMES_SATUAN_PENDIDIKAN}}
@@ -87,7 +87,7 @@
                                       <button type="button" v-bind:onclick="'send(' + data.PROMES_ID +  ', ' + data.PROMES_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROMES_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'view/frame/detailPromes.php?print=1&id=' + data.PROMES_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <a target="_blank" v-bind:href="'?id=update_promes&menu=1&data=' + data.PROMES_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.PROMES_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
@@ -367,7 +367,6 @@ function approve(id) {
             "field1"  : "C.REFF_ID",
             "field2"  : "A.PROMES_SEMESTER"
           }],
-          "orderBy"   : ["PROMES_ID", "DESC"],
           "where"     : [
             ["B.REFF_TR_ID", "=", "2"],
             ["C.REFF_TR_ID", "=", "3"],

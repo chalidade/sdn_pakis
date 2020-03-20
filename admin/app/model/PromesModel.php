@@ -1,9 +1,11 @@
 <?php
 error_reporting(0);
+include "../config/connection.php";
 include "../config/setting.php";
 
-$id      = $_REQUEST['id'];
-$total   = count($_POST['DTL_TEMA']);
+$id       = $_REQUEST['id'];
+$total    = count($_POST['DTL_TEMA']);
+$promesId = $_POST["PROMES_ID"];
 
 for ($i=0; $i < $total; $i++) {
   $arrdetil .= '
@@ -79,6 +81,43 @@ switch ($id) {
                       "VALUE": ['.$arrdetil.']}}';
     break;
 
+    case 'update':
+      $delHeader = mysqli_query($mysqli, "DELETE FROM `tx_hdr_promes` WHERE `tx_hdr_promes`.`PROMES_ID`  = '$promesId'");
+      $delDetail = mysqli_query($mysqli, "DELETE FROM `tx_dtl_promes` WHERE `tx_dtl_promes`.`DTL_HDR_ID` = '$promesId'");
+
+      $page      = "data_promes";
+      $json      = '{
+                    "action": "saveheaderdetail",
+                    "data": [
+                        "HEADER",
+                        "DETAIL"
+                    ],
+                    "HEADER": {
+                        "DB": "'.$databaseApi.'",
+                        "TABLE": "tx_hdr_promes",
+                        "PK": "PROMES_ID",
+                        "VALUE": [
+                            {
+                              "PROMES_ID"                : "'.$_POST["PROMES_ID"].'",
+                              "PROMES_SATUAN_PENDIDIKAN" : "'.$_POST["PROMES_SATUAN_PENDIDIKAN"].'",
+                              "PROMES_NO_PENGAJUAN"      : "'.$_POST["PROMES_NO_PENGAJUAN"].'",
+                              "PROMES_TAHUN_AJARAN"      : "'.$_POST["PROMES_TAHUN_AJARAN"].'",
+                              "PROMES_KELAS"             : "'.$_POST["PROMES_KELAS"].'",
+                              "PROMES_SEMESTER"          : "'.$_POST["PROMES_SEMESTER"].'",
+                              "PROMES_USER_ID"           : "'.$_POST["PROMES_USER_ID"].'",
+                              "PROMES_TGL_UPDATE"        : "'.$_POST["PROMES_TGL_UPDATE"].'"
+                            }
+                        ]
+                    },
+                    "DETAIL": {
+                        "DB": "sdnpakis",
+                        "TABLE": "tx_dtl_promes",
+                        "FK": [
+                            "DTL_HDR_ID",
+                            "PROMES_ID"
+                        ],
+                        "VALUE": ['.$arrdetil.']}}';
+      break;
   default:
     $json = array(
       "ERROR" => "No Format JSON FOUND"

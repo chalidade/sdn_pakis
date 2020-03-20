@@ -73,7 +73,7 @@ if (!empty($_REQUEST["print"])) {
           <td><center><img src="../../resource/public/tick.png" width="15px" v-if="data.DTL_ABSENSI == 1"></center></td>
           <td><center><img src="../../resource/public/tick.png" width="15px" v-if="data.DTL_ABSENSI == 2"></center></td>
           <td><center><img src="../../resource/public/tick.png" width="15px" v-if="data.DTL_ABSENSI == 3"></center></td>
-          <td></td>
+          <td>{{data.DTL_KETERANGAN}}</td>
         </tr>
       </template>
     </form>
