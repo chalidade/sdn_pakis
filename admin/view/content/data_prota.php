@@ -204,7 +204,8 @@ function send(id, status) {
       })
 
       alert("Pengajuan Dikirim");
-      window.location = "<?php echo $urlProta; ?>0&menu=1";
+      window.setTimeout(function(){
+      window.location = "<?php echo $urlProta; ?>0&menu=1"}, 1000);
   } else {
     alert("Pengajuan Sudah Pernah Dikirim");
   }
@@ -240,7 +241,8 @@ function reject(id) {
     })
 
     alert("Pengajuan Ditolak");
-    window.location = "<?php echo $urlProta; ?>0&menu=2";
+    window.setTimeout(function(){
+    window.location = "<?php echo $urlProta; ?>0&menu=2"}, 1000);
 }
 
 function approve(id) {
@@ -271,14 +273,17 @@ function approve(id) {
     })
 
     alert("Pengajuan Diterima");
-    window.location = "<?php echo $urlProta; ?>0&menu=2";
+    window.setTimeout(function(){
+    window.location = "<?php echo $urlProta; ?>0&menu=2"}, 1000);
 }
 
   var menu    = <?php echo $menu; ?>;
   var start   = <?php echo $start; ?>;
-  var url = "<?php echo $urlApi; ?>";
+  var url     = "<?php echo $urlApi; ?>";
+  var userId  =  <?php echo $uid; ?>;
+  var role    =  <?php echo $role; ?>;
 
-  if (menu == 1) {
+  if (menu == 1 && role != 2) {
   new Vue({
       el: '#app',
       data () {
@@ -308,7 +313,38 @@ function approve(id) {
         .then(response => (this.info = response["data"]["result"]))
       }
     })
-    } else {
+  } else if (menu == 1 && role == 2) {
+    new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+          .post(url+'/index', {
+                "action"    : "list",
+                "db"        : "sdnpakis",
+                "table"     : "tx_hdr_prota as A",
+                "innerJoin" : [{
+                  "table"   : "tm_reff as B",
+                  "field1"  : "B.REFF_ID",
+                  "field2"  : "A.PROTA_STATUS"
+                }],
+                "where"     : [
+                  ["B.REFF_TR_ID", "=", "2"],
+                  ["A.PROTA_USER_ID", "=", userId]
+                ],
+                "orderBy" : ["PROTA_ID", "DESC"],
+                "selectraw" : "A.*, B.REFF_NAME as STATUS",
+                "start": start,
+                "limit": 25
+            })
+          .then(response => (this.info = response["data"]["result"]))
+        }
+      })
+  } else {
       new Vue({
           el: '#app',
           data () {

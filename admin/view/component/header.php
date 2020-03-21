@@ -7,6 +7,8 @@ include "app/config/setting.php";
 include "app/config/connection.php";
 $session     = json_decode($_SESSION['USER'], TRUE);
 $file        = $_REQUEST['id'].".php";
+$uid         = $session["USER_ID"];
+$role        = $session["USER_ROLE"];
 
 if ($session["USER_ROLE"] == 1) {
   $userId = $session["USER_ID"];
