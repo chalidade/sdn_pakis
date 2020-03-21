@@ -230,7 +230,8 @@ function send(id, status) {
       })
 
       alert("Pengajuan Dikirim");
-      window.location = "<?php echo $urlPromes; ?>0&menu=1";
+      window.setTimeout(function(){
+      window.location = "<?php echo $urlPromes; ?>0&menu=1"}, 1000);
   } else {
     alert("Pengajuan Sudah Pernah Dikirim");
   }
@@ -266,7 +267,8 @@ function reject(id) {
     })
 
     alert("Pengajuan Ditolak");
-    window.location = "<?php echo $urlPromes; ?>0&menu=2";
+    window.setTimeout(function(){
+    window.location = "<?php echo $urlPromes; ?>0&menu=2"}, 1000);
 }
 
 function approve(id) {
@@ -297,7 +299,8 @@ function approve(id) {
     })
 
     alert("Pengajuan Diterima");
-    window.location = "<?php echo $urlPromes; ?>0&menu=2";
+    window.setTimeout(function(){
+    window.location = "<?php echo $urlPromes; ?>0&menu=2"}, 1000);
 }
 
 
