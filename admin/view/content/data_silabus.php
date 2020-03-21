@@ -58,7 +58,7 @@
                                       <button type="button" v-bind:onclick="'send(' + data.SILABUS_HDR_ID +  ', ' + data.SILABUS_HDR_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.SILABUS_HDR_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'view/frame/detailSilabus.php?print=1&id=' + data.SILABUS_HDR_ID"  class="btn btn-warning option"><i class="fa fa-print"></i></a>
+                                    <a target="_blank" v-bind:href="'?id=update_silabus&menu=1&data=' + data.SILABUS_HDR_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.SILABUS_HDR_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
