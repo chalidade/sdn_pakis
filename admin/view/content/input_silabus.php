@@ -34,7 +34,7 @@
                         <td width="15%"><b>Satuan Pendidikan<b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="SILABUS_HDR_SATUAN_PENDIDIKAN" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="SILABUS_HDR_SATUAN_PENDIDIKAN" value="">
                           <input type="hidden" class="form-control border-bottom-only" name="SILABUS_HDR_NO_PENGAJUAN" value="SILABUS<?php echo date('my').$lastId; ?>">
                         </td>
                       </tr>
@@ -42,7 +42,7 @@
                         <td width="15%"><b>Kelas</b></td>
                         <td width="2%">:</td>
                         <td>
-                          <input type="text" class="form-control border-bottom-only" name="SILABUS_HDR_KELAS" value="">
+                          <input type="text" required class="form-control border-bottom-only" name="SILABUS_HDR_KELAS" value="">
                         </td>
                       </tr>
                       <tr>
@@ -112,13 +112,13 @@
     $("#rmrowthis"+btnid).remove();
     $("#tableSemester"+btnid).append(
         "<tr class='protasem"+btnid+"' id='protarow"+total_element+"'>"+
-        "<td width='15%'><input type='text' name='SILABUS_DTL_MUATAN_PELAJARAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='15%'><input type='text' name='SILABUS_DTL_KOMPETENSI_DASAR[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='15%'><input type='text' name='SILABUS_DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='15%'><input type='text' name='SILABUS_DTL_PEMBELAJARAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='12%'><input type='text' name='SILABUS_DTL_PENLAIAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='11%'><input type='text' name='SILABUS_DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='12%'><input type='text' name='SILABUS_DTL_SUMBER_BELAJAR[]' style='width:100%;border:none;text-align:center'></input><input type='hidden' name='SILABUS_DTL_UPDATE_BY' value='<?php echo $userId; ?>'></input></td>"+
+        "<td width='15%'><input type='text' required name='SILABUS_DTL_MUATAN_PELAJARAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' required name='SILABUS_DTL_KOMPETENSI_DASAR[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' required name='SILABUS_DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='15%'><input type='text' required name='SILABUS_DTL_PEMBELAJARAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='12%'><input type='text' required name='SILABUS_DTL_PENLAIAN[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='11%'><input type='text' required name='SILABUS_DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='12%'><input type='text' required name='SILABUS_DTL_SUMBER_BELAJAR[]' style='width:100%;border:none;text-align:center'></input><input type='hidden' name='SILABUS_DTL_UPDATE_BY' value='<?php echo $userId; ?>'></input></td>"+
         "<td width='5%'><button type='button' class='btn btn-danger remove' id='"+total_element+"' name='button' style='width:100%;border-radius:0px;height:30px'><i class='fa fa-trash'></i></button></td>"+
         "</tr>"
       );
