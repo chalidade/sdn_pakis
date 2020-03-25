@@ -36,7 +36,8 @@
                         <td width="2%">:</td>
                         <td>
                           <input required type="text" required class="form-control border-bottom-only" name="SILABUS_HDR_SATUAN_PENDIDIKAN" value="<?php echo $hdrSilabus["SILABUS_HDR_SATUAN_PENDIDIKAN"]; ?>">
-                          <input type="hidden" class="form-control border-bottom-only" name="SILABUS_HDR_NO_PENGAJUAN" value="<?php echo $hdrSilabus["SILABUS_HDR_NO_PENGAJUAN"]; ?>">
+                          <input type="hidden" name="SILABUS_HDR_NO_PENGAJUAN" value="<?php echo $hdrSilabus["SILABUS_HDR_NO_PENGAJUAN"]; ?>">
+                          <input type="hidden" name="SILABUS_HDR_ID" value="<?php echo $hdrSilabus["SILABUS_HDR_ID"]; ?>">
                         </td>
                       </tr>
                       <tr>
