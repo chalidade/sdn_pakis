@@ -38,61 +38,61 @@ if (!empty($_REQUEST["print"])) {
     <br>
     <table width="100%" id="myTable" class="table order-list">
       <tr>
-        <td width="10%"><b>Satuan Pendidikan<b></td>
+        <td width="15%"><b>Satuan Pendidikan<b></td>
         <td width="2%">:</td>
         <td> {{header[0].RPP_HDR_SATUAN_PENDIDIKAN}} </td>
       </tr>
       <tr>
-        <td width="10%"><b>Muatan Terpadu</b></td>
+        <td width="15%"><b>Muatan Terpadu</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_MUATAN_TERPADU}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Kelas</b></td>
+        <td width="15%"><b>Kelas</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_KELAS}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Semester</b></td>
+        <td width="15%"><b>Semester</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_SEMESTER}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Tema</b></td>
+        <td width="15%"><b>Tema</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_TEMA}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Sub Tema</b></td>
+        <td width="15%"><b>Sub Tema</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_SUB_TEMA}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Pembelajaran</b></td>
+        <td width="15%"><b>Pembelajaran</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_PEMBELAJARAN}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Materi Pokok</b></td>
+        <td width="15%"><b>Materi Pokok</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_MATERI_POKOK}}
         </td>
       </tr>
       <tr>
-        <td width="10%"><b>Alokasi Waktu</b></td>
+        <td width="15%"><b>Alokasi Waktu</b></td>
         <td width="2%">:</td>
         <td>
           {{header[0].RPP_HDR_ALOKASI_WAKTU}}

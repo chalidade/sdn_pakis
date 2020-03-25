@@ -52,7 +52,7 @@
                         <td width="2%">:</td>
                         <td>
                           <select required class="form-control" name="SILABUS_HDR_SEMESTER" id="SEMESTER">
-                              <?php if ($hdrSilabus[""] == '1') { ?>
+                              <?php if ($hdrSilabus["SILABUS_HDR_SEMESTER"] == '1') { ?>
                                 <option value="1">Semester Ganjil</option>
                                 <option value="2">Semester Genap</option>
                               <?php } else { ?>

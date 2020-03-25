@@ -37,8 +37,8 @@
                               <tr>
                                 <th width="6%">No</th>
                                 <th width="15%">No Pengajuan</th>
-                                <th width="15%">Nama Sekolah</th>
-                                <th width="20%">Staff</th>
+                                <th width="20%">Nama Sekolah</th>
+                                <th width="15%">Staff</th>
                                 <th>Remark</th>
                                 <th width="15%" style="text-align:center">Status</th>
                                 <th width="15%" style="text-align:center">Option</th>
@@ -56,7 +56,7 @@
                                       <button type="button" v-bind:onclick="'send(' + data.SARPRAS__HDR_ID +  ', ' + data.SARPRAS_HDR_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.SARPRAS__HDR_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'?id=update_inventaris&menu=1&data=' + data.SARPRAS__HDR_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
+                                    <a v-bind:href="'?id=update_inventaris&menu=1&data=' + data.SARPRAS__HDR_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.SARPRAS__HDR_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">
@@ -97,7 +97,7 @@
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="7">
+                                <td colspan="6">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;

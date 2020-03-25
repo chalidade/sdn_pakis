@@ -1,8 +1,10 @@
 <?php
 error_reporting(0);
+include "../config/connection.php";
 include "../config/setting.php";
 
 $id      = $_REQUEST['id'];
+$rppId   = $_POST["RPP_HDR_ID"];
 
 $arrdetil .= '
           {
@@ -58,6 +60,48 @@ switch ($id) {
                       ],
                       "VALUE": ['.$arrdetil.']}}';
     break;
+
+    case 'update':
+      $delHeader = mysqli_query($mysqli, "DELETE FROM `tx_hdr_rpp` WHERE `tx_hdr_rpp`.`RPP_HDR_ID`  = '$rppId'");
+      $delDetail = mysqli_query($mysqli, "DELETE FROM `tx_dtl_rpp` WHERE `tx_dtl_rpp`.`RPP_HDR_ID` = '$rppId'");
+
+      $page      = "data_rpp";
+      $json      = '{
+                    "action": "saveheaderdetail",
+                    "data": [
+                        "HEADER",
+                        "DETAIL"
+                    ],
+                    "HEADER": {
+                        "DB": "'.$databaseApi.'",
+                        "TABLE": "tx_hdr_rpp",
+                        "PK": "RPP_HDR_ID",
+                        "VALUE": [
+                            {
+                              "RPP_HDR_ID"                : "'.$_POST["RPP_HDR_ID"].'",
+                              "RPP_HDR_SATUAN_PENDIDIKAN" : "'.$_POST["RPP_HDR_SATUAN_PENDIDIKAN"].'",
+                              "RPP_HDR_MUATAN_TERPADU"    : "'.$_POST["RPP_HDR_MUATAN_TERPADU"].'",
+                              "RPP_HDR_KELAS"             : "'.$_POST["RPP_HDR_KELAS"].'",
+                              "RPP_HDR_NO_PENGAJUAN"      : "'.$_POST["RPP_HDR_NO_PENGAJUAN"].'",
+                              "RPP_HDR_SEMESTER"          : "'.$_POST["RPP_HDR_SEMESTER"].'",
+                              "RPP_HDR_TEMA"              : "'.$_POST["RPP_HDR_TEMA"].'",
+                              "RPP_HDR_SUB_TEMA"          : "'.$_POST["RPP_HDR_SUB_TEMA"].'",
+                              "RPP_HDR_PEMBELAJARAN"      : "'.$_POST["RPP_HDR_PEMBELAJARAN"].'",
+                              "RPP_HDR_MATERI_POKOK"      : "'.$_POST["RPP_HDR_MATERI_POKOK"].'",
+                              "RPP_HDR_ALOKASI_WAKTU"     : "'.$_POST["RPP_HDR_ALOKASI_WAKTU"].'",
+                              "RPP_HDR_UPDATE_BY"         : "'.$_POST["RPP_HDR_UPDATE_BY"].'"
+                            }
+                        ]
+                    },
+                    "DETAIL": {
+                        "DB": "sdnpakis",
+                        "TABLE": "tx_dtl_rpp",
+                        "FK": [
+                            "RPP_HDR_ID",
+                            "RPP_HDR_ID"
+                        ],
+                        "VALUE": ['.$arrdetil.']}}';
+      break;
 
   default:
     $json = array(
