@@ -61,7 +61,7 @@
                                       <button type="button" v-bind:onclick="'send(' + data.PROTA_ID +  ', ' + data.PROTA_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PROTA_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                    <a target="_blank" v-bind:href="'?id=update_prota&menu=1&data=' + data.PROTA_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
+                                    <a v-bind:href="'?id=update_prota&menu=1&data=' + data.PROTA_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.PROTA_ID">
                                       <div class="modal-dialog" style="width:80%">
                                         <div class="modal-content">

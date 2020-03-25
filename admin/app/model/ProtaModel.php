@@ -1,9 +1,11 @@
 <?php
 error_reporting(0);
+include "../config/connection.php";
 include "../config/setting.php";
 
 $id      = $_REQUEST['id'];
 $total   = count($_POST['DTL_SEMESTER']);
+$protaId = $_POST["PROTA_ID"];
 
 for ($i=0; $i < $total; $i++) {
   $arrdetil .= '
@@ -22,7 +24,6 @@ $arrdetil = substr($arrdetil, 0,-1);
 
 switch ($id) {
   case 'insert':
-    $imageName = "DTL_PHOTO";
     $page      = "data_prota";
     $json      = '{
                   "action": "saveheaderdetail",
@@ -54,6 +55,42 @@ switch ($id) {
                       ],
                       "VALUE": ['.$arrdetil.']}}';
     break;
+
+    case 'update':
+      $delHeader = mysqli_query($mysqli, "DELETE FROM `tx_hdr_prota` WHERE `tx_hdr_prota`.`PROTA_ID`  = '$protaId'");
+      $delDetail = mysqli_query($mysqli, "DELETE FROM `tx_dtl_prota` WHERE `tx_dtl_prota`.`DTL_HDR_ID` = '$protaId'");
+
+      $page      = "data_prota";
+      $json      = '{
+                    "action": "saveheaderdetail",
+                    "data": [
+                        "HEADER",
+                        "DETAIL"
+                    ],
+                    "HEADER": {
+                        "DB": "'.$databaseApi.'",
+                        "TABLE": "tx_hdr_prota",
+                        "PK": "PROTA_ID",
+                        "VALUE": [
+                            {
+                              "PROTA_ID" : "",
+                              "PROTA_NO_PENGAJUAN" : "'.$_POST["PROTA_NO_PENGAJUAN"].'",
+                              "PROTA_SATUAN_AJAR" : "'.$_POST["PROTA_SATUAN_AJAR"].'",
+                              "PROTA_TAHUN_AJAR" : "'.$_POST["PROTA_TAHUN_AJAR"].'",
+                              "PROTA_KELAS" : "'.$_POST["PROTA_KELAS"].'",
+                              "PROTA_USER_ID" : "'.$_POST["PROTA_USER_ID"].'"
+                            }
+                        ]
+                    },
+                    "DETAIL": {
+                        "DB": "sdnpakis",
+                        "TABLE": "tx_dtl_prota",
+                        "FK": [
+                            "DTL_HDR_ID",
+                            "PROTA_ID"
+                        ],
+                        "VALUE": ['.$arrdetil.']}}';
+      break;
 
   default:
     $json = array(
