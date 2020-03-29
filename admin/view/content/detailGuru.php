@@ -30,7 +30,7 @@ if (!empty($_REQUEST["print"])) {
  <body style="padding:10px;height:500px">
    <center>
     <div id="app" style="width:100%" class="Section1">
-    <form action="../../app/model/SiswaModel.php?id=update" method="post" enctype="multipart/form-data">
+    <form action="../../app/model/GuruModel.php?id=update" method="post" enctype="multipart/form-data">
     <table width="100%">
       <tr>
         <td width="50%" style="font-weight:800;vertical-align:top">
@@ -64,22 +64,19 @@ if (!empty($_REQUEST["print"])) {
       <tr>
         <td width="60%">
         <p><font style="font-weight:800">NIP</font> : <br>
-        <input type="text" name="DTL_AYAH" v-bind:value="data[0].DTL_AYAH" style="border:none">
+        <input type="text" name="USER_NIP" v-bind:value="data[0].USER_NIP" style="border:none">
         <input type="hidden" name="USER_ID" v-bind:value="data[0].USER_ID" style="border:none"></p>
-        <p><font style="font-weight:800">Nama Ibu </font>: <br><input type="text" name="DTL_IBU" v-bind:value="data[0].DTL_IBU" style="border:none"></p>
-        <p><font style="font-weight:800">No Telpon</font> : <br><input type="text" name="DTL_PHONE" v-bind:value="data[0].DTL_PHONE" style="border:none"></p>
+        <p><font style="font-weight:800">NUPTK</font> : <br><input type="text" name="DTL_NUPTK" v-bind:value="data[0].DTL_NUPTK" style="border:none"></p>
+        <p><font style="font-weight:800">Jabatan </font>: <br><input type="text" name="DTL_JABATAN" v-bind:value="data[0].DTL_JABATAN" style="border:none"></p>
+        <p><font style="font-weight:800">Status</font> : <br><input type="text" name="DTL_STATUS" v-bind:value="data[0].DTL_STATUS" style="border:none"><input type="hidden" name="USER_ROLE" value="2"></p>
+        <p><font style="font-weight:800">Golongan</font> : <br><input type="text" name="DTL_GOL" v-bind:value="data[0].DTL_GOL" style="border:none"></p>
       </td>
       <td width="40%" >
-        <p><font style="font-weight:800">Status</font> : <br><input type="text" v-bind:value="data[0].REFF_NAME" style="border:none"><input type="hidden" name="USER_ROLE" value="0"></p>
-        <p><font style="font-weight:800">Kelas</font> : <br>
-        <table>
-            <tr>
-                <td><input type="text" name="DTL_TINGKAT" v-bind:value="data[0].DTL_TINGKAT" style="border:none;width: 15%;text-align:center"></td>
-                <td><input type="text" name="DTL_KELAS" v-bind:value="data[0].DTL_KELAS" style="border:none"></td>
-            </tr>
-        </table>
-        </p>
-        <p><font style="font-weight:800">Nis</font> : <br><input type="text" name="DTL_NIS" v-bind:value="data[0].DTL_NIS" style="border:none"></p>
+        <p><font style="font-weight:800">Pendidikan Terakhir</font> : <br><input type="text" name="DTL_IJAZAH" v-bind:value="data[0].DTL_IJAZAH" style="border:none"></p>
+        <p><font style="font-weight:800">Tahun Lulus</font> : <br><input type="text" name="DTL_IJAZAH_TAHUN" v-bind:value="data[0].DTL_IJAZAH_TAHUN" style="border:none"></p>
+        <p><font style="font-weight:800">Prodi / Jurusan</font> : <br><input type="text" name="DTL_IJAZAH_JURUSAN" v-bind:value="data[0].DTL_IJAZAH_JURUSAN" style="border:none"></p>
+        <p><font style="font-weight:800">Tanggal Mulai Mengajar</font> : <br><input type="text" name="DTL_TANGGAL_MULAI" v-bind:value="data[0].DTL_TANGGAL_MULAI" style="border:none"></p>
+        <p><font style="font-weight:800">Nomor Telpon</font> : <br><input type="text" name="DTL_TELPON" v-bind:value="data[0].DTL_TELPON" style="border:none"></p>
       </td>
       </tr>
       </table>
@@ -114,7 +111,7 @@ if (!empty($_REQUEST["print"])) {
               "table": "tx_hdr_user as A",
               "innerJoin": [
                   {
-                      "table": "tx_dtl_user_siswa as B",
+                      "table": "tx_dtl_user_guru as B",
                       "field1": "A.USER_ID",
                       "field2": "B.DTL_HDR_ID"
                   },
@@ -126,12 +123,7 @@ if (!empty($_REQUEST["print"])) {
               ],
               "where": [
                   [
-                      "A.USER_ROLE",
-                      "=",
-                      "1"
-                  ],
-                  [
-                      "C.REFF_ID",
+                      "C.REFF_TR_ID",
                       "=",
                       "1"
                   ],

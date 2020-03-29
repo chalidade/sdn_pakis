@@ -70,7 +70,7 @@ if (!empty($_REQUEST["print"])) {
         <p><font style="font-weight:800">No Telpon</font> : <br><input type="text" name="DTL_PHONE" v-bind:value="data[0].DTL_PHONE" style="border:none"></p>
       </td>
       <td width="40%" >
-        <p><font style="font-weight:800">Status</font> : <br><input type="text" v-bind:value="data[0].REFF_NAME" style="border:none"><input type="hidden" name="USER_ROLE" value="0"></p>
+        <p><font style="font-weight:800">Status</font> : <br><input type="text" v-bind:value="data[0].REFF_NAME" style="border:none"><input type="hidden" name="USER_ROLE" value="1"></p>
         <p><font style="font-weight:800">Kelas</font> : <br>
         <table>
             <tr>
