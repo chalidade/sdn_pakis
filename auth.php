@@ -12,14 +12,23 @@ if (empty($id)) {
 
   $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_user` WHERE `USER_EMAIL` like '%$email%'");
   $dataUser           = json_encode(mysqli_fetch_assoc($query));
+  $decodeUser         = json_decode($dataUser, TRUE);
 
-  if (!empty($dataUser)) {
+  if (empty($decodeUser["USER_PASSWORD"])) {
+    $passwordDB       = "123456";
+    $passwordDB       = base64_encode(md5(sha1($passwordDB)));
+  } else {
+    $passwordDB       = base64_encode(md5(sha1($decodeUser["USER_PASSWORD"])));
+  }
+
+
+  if (!empty($dataUser) AND $password == $passwordDB) {
     $_SESSION["USER"] = $dataUser;
     $expired          = base64_encode(date('H:i:s', strtotime('+8 hour')));
     $updateToken      = mysqli_query($mysqli, "UPDATE `tx_hdr_user` SET `USER_TOKEN` = '$expired' WHERE `tx_hdr_user`.`USER_EMAIL` = '$email'");
     echo "<script type='text/javascript'> window.location.href = 'admin/index.php?id=home'; </script>";
   } else {
-    echo "<script type='text/javascript'> window.location.href = 'login.php'; </script>";
+    echo "<script type='text/javascript'>alert('Username atau Password Salah'); window.location.href = 'login.php'; </script>";
   }
 
 } else {

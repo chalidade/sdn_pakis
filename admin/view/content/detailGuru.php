@@ -63,7 +63,7 @@ if (!empty($_REQUEST["print"])) {
     <table width="100%">
       <tr>
         <td width="60%">
-        <p><font style="font-weight:800">Nama Ayah</font> : <br>
+        <p><font style="font-weight:800">NIP</font> : <br>
         <input type="text" name="DTL_AYAH" v-bind:value="data[0].DTL_AYAH" style="border:none">
         <input type="hidden" name="USER_ID" v-bind:value="data[0].USER_ID" style="border:none"></p>
         <p><font style="font-weight:800">Nama Ibu </font>: <br><input type="text" name="DTL_IBU" v-bind:value="data[0].DTL_IBU" style="border:none"></p>
