@@ -102,10 +102,10 @@
                                       <input type="input" id="title" class="form-control" name="MEMBACA_SISWA" value="">
                                     <?php } ?>
                                   </label>
-                                  <label for="title" style="width:100%">
+                                  <!-- <label for="title" style="width:100%">
                                     Nama Guru
                                     <input type="input" id="title" class="form-control" name="MEMBACA_GURU" value="">
-                                  </label>
+                                  </label> -->
                                   <label for="title" style="width:100%">
                                     Judul
                                     <input type="text" id="title" class="form-control" name="MEMBACA_JUDUL" value="">
@@ -127,7 +127,7 @@
                                     <textarea type="text" id="desc" class="form-control" name="MEMBACA_RANGKUMAN" style="height:150px"></textarea>
                                   </label>
                                   <label for="desc" style="width:100%">
-                                    Saran
+                                    Pesan Moral
                                     <textarea type="text" id="desc" class="form-control" name="MEMBACA_SARAN" style="height:150px"></textarea>
                                   </label>
                               </div>
