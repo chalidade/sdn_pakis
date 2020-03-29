@@ -66,6 +66,74 @@ switch ($id) {
 
     break;
 
+    case 'update':
+      $userId    = $_POST["USER_ID"];
+      $imageName = "USER_PHOTO";
+      if (!empty($_FILES[$imageName]["name"])) {
+        $photo = date("d_m_Y")."_".basename($_FILES[$imageName]["name"]);
+      } else {
+        $photo = $_POST["USER_PHOTO_BACKUP"];
+      }
+
+      $page  = "detailSiswa.php?id=$userId";
+      $modal = "true";
+      $json = array (
+        'action' => 'saveheaderdetail',
+        'data' =>
+        array (
+        'HEADER','DETAIL'
+        ),
+        'HEADER' =>
+        array (
+          'DB' => $databaseApi,
+          'TABLE' => 'tx_hdr_user',
+          'PK' => 'USER_ID',
+          'VALUE' =>
+          array (
+            array (
+              "USER_ID"         => $userId,
+              'USER_NAME'       => $_POST["USER_NAME"],
+              'USER_EMAIL'      => $_POST["USER_EMAIL"],
+              'USER_ADDRESS'    => $_POST["USER_ADDRESS"],
+              'USER_ROLE'       => '1',
+              'USER_PASSWORD'   => $_POST["DTL_NIS"],
+              'USER_BIRTHDATE'  => $_POST["USER_BIRTHDAY"],
+              'USER_BIRTHPLACE' => $_POST["USER_BIRTHPLACE"],
+              'USER_NIP'        => '',
+              'USER_TOKEN'      => '',
+              'USER_STATUS'     => '',
+              'USER_ACTIVITY'   => '',
+              'USER_PHOTO'      => $photo
+            ),
+          ),
+        ),
+        'DETAIL' =>
+        array (
+          'DB' => 'sdnpakis',
+          'TABLE' => 'tx_dtl_user_siswa',
+          'FK' =>
+          array (
+            'DTL_HDR_ID',
+            'USER_ID',
+          ),
+          'VALUE' =>
+          array (
+            array (
+              'DTL_TINGKAT'  => $_POST["DTL_TINGKAT"],
+              'DTL_KELAS'    => $_POST["DTL_KELAS"],
+              'DTL_AYAH'     => $_POST["DTL_AYAH"],
+              'DTL_IBU'      => $_POST["DTL_IBU"],
+              'DTL_PRESTASI' => '',
+              'DTL_NIS'      => $_POST["DTL_NIS"]
+            ),
+          ),
+        ),
+      );
+
+      if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "User");
+
+      break;
+
   default:
     $json = array(
       "ERROR" => "No Format JSON FOUND"

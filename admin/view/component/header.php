@@ -91,7 +91,7 @@ desired effect
           <div class="table-responsive">
             <?php
             if ($session["USER_ROLE"] == 1) {
-              echo '<iframe src="view/frame/detailSiswa.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
+              echo '<iframe src="view/content/detailSiswa.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
             } ?>
           </div>
         </div>

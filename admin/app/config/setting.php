@@ -3,6 +3,7 @@
 $urlAssets      = "assets/dist/img/";
 $urlApi         = "http://localhost/uapi";
 $urlAdmin       = "http://localhost/sdn_pakis_baru/admin/index.php";
+$urlModal       = "http://localhost/sdn_pakis_baru/admin/view/content";
 $urlPageBerita  = "http://localhost/sdn_pakis_baru/admin/index.php?id=berita&start=";
 $urlPageRpp     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
 $urlProta       = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_prota&start=";

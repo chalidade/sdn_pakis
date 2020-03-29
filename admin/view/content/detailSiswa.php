@@ -35,7 +35,7 @@ if (!empty($_REQUEST["print"])) {
       <tr>
         <td width="50%" style="font-weight:800;vertical-align:top">
           <p>Nama Lengkap : <br><input type="text" name="USER_NAME" v-bind:value="data[0].USER_NAME" style="border:none"></p>
-          <p>Alamat : <br><input type="text" name="USER_ALAMAT" v-bind:value="data[0].USER_ALAMAT" style="border:none"></p>
+          <p>Alamat : <br><input type="text" name="USER_ADDRESS" v-bind:value="data[0].USER_ADDRESS" style="border:none"></p>
           <p>Tempat, Tanggal Lahir : <br>
             <table>
               <tr>
@@ -63,7 +63,9 @@ if (!empty($_REQUEST["print"])) {
     <table width="100%">
       <tr>
         <td width="60%">
-        <p><font style="font-weight:800">Nama Ayah</font> : <br><input type="text" name="DTL_AYAH" v-bind:value="data[0].DTL_AYAH" style="border:none"></p>
+        <p><font style="font-weight:800">Nama Ayah</font> : <br>
+        <input type="text" name="DTL_AYAH" v-bind:value="data[0].DTL_AYAH" style="border:none">
+        <input type="hidden" name="USER_ID" v-bind:value="data[0].USER_ID" style="border:none"></p>
         <p><font style="font-weight:800">Nama Ibu </font>: <br><input type="text" name="DTL_IBU" v-bind:value="data[0].DTL_IBU" style="border:none"></p>
         <p><font style="font-weight:800">No Telpon</font> : <br><input type="text" name="DTL_PHONE" v-bind:value="data[0].DTL_PHONE" style="border:none"></p>
       </td>
