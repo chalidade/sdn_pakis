@@ -30,7 +30,7 @@ if (!empty($_REQUEST["print"])) {
  <body style="padding:10px;height:500px">
    <center>
     <div id="app" style="width:100%" class="Section1">
-    <form action="../../app/model/SiswaModel.php?id=insert" method="post" enctype="multipart/form-data">
+    <form action="../../app/model/SiswaModel.php?id=update" method="post" enctype="multipart/form-data">
     <table width="100%">
       <tr>
         <td width="50%" style="font-weight:800;vertical-align:top">
@@ -69,7 +69,14 @@ if (!empty($_REQUEST["print"])) {
       </td>
       <td width="40%" >
         <p><font style="font-weight:800">Status</font> : <br><input type="text" v-bind:value="data[0].REFF_NAME" style="border:none"><input type="hidden" name="USER_ROLE" value="0"></p>
-        <p><font style="font-weight:800">Kelas</font> : <br><input type="text" name="DTL_KELAS" v-bind:value="data[0].DTL_KELAS" style="border:none"></p>
+        <p><font style="font-weight:800">Kelas</font> : <br>
+        <table>
+            <tr>
+                <td><input type="text" name="DTL_TINGKAT" v-bind:value="data[0].DTL_TINGKAT" style="border:none;width: 15%;text-align:center"></td>
+                <td><input type="text" name="DTL_KELAS" v-bind:value="data[0].DTL_KELAS" style="border:none"></td>
+            </tr>
+        </table>
+        </p>
         <p><font style="font-weight:800">Nis</font> : <br><input type="text" name="DTL_NIS" v-bind:value="data[0].DTL_NIS" style="border:none"></p>
       </td>
       </tr>
@@ -88,7 +95,7 @@ if (!empty($_REQUEST["print"])) {
   </body>
 
   <script type="text/javascript">
-  var url = "<?php echo $urlApi; ?>";
+  var url   = "<?php echo $urlApi; ?>";
   var id  = "<?php echo $id; ?>";
     new Vue({
         el: '#app',
