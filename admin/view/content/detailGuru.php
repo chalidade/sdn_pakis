@@ -30,7 +30,11 @@ if (!empty($_REQUEST["print"])) {
  <body style="padding:10px;height:500px">
    <center>
     <div id="app" style="width:100%" class="Section1">
-    <form action="../../app/model/GuruModel.php?id=update" method="post" enctype="multipart/form-data">
+      <?php if ($session["USER_ROLE"] == 2) { ?>
+        <form action="../../app/model/GuruModel.php?id=update" method="post" enctype="multipart/form-data">
+      <?php } else { ?>
+        <form action="../../app/model/GuruModel.php?id=update&ext=true" method="post" enctype="multipart/form-data">
+      <?php } ?>
     <table width="100%">
       <tr>
         <td width="50%" style="font-weight:800;vertical-align:top">

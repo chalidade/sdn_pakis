@@ -10,7 +10,12 @@ if (empty($id)) {
   $email              = $_POST['email'];
   $password           = base64_encode(md5(sha1($_POST['password'])));
 
-  $query              = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_user` WHERE `USER_EMAIL` like '%$email%'");
+  if (is_numeric($email)) {
+    $query            = mysqli_query($mysqli, "SELECT * FROM `tx_dtl_user_siswa` as A INNER JOIN `tx_hdr_user` as B ON B.`USER_ID` = A.`DTL_HDR_ID` WHERE A.`DTL_NIS` like '%$email%'");
+  } else {
+    $query            = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_user` WHERE `USER_EMAIL` like '%$email%'");
+  }
+
   $dataUser           = json_encode(mysqli_fetch_assoc($query));
   $decodeUser         = json_decode($dataUser, TRUE);
 

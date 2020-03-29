@@ -14,7 +14,7 @@
 		<form action="auth.php" method="post">
 			<h1>Sign in</h1>
 			<span style="margin: 10px;">Use your account</span>
-			<input type="email" name="email" placeholder="Email" />
+			<input type="text" name="email" placeholder="Email / NIS" />
 			<input type="password" name="password" placeholder="Password" />
 			<button type="submit" style="margin: 10px;">Sign In</button>
 		</form>
