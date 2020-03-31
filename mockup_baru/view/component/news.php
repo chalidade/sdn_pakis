@@ -1,4 +1,4 @@
-<div class="site-section">
+<div class="">
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-12" data-aos="fade">
