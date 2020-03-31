@@ -68,8 +68,5 @@
 <script src="public/js/jquery.animateNumber.min.js"></script>
 <script src="public/js/aos.js"></script>
 <script src="public/js/main.js"></script>
-
-<?php include "jsFooter.php"; ?>
-
 </body>
 </html>

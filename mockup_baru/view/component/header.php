@@ -1,3 +1,7 @@
+<?php
+// error_reporting(0);
+include "../admin/app/config/setting.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

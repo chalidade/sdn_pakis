@@ -1,6 +1,4 @@
 <script type="text/javascript">
-<!-- Vue -->
-<script type="text/javascript">
 var url = "<?php echo $urlApi; ?>";
 new Vue({
     el: '#slider',
