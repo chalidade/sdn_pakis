@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-6">
         <p class="mb-5">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6293869796755!2d112.7198922143711!3d-7.282940773596742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf17c39f8d7%3A0x2cad596bbf531e5e!2sSekolah%20Dasar%20Negeri%20Pakis%20V%20Surabaya!5e0!3m2!1sid!2sid!4v1577937045449!5m2!1sid!2sid" style="border-radius:20px" allowfullscreen="" width="100%" height="480" frameborder="0"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6293869796755!2d112.7198922143711!3d-7.282940773596742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf17c39f8d7%3A0x2cad596bbf531e5e!2sSekolah%20Dasar%20Negeri%20Pakis%20V%20Surabaya!5e0!3m2!1sid!2sid!4v1577937045449!5m2!1sid!2sid" style="border-radius:5px" allowfullscreen="" width="100%" height="480" frameborder="0"></iframe>
         </p>
       </div>
       <div class="col-lg-6 ml-auto">
