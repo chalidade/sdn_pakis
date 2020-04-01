@@ -1,0 +1,54 @@
+<div class="site-section block-14 nav-direction-white">
+  <div class="container">
+
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <h2 class="site-section-heading text-center text-uppercase">Testimonials</h2>
+      </div>
+    </div>
+
+    <div class="nonloop-block-14 owl-carousel">
+
+
+        <div class="d-block block-testimony mx-auto text-center">
+          <div class="person w-25 mx-auto mb-4">
+            <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded-circle w-25 mx-auto">
+          </div>
+          <div>
+            <h2 class="h5 mb-4">Katie Johnson</h2>
+            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
+          </div>
+        </div>
+
+        <div class="d-block block-testimony mx-auto text-center">
+          <div class="person w-25 mx-auto mb-4">
+            <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded-circle w-25 mx-auto">
+          </div>
+          <div>
+            <h2 class="h5 mb-4">Jun Mars</h2>
+            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
+          </div>
+        </div>
+
+        <div class="d-block block-testimony mx-auto text-center">
+          <div class="person w-25 mx-auto mb-4">
+            <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded-circle w-25 mx-auto">
+          </div>
+          <div>
+            <h2 class="h5 mb-4">Shane Holmes</h2>
+            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
+          </div>
+        </div>
+
+        <div class="d-block block-testimony mx-auto text-center">
+          <div class="person w-25 mx-auto mb-4">
+            <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle w-25 mx-auto">
+          </div>
+          <div>
+            <h2 class="h5 mb-4">Mark Johnson</h2>
+            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

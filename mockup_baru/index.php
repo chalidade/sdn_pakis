@@ -8,5 +8,4 @@ include "view/component/instagram.php";
 include "view/component/lokasi.php";
 include "view/component/news.php";
 include "view/component/footer.php";
-// include "view/component/count.php";
  ?>
