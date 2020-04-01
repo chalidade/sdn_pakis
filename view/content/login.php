@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <title>SDN PAKIS 5 SURABAYA</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css'>
-  <link rel="stylesheet" href="../admin/assets/css/style.css">
+  <link rel="stylesheet" href="../../admin/assets/css/style.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h2>SDN PAKIS 5 SURABAYA</h2>
+<h2><a href="../../index.php" style="text-decoration:none;font-size:24px">SDN PAKIS 5 SURABAYA</a></h2>
 <div class="container" id="container">
 	<div class="form-container sign-in-container">
 		<form action="auth.php" method="post">
@@ -32,7 +32,7 @@
 <footer>
 </footer>
 <!-- partial -->
-  <script  src="../admin/assets/js/script.js"></script>
+  <script  src="../../admin/assets/js/script.js"></script>
 
 </body>
 </html>

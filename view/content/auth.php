@@ -1,7 +1,7 @@
 <?php
 // header('Content-Type: application/json');
 error_reporting(0);
-include "admin/app/config/connection.php";
+include "../../admin/app/config/connection.php";
 session_start();
 
 $id                 = $_REQUEST['id'];
@@ -31,7 +31,7 @@ if (empty($id)) {
     $_SESSION["USER"] = $dataUser;
     $expired          = base64_encode(date('H:i:s', strtotime('+8 hour')));
     $updateToken      = mysqli_query($mysqli, "UPDATE `tx_hdr_user` SET `USER_TOKEN` = '$expired' WHERE `tx_hdr_user`.`USER_EMAIL` = '$email'");
-    echo "<script type='text/javascript'> window.location.href = 'admin/index.php?id=home'; </script>";
+    echo "<script type='text/javascript'> window.location.href = '../../admin/index.php?id=home'; </script>";
   } else {
     echo "<script type='text/javascript'>alert('Username atau Password Salah'); window.location.href = 'login.php'; </script>";
   }

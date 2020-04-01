@@ -32,7 +32,7 @@
                 <li><a href="services.html">Membaca</a></li>
                 <li><a href="blog.html">Berita</a></li>
                 <li><a href="contact.html">E-Book</a></li>
-                <li><a href="contact.html"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
+                <li><a href="view/content/login.php"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
               </ul>
             </div>
           </nav>
