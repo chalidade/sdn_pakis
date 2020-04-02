@@ -137,6 +137,39 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript">
+function DELETE_USER(id, start, page) {
+  var url   = "<?php echo $urlApi; ?>";
+  var dbapi = "<?php echo $databaseApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+          "action" : "delHeaderDetail",
+          "data"   : ["HEADER", "DETAIL"],
+          "HEADER" : {
+          	"DB"     : dbapi,
+          	"TABLE"  : "tx_hdr_user",
+          	"PK"     : ["PROTA_ID",id]
+          },
+
+          "DETAIL": {
+          	"DB"     : dbapi,
+        	"TABLE"  : "tx_dtl_user_siswa",
+        	"FK"     : ["DTL_HDR_ID","PROTA_ID"]
+          }
+        })
+        .then(response => (alert(this.info = response["data"])))
+        .then(response=>(window.location = "<?php echo $urlDataSiswa; ?>"+start+"&page="+page));
+      }
+    })
+}
+
 function send(id, status) {
   if (status == 0 || status == 3) {
     var url = "<?php echo $urlApi; ?>";
