@@ -49,6 +49,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       font-size:10px;
       padding:5px;
     }
+
+    input {
+      font-weight: 400;
+    }
   </style>
 
 

@@ -53,7 +53,92 @@
                                   <td width="20%">{{ data.USER_NAME }}</td>
                                   <td width="10%" style="text-align:center">
                                     <button type="button" v-bind:onclick="'DELETE_BERITA(' + data.BERITA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger option"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_BERITA('tx_home_berita', 2,'BERITA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#edit' + data.BERITA_ID" class="btn btn-warning option"><i class="fa fa-pencil"></i></button>
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.BERITA_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <div class="modal fade" v-bind:id="'modal-default' + data.BERITA_ID">
+                                      <div class="modal-dialog" style="width:80%">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span></button>
+                                            <!-- <h3 class="modal-title">{{ data.BERITA_JUDUL }}</h3> -->
+                                          </div>
+                                          <div class="modal-body" style="text-align:left">
+                                              <div class="box-body" style="margin-bottom:30px">
+                                                <iframe v-bind:src="'view/frame/detailBerita.php?id=' + data.BERITA_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                              </div>
+                                              <!-- /.box-body -->
+
+                                              <div class="box-footer">
+                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:100%">Close</button>
+                                              </div>
+                                            </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
+
+                                    <div class="modal fade" v-bind:id="'edit' + data.BERITA_ID">
+                                      <div class="modal-dialog" style="width:80%">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span></button>
+                                            <h3 class="modal-title">Update Berita</h3>
+                                          </div>
+                                          <div class="modal-body" style="text-align:left">
+                                              <div class="box-body" style="margin-bottom:30px">
+                                                <div class="row">
+                                                  <div class="col-md-12">
+                                                    <form action="app/model/BeritaModel.php?id=update" method="post"  enctype="multipart/form-data">
+                                                    <label class="container" for="BERITA_IMAGE" style="border:1px solid #d4d4d4;padding:10px">
+                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicBerita ?>' + data.BERITA_IMAGE"/ style='width:100%;' alt=''>
+                                                      <input type="file" id="BERITA_IMAGE" name="BERITA_IMAGE" value="" style="display:none">
+                                                      <input type="hidden" id="BERITA_IMAGE" name="BERITA_IMAGE" v-bind:value="data.BERITA_IMAGE" style="display:none">
+                                                      <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:10px;padding:5px 10px;">
+                                                        <center>
+                                                          <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
+                                                        </center>
+                                                      </div>
+                                                    </label>
+                                                  </div>
+                                                  <div class="col-md-12">
+                                                      <label for="title" style="width:100%">
+                                                        Judul
+                                                        <input type="text" id="title" class="form-control" name="BERITA_JUDUL" style="font-weight:400" v-bind:value="data.BERITA_JUDUL">
+                                                        <input type="hidden" name="BERITA_USER" value="<?php echo $session["USER_ID"]; ?>">
+                                                      </label>
+                                                      <label for="desc" style="width:100%">
+                                                        Deskripsi
+                                                        <textarea type="text" id="TUJUAN_PEMBELAJARAN" class="form-control" name="BERITA_DESKRIPSI" style="height:150px;font-weight:400">
+                                                          {{data.BERITA_DESKRIPSI}}
+                                                        </textarea>
+                                                      </label>
+                                                  </div>
+                                                  <div class="col-md-12">
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <!-- /.box-body -->
+
+                                              <div class="box-footer">
+                                                <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
+                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:100%;margin-top:10px">Close</button>
+                                               </form>
+                                              </div>
+                                            </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
                                   </td>
                                 </tr>
                               </template>
@@ -63,7 +148,7 @@
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="app/model/BeritaModel.php?id=modalBerita" method="post"  enctype="multipart/form-data">
+                                <form action="app/model/BeritaModel.php?id=insert" method="post"  enctype="multipart/form-data">
                                 <label class="container" for="BERITA_IMAGE" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
                                   <input type="file" id="BERITA_IMAGE" name="BERITA_IMAGE" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
@@ -81,7 +166,7 @@
                                   </label>
                                   <label for="desc" style="width:100%">
                                     Deskripsi
-                                    <textarea type="text" id="desc" class="form-control" name="BERITA_DESKRIPSI" style="height:150px"></textarea>
+                                    <textarea type="text" id="KOMPETENSI_INTI" class="form-control" name="BERITA_DESKRIPSI" style="height:150px"></textarea>
                                   </label>
                               </div>
                               <div class="col-md-12">

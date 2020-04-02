@@ -7,7 +7,7 @@ include "../config/setting.php";
 $id = $_REQUEST['id'];
 
 switch ($id) {
-  case 'modalBerita':
+  case 'insert':
     $imageName = "BERITA_IMAGE";
     $page = "berita";
     $json = array(
