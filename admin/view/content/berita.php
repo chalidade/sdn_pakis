@@ -38,8 +38,9 @@
                                 <th width="5%" style="text-align:center">No</th>
                                 <th width="15%" style="text-align:center">Foto</th>
                                 <th width="20%">Judul</th>
-                                <th width="10%" style="text-align:center">Tanggal Posting</th>
-                                <th width="20%" style="text-align:center">Option</th>
+                                <th width="10%">Tanggal Posting</th>
+                                <th width="20%">Penulis</th>
+                                <th width="10%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in berita">
                                 <tr>
@@ -48,11 +49,11 @@
                                       <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicBerita ?>' + data.BERITA_IMAGE"/ style='width:80px;padding:5px' alt=''>
                                   </td>
                                   <td width="20%">{{ data.BERITA_JUDUL }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.BERITA_TANGGAL }}</td>
-                                  <td width="20%" style="text-align:center">
-                                    <button type="button" v-bind:onclick="'EDIT_BERITA(' + data.BERITA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning" style="width:35px"> <i class="fa fa-pencil"></i> </button>
-                                    <button type="button" v-bind:onclick="'DELETE_BERITA(' + data.BERITA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:35px"><i class="fa fa-trash"></i></button>
-                                    <button type="button" onclick="VIEW_BERITA('tx_home_berita', 2,'BERITA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary" style="width:35px"><i class="fa fa-eye"></i></button>
+                                  <td width="15%">{{ data.BERITA_UPDATE }}</td>
+                                  <td width="20%">{{ data.USER_NAME }}</td>
+                                  <td width="10%" style="text-align:center">
+                                    <button type="button" v-bind:onclick="'DELETE_BERITA(' + data.BERITA_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger option"><i class="fa fa-trash"></i></button>
+                                    <button type="button" onclick="VIEW_BERITA('tx_home_berita', 2,'BERITA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
                                   </td>
                                 </tr>
                               </template>
@@ -76,6 +77,7 @@
                                   <label for="title" style="width:100%">
                                     Judul
                                     <input type="text" id="title" class="form-control" name="BERITA_JUDUL" value="">
+                                    <input type="hidden" name="BERITA_USER" value="<?php echo $session["USER_ID"]; ?>">
                                   </label>
                                   <label for="desc" style="width:100%">
                                     Deskripsi
@@ -117,6 +119,7 @@
 
 <script type="text/javascript">
 function DELETE_BERITA(id, start, page) {
+  
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -153,9 +156,14 @@ new Vue({
       .post(url+'/index', {
         action: 'list',
         db: 'sdnpakis',
-        table: 'tx_home_berita',
+        table: 'tx_home_berita as A',
+        innerJoin : [{
+          table: 'tx_hdr_user as B',
+          field1: 'B.user_id',
+          field2: 'A.berita_user'
+        }],
         start: start,
-        orderBy: ['BERITA_ID', 'DESC'],
+        orderBy: ['A.BERITA_ID', 'DESC'],
         limit: 25
       })
       .then(response => (this.berita = response["data"]["result"]))

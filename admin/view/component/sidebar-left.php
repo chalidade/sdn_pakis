@@ -191,7 +191,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="index.php?id=homepage">Homepage</a></li>
-            <li><a href="index.php?id=profil">Profil</a></li>
             <li><a href="index.php?id=berita&start=0">Berita</a></li>
           </ul>
         </li>

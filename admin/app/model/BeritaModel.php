@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(0);
 include "../config/setting.php";
 
@@ -11,7 +12,7 @@ switch ($id) {
     $page = "berita";
     $json = array(
     "action"                   => "simpleSave",
-    "db"                       => $database,
+    "db"                       => "sdnpakis",
     "table"                    => "tx_home_berita",
     "primaryKey"               => "BERITA_ID",
     "value"                    => [
@@ -20,6 +21,7 @@ switch ($id) {
     "BERITA_IMAGE"            =>  date("d_m_Y")."_".basename($_FILES[$imageName]["name"]),
     "BERITA_JUDUL"            =>  $_POST['BERITA_JUDUL'],
     "BERITA_DESKRIPSI"        =>  $_POST['BERITA_DESKRIPSI'],
+    "BERITA_USER"             =>  $_POST["BERITA_USER"],
     )]);
 
     if (!empty($_FILES[$imageName]["name"])) uploadImage($imageName, "Berita");
