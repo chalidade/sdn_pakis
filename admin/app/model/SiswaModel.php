@@ -56,6 +56,7 @@ switch ($id) {
             'DTL_AYAH'     => $_POST["DTL_AYAH"],
             'DTL_IBU'      => $_POST["DTL_IBU"],
             'DTL_PRESTASI' => '',
+            'DTL_PHONE'    => $_POST['DTL_PHONE'],
             'DTL_NIS'      => $_POST["DTL_NIS"]
           ),
         ),

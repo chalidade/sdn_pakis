@@ -119,7 +119,7 @@
 
 <script type="text/javascript">
 function DELETE_BERITA(id, start, page) {
-  
+
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',

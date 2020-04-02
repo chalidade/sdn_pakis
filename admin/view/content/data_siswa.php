@@ -49,7 +49,7 @@
                                     {{data.USER_NAME}}
                                   </td>
                                   <td width="15%">{{ data.DTL_TINGKAT }} {{ data.DTL_KELAS }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.DTL_HP }}</td>
+                                  <td width="10%" style="text-align:center">{{ data.DTL_PHONE }}</td>
                                   <td width="20%" style="text-align:center">
                                     <!-- <button type="button" v-bind:onclick="'EDIT_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-warning option"> <i class="fa fa-pencil"></i> </button> -->
                                     <!-- <button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger option"><i class="fa fa-trash"></i></button> -->
@@ -67,7 +67,7 @@
                                             <div class="table-responsive">
                                               <table class="table table-border">
                                                 <tr>
-                                                  <td rowspan="7" width="40%" style="vertical-align:middle">
+                                                  <td rowspan="8" width="40%" style="vertical-align:middle;vertical-align:top">
                                                     <label class="" for="imgSlider1">
                                                       <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicUser ?>' + data.USER_PHOTO"/ style='width:100%;padding:5px' alt=''>
                                                       <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
@@ -87,7 +87,12 @@
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Email</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.USER_EMAIL" style="width: 100%;border:none;"></td>
+                                                  <td><input type="email" v-bind:value="data.USER_EMAIL" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
+                                                  <td width="20%" style="font-weight:800">Nomor Telpon</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" v-bind:value="data.DTL_PHONE" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Alamat</td>
@@ -189,6 +194,13 @@
                                 <label for="title" style="width:100%">
                                   Email
                                   <input required type="text" id="title" class="form-control" name="USER_EMAIL" value="">
+                                </label>
+                              </div>
+
+                              <div class="col-md-12">
+                                <label for="title" style="width:100%">
+                                  Nomor Telpon
+                                  <input required type="text" id="title" class="form-control" name="DTL_PHONE" value="">
                                 </label>
                               </div>
 
