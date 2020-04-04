@@ -1,6 +1,7 @@
 <?php
 // error_reporting(0);
 include "admin/app/config/setting.php";
+include "admin/app/config/connection.php";
 
 if (!isset($_REQUEST['id'])) {
   $file = "home.php";
