@@ -1,0 +1,53 @@
+- Homepage, gambar kurang geser (done)
+- Pembuatan pengajuan promes, kolomnya gak sejajar stelah di klik tambah data (done)
+- Prota, silabus, rpp, belum bisa diedit (done)
+- Data membaca kosong padahal laporan membaca sudah diisi (done)
+- Laporan membaca gak bisa upload foto (done)
+- Sistem rangking membaca (done)
+- Berita kosong padahal sudah ditambah berita (done)
+- Gak bisa upload foto di tambah berita (done)
+- Profil belum bisa diakses (done)
+- Tambahin instagram sdn pakis di homepage @sdnpakis5 (done)
+Tambahan:
+- Login siswa dan guru belum bisa ganti password (done)
+- Profil siswa dan guru belum bisa diedit (done)
+- Belum bisa edit profil super admin (done)
+- Namanya jangan super admin, ganti kepala sekolah aja (done)
+- Fitur aku suka membaca, hilangkan nama guru, ganti saran menjadi pesan moral, NIS siswa otomatis muncul tanpa harus diisi (done)
+- Instagram sertakan fotonya (6 postingan terakhir) (done)
+- Password siswa, guru dan staff bisa diganti atas kemauan sendiri dan jika lupa hubungi admin untuk pembuatan password baru (done)
+
+- Ketika isi slider, gambar diganti tapi gak muncul, hanya tulisannya aja (Re Test)
+- Rangking aku suka membaca tampilkan di homepage agar orang umum bisa liat tanpa harus login (done)
+- Tambahin fitur download dan view ebook (not start)
+
+Revisi aku suka membaca:
+Laporan membaca dan bercerita
+Khusus yang ini butuh approval seperti prota, diajukan ke staff (admin)
+Format:
+Tanggal (liat di excel)
+Jumlah Buku
+
+Laporan Kata Ilmu pengetahuan
+
+Format:
+Tanggal dd/mm/yy
+(Kalimat Pengetahuan, Sumber buku, Halaman) Satu Kotak
+Jumlah kotak: 7 kotak
+
+Data dibedakan masing2
+Data membaca dan bercerita, Data menulis, Data Kata Ilmu pengetahuan
+
+Bintang dibedakan dan beri total bintang (liat di excel)
+
+Membaca dan merangkum (Menulis): 2 bintang
+Membaca dan bercerita: 1 bintang
+7 kalimat pengetahuan: 1 bintang
+
+Login siswa
+Username: NIS
+Password: 123
+
+Login guru dan staff
+Username: Email
+Password: 123
