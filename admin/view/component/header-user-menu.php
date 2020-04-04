@@ -18,12 +18,12 @@
     </li>
     </li>
     <!-- Menu Footer-->
-    <li class="user-footer">
+  <li class="user-footer">
       <div class="pull-left">
         <a data-toggle="modal" data-target="#detail" class="btn btn-default btn-flat">Profile</a>
       </div>
       <div class="pull-right">
-        <a href="../auth.php?id=logout" class="btn btn-default btn-flat">Sign out</a>
+        <a href="../view/content/auth.php?id=logout" class="btn btn-default btn-flat">Sign out</a>
       </div>
     </li>
   </ul>
