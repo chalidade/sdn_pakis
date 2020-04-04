@@ -10,11 +10,11 @@
           <div class="col-md-6">
             <h3 class="footer-heading mb-4 text-white">Menu</h3>
               <ul class="list-unstyled">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Membaca</a></li>
-                <li><a href="#">Berita</a></li>
-                <li><a href="#">E-Book</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php?id=membaca">Membaca</a></li>
+                <li><a href="index.php?id=berita">Berita</a></li>
+                <li><a href="index.php?id=ebook">E-Book</a></li>
+                <li><a href="view/content/login.php">Login</a></li>
               </ul>
           </div>
           <div class="col-md-6">
