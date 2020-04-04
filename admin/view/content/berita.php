@@ -92,43 +92,12 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
-                                                <div class="row">
-                                                  <div class="col-md-12">
-                                                    <form action="app/model/BeritaModel.php?id=update" method="post"  enctype="multipart/form-data">
-                                                    <label class="container" for="BERITA_IMAGE" style="border:1px solid #d4d4d4;padding:10px">
-                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicBerita ?>' + data.BERITA_IMAGE"/ style='width:100%;' alt=''>
-                                                      <input type="file" id="BERITA_IMAGE" name="BERITA_IMAGE" value="" style="display:none">
-                                                      <input type="hidden" id="BERITA_IMAGE" name="BERITA_IMAGE" v-bind:value="data.BERITA_IMAGE" style="display:none">
-                                                      <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:10px;padding:5px 10px;">
-                                                        <center>
-                                                          <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
-                                                        </center>
-                                                      </div>
-                                                    </label>
-                                                  </div>
-                                                  <div class="col-md-12">
-                                                      <label for="title" style="width:100%">
-                                                        Judul
-                                                        <input type="text" id="title" class="form-control" name="BERITA_JUDUL" style="font-weight:400" v-bind:value="data.BERITA_JUDUL">
-                                                        <input type="hidden" name="BERITA_USER" value="<?php echo $session["USER_ID"]; ?>">
-                                                      </label>
-                                                      <label for="desc" style="width:100%">
-                                                        Deskripsi
-                                                        <textarea type="text" id="TUJUAN_PEMBELAJARAN" class="form-control" name="BERITA_DESKRIPSI" style="height:150px;font-weight:400">
-                                                          {{data.BERITA_DESKRIPSI}}
-                                                        </textarea>
-                                                      </label>
-                                                  </div>
-                                                  <div class="col-md-12">
-                                                  </div>
-                                                </div>
+                                                <iframe v-bind:src="'view/content/detail_berita.php?id=' + data.BERITA_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
 
                                               <div class="box-footer">
-                                                <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
                                                  <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:100%;margin-top:10px">Close</button>
-                                               </form>
                                               </div>
                                             </form>
                                             </div>
@@ -166,7 +135,7 @@
                                   </label>
                                   <label for="desc" style="width:100%">
                                     Deskripsi
-                                    <textarea type="text" id="KOMPETENSI_INTI" class="form-control" name="BERITA_DESKRIPSI" style="height:150px"></textarea>
+                                    <textarea type="text" id="KOMPETENSI_INTI" class="form-control" name="BERITA_DESKRIPSI" style="height:150px;padding:0px"></textarea>
                                   </label>
                               </div>
                               <div class="col-md-12">

@@ -86,7 +86,7 @@ switch ($id) {
         $photo = $_POST["USER_PHOTO_BACKUP"];
       }
 
-      $page  = "detailGuru.php?id=$guruId";
+      $page  = "detail_guru.php?id=$guruId";
       $modal = "true";
       $json = array (
         'action' => 'saveheaderdetail',
