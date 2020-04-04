@@ -14,7 +14,7 @@
         <div class="media-image">
           <a href="index.php?id=single&data=<?php echo $berita["BERITA_ID"];?>"><div alt="Image" class="img-fluid" style='height: 345px;width:100%;background:url("admin/resource/public/Berita/<?php echo $berita["BERITA_IMAGE"]; ?>");background-size:cover'></div></a>
           <div class="media-image-body">
-            <h2 class="font-secondary text-uppercase" style="height:80px"><a href="single.html"><?php echo $berita["BERITA_JUDUL"]; ?></a></h2>
+            <h2 class="font-secondary text-uppercase" style="height:80px"><a href="index.php?id=single&data=<?php echo $berita["BERITA_ID"];?>"><?php echo $berita["BERITA_JUDUL"]; ?></a></h2>
             <span class="d-block mb-3" style="font-size:12px;">By <?php echo $berita["USER_NAME"]; ?> &mdash; <?php echo date('M. d, Y', strtotime($berita["BERITA_UPDATE"]));?></span>
             <p style="font-size:14px"> <?php echo mb_strimwidth($berita["BERITA_DESKRIPSI"], 0, 100, "..."); ?> </p>
             <p><a href="index.php?id=single&data=<?php echo $berita["BERITA_ID"];?>">Read More</a></p>
