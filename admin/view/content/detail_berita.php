@@ -1,8 +1,8 @@
 <?php
 error_reporting(0);
 session_start();
-include "../../app/config/connection.php";
 include "../../app/config/setting.php";
+include "../../app/config/connection.php";
 $id        = $_REQUEST["id"];
 $sql       = mysqli_query($mysqli, "SELECT * FROM `tx_home_berita` WHERE `BERITA_ID` = '$id'");
 $berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
