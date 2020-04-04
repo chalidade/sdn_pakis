@@ -1,8 +1,11 @@
 <?php
 error_reporting(0);
 session_start();
+include "../../app/config/connection.php";
 include "../../app/config/setting.php";
-$id     = $_REQUEST["id"];
+$id        = $_REQUEST["id"];
+$sql       = mysqli_query($mysqli, "SELECT * FROM `tx_home_berita` WHERE `BERITA_ID` = '$id'");
+$berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
  ?>
 
 <!DOCTYPE html>
@@ -45,12 +48,12 @@ $id     = $_REQUEST["id"];
 
  <body style="padding:10px;height:500px">
    <center>
-    <div id="app" style="width:100%" class="Section1">
-      <form action="../../app/model/BeritaModel.php?id=update" method="post"  enctype="multipart/form-berita">
+    <div style="width:100%" class="Section1">
+      <form action="../../app/model/BeritaModel.php?id=update" method="post"  enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <label class="container" for="image" style="border:1px solid #d4d4d4;padding:10px;width:100%">
-            <img onerror="this.onerror=null; this.src='../../img/unavailable.png'" v-bind:src="'../../<?php echo $publicBerita ?>' + berita.BERITA_IMAGE"/ style='width:100%;' alt=''>
+            <img onerror="this.onerror=null; this.src='../../img/unavailable.png'" src="../../<?php echo $publicBerita."".$berita["BERITA_IMAGE"]; ?>"/ style='width:100%;' alt=''>
             <input type="file" id="image" name="BERITA_IMAGE" style="display:none">
             <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:10px;padding:5px 10px;">
               <center>
@@ -58,19 +61,19 @@ $id     = $_REQUEST["id"];
               </center>
             </div>
           </label>
-          <input type="hidden" name="BERITA_IMAGE_BACKUP" v-bind:value="berita.BERITA_IMAGE" style="display:none">
+          <input type="hidden" name="BERITA_IMAGE_BACKUP" value="<?php echo $berita["BERITA_IMAGE"]; ?>" style="display:none">
         </div>
         <div class="col-md-12" style="margin-top:15px">
             <label for="title" style="width:100%;text-align:left">
               Judul
-              <input type="text" id="title" class="form-control" name="BERITA_JUDUL" style="font-weight:400" v-bind:value="berita.BERITA_JUDUL">
-              <input type="hidden" name="BERITA_USER" v-bind:value="berita.BERITA_USER">
-              <input type="hidden" name="BERITA_ID" v-bind:value="berita.BERITA_ID">
+              <input type="text" id="title" class="form-control" name="BERITA_JUDUL" style="font-weight:400" v-bind:value="<?php echo $berita["BERITA_JUDUL"]; ?>">
+              <input type="hidden" name="BERITA_USER" v-bind:value="<?php echo $berita["BERITA_USER"]; ?>">
+              <input type="hidden" name="BERITA_ID" v-bind:value="<?php echo $berita["BERITA_ID"]; ?>">
             </label>
             <label for="desc" style="width:100%;margin-top:20px;text-align:left">
               Deskripsi
               <textarea id="KOMPETENSI_INTI" class="form-control" name="BERITA_DESKRIPSI" style="height:150px;font-weight:400">
-                {{berita.BERITA_DESKRIPSI}}
+                <?php echo $berita["BERITA_DESKRIPSI"]; ?>
               </textarea>
             </label>
         </div>
@@ -82,6 +85,7 @@ $id     = $_REQUEST["id"];
     </div>
   </center>
   <!-- jQuery 3 -->
+  <script src="../../assets/js/main.js"></script>
   <script src="../../assets/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- CK Editor -->
   <script src="../../assets/bower_components/ckeditor/ckeditor.js"></script>
@@ -89,45 +93,18 @@ $id     = $_REQUEST["id"];
   <script src="../../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../assets/dist/js/adminlte.min.js"></script>
-  </body>
 
   <script type="text/javascript">
   $(function () {
-    CKEDITOR.replace('KOMPETENSI_INTI');
+  CKEDITOR.replace('KOMPETENSI_INTI');
+  CKEDITOR.replace('KOMPETENSI_DASAR');
+  CKEDITOR.replace('TUJUAN_PEMBELAJARAN');
+  CKEDITOR.replace('MATERI_PEMBELAJARAN');
+  CKEDITOR.replace('METODE_PEMBELAJARAN');
+  CKEDITOR.replace('SUMBER_PEMBELAJARAN');
+  CKEDITOR.replace('KEGIATAN_PEMBELAJARAN');
+  CKEDITOR.replace('PENILAIAN');
   })
   </script>
-
-
-  <script type="text/javascript">
-  var url   = "<?php echo $urlApi; ?>";
-  var id  = "<?php echo $id; ?>";
-    new Vue({
-        el: '#app',
-        data () {
-          return {
-            berita: null
-          }
-        },
-        mounted () {
-          axios
-          .post(url+'/index', {
-            action: 'list',
-            db: 'sdnpakis',
-            table: 'tx_home_berita as A',
-            innerJoin : [{
-              table: 'tx_hdr_user as B',
-              field1: 'B.USER_ID',
-              field2: 'A.BERITA_USER'
-            }],
-            where : [
-              ['A.BERITA_ID', '=', id]
-            ],
-            start: "",
-            orderBy: ['A.BERITA_ID', 'DESC'],
-            limit: 25
-          })
-          .then(response => (this.berita = response["data"]["result"][0]))
-        }
-      })
-  </script>
-</html>
+  </body>
+  </html>
