@@ -1,6 +1,13 @@
 <?php
 // error_reporting(0);
 include "admin/app/config/setting.php";
+
+if (!isset($_REQUEST['id'])) {
+  $file = "home.php";
+} else {
+  $file  = $_REQUEST['id'].".php";
+}
+
  ?>
 <!DOCTYPE html>
 <html lang="en">

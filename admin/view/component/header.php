@@ -1,6 +1,4 @@
 <?php
-// $my_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-// $file   = substr($my_url, strrpos($my_url, '/' )+1);
 error_reporting(0);
 session_start();
 include "app/config/setting.php";
