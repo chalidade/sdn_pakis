@@ -69,7 +69,7 @@
                                                 <tr>
                                                   <td rowspan="8" width="40%" style="vertical-align:middle;vertical-align:top">
                                                     <label class="" for="imgSlider1">
-                                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicUser ?>' + data.USER_PHOTO"/ style='width:100%;padding:5px' alt=''>
+                                                      <img onerror="this.onerror=null; this.src='../public/images/user.png'" v-bind:src="'<?php echo $publicUser ?>' + data.USER_PHOTO"/ style='width:100%;padding:5px' alt=''>
                                                       <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
                                                         <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
                                                       </div>

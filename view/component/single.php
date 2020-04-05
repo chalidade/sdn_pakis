@@ -16,7 +16,7 @@ $berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
           <div class="sidebar-box">
             <div class="row">
               <div class="col-md-4">
-                <img onerror="this.onerror=null; this.src='../img/unavailable.png'" src="admin/resource/public/USER/<?php echo $berita["USER_PHOTO"]; ?>" alt="Image placeholder" class="img-fluid mb-4" style="border-radius:50px;width:80px;">
+                <img onerror="this.onerror=null; this.src='public/images/user.png'" src="admin/resource/public/USER/<?php echo $berita["USER_PHOTO"]; ?>" alt="Image placeholder" class="img-fluid mb-4" style="border-radius:50px;width:80px;">
               </div>
               <div class="col-md-8">
                 <h5>Biodata Penulis</h5>
@@ -47,7 +47,7 @@ $berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
                 <?php } else { ?>
                   <td style="vertical-align:top;width:5%"><h1 style="padding-right:20px;text-align:center"><?php echo $no.".";$no++; ?></h1></td>
                 <?php } ?>
-                <td style="vertical-align:top;width:25%"><img onerror="this.onerror=null; this.src='../img/unavailable.png'" src="admin/resource/public/USER/<?php echo $siswa["USER_PHOTO"]; ?>" class="img-fluid mb-4" style="border-radius:50px;width:50px;"></td>
+                <td style="vertical-align:top;width:25%"><img onerror="this.onerror=null; this.src='public/images/user.png'" src="admin/resource/public/USER/<?php echo $siswa["USER_PHOTO"]; ?>" class="img-fluid mb-4" style="border-radius:50px;width:50px;"></td>
                 <td  style="vertical-align:top;color:#000;font-size:14px"><b><?php echo $siswa["USER_NAME"]; ?></b><br><font style="font-size:12px"><?php echo $siswa["DTL_NIS"]; ?> | <?php echo $siswa["DTL_TINGKAT"]."-".$siswa["DTL_KELAS"]; ?></font></td>
               </tr>
             <?php } ?>

@@ -93,9 +93,11 @@ desired effect
           <div class="table-responsive">
             <?php
             if ($session["USER_ROLE"] == 1) {
-              echo '<iframe src="view/content/detailSiswa.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
+              echo '<iframe src="view/content/detail_siswa.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
             } else if ($session["USER_ROLE"] == 2 || $session["USER_ROLE"] == 3) {
-              echo '<iframe src="view/content/detailGuru.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
+              echo '<iframe src="view/content/detail_guru.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
+            } else {
+              echo '<iframe src="view/content/detail_guru.php?id='.$session["USER_ID"].'" width="100%" height="500" style="border:none"></iframe>';
             }?>
           </div>
         </div>

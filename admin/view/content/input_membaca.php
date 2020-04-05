@@ -47,7 +47,7 @@
                                 <tr>
                                   <td width="5%" style="text-align:center">{{ data.MEMBACA_ID }}</td>
                                   <td width="15%" style="text-align:center">
-                                      <img onerror="this.onerror=null; this.src='../img/unavailable.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
+                                      <img onerror="this.onerror=null; this.src='../public/images/photo.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
                                   </td>
                                   <td width="20%">{{ data.MEMBACA_JUDUL }}</td>
                                   <td width="25%">{{ data.MEMBACA_SISWA }}</td>

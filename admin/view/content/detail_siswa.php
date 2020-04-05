@@ -50,7 +50,7 @@ if (!empty($_REQUEST["print"])) {
         </td>
         <td rowspan="18" width="50%" style="vertical-align:top;">
           <label class="" for="imgSlider1" style="margin:auto">
-            <center><img onerror="this.onerror=null; this.src='../../../img/unavailable.png'" v-bind:src="'../../<?php echo $publicUser ?>' + data[0].USER_PHOTO" style='width:80%;padding:5px' alt=''>
+            <center><img onerror="this.onerror=null; this.src='../public/images/user.png'" v-bind:src="'../../<?php echo $publicUser ?>' + data[0].USER_PHOTO" style='width:80%;padding:5px' alt=''>
               <input type="file" id="imgSlider1" name="USER_PHOTO" style="display:none">
               <input type="hidden" name="USER_PHOTO_BACKUP" v-bind:value="data[0].USER_PHOTO">
             <div style="border:1px solid;background: white;width:70%;margin:auto">

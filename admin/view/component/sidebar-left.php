@@ -7,7 +7,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img onerror="this.onerror=null; this.src='../img/unavailable.png'" src="<?php echo $publicUser.$session["USER_PHOTO"] ?>" class="img-circle" alt="User Image" style="width: 70px;height: 50px;">
+        <img onerror="this.onerror=null; this.src='../public/images/user.png'" src="<?php echo $publicUser.$session["USER_PHOTO"] ?>" class="img-circle" alt="User Image" style="width: 70px;height: 50px;">
       </div>
       <div class="pull-left info">
         <p><?php echo $session['USER_NAME']; ?></p>
