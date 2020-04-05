@@ -14,7 +14,7 @@ if ($session["USER_ROLE"] == 1) {
   $siswa  = mysqli_fetch_assoc($query);
 }
 
-if (empty($session)) echo "<script type='text/javascript'> alert('You Must Login First'); window.location.href = '../login.php'; </script>";
+if (empty($session)) echo "<script type='text/javascript'> alert('You Must Login First'); window.location.href = '../index.php'; </script>";
  ?>
 <!DOCTYPE html>
 <!--
