@@ -2,7 +2,7 @@
 <header class="main-header">
 
   <!-- Logo -->
-  <a href="home.php" class="logo">
+  <a href="/sdn_pakis_baru" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>T</b>A</span>
     <!-- logo for regular state and mobile devices -->

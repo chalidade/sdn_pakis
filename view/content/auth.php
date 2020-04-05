@@ -39,7 +39,7 @@ if (empty($id)) {
 } else {
   session_start();
   session_destroy();
-  echo "<script type='text/javascript'> window.location.href = 'login.php'; </script>";
+  echo "<script type='text/javascript'> window.location.href = '/sdn_pakis_baru'; </script>";
 }
 
  ?>

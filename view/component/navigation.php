@@ -32,7 +32,19 @@
                 <li><a href="index.php?id=membaca">Membaca</a></li>
                 <li><a href="index.php?id=berita">Berita</a></li>
                 <li><a href="index.php?id=ebook">E-Book</a></li>
-                <li><a href="view/content/login.php"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
+                  <?php
+                  if (!empty($session["USER_NAME"])) { ?>
+                    <li class="has-children">
+                    <img src="admin/resource/public/USER/<?php echo $session["USER_PHOTO"]; ?>" style="width:50px;border-radius:50px">
+                    <ul class="dropdown arrow-top">
+                      <li><a href="admin/index.php?id=home">Dashboard</a></li>
+                      <li><a href="view/content/auth.php?id=logout">Logout</a></li>
+                    </ul>
+                    </li>
+                  <?php } else { ?>
+                    <li>
+                    <a href="view/content/login.php"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
+                  <?php } ?>
               </ul>
             </div>
           </nav>

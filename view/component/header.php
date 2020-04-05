@@ -1,5 +1,9 @@
 <?php
 // error_reporting(0);
+session_start();
+if (isset($_SESSION['USER'])) {
+  $session     = json_decode($_SESSION['USER'], TRUE);
+}
 include "admin/app/config/setting.php";
 include "admin/app/config/connection.php";
 
