@@ -120,45 +120,4 @@ if (!empty($_REQUEST["print"])) {
        </table>
    </form>
   </body>
-
-  <script type="text/javascript">
-  var url = "<?php echo $urlApi; ?>";
-  var id  = "<?php echo $id; ?>";
-  new Vue({
-      el: '#app',
-      data () {
-        return {
-          detail: null,
-          header: null
-        }
-      },
-      mounted () {
-        axios
-        .post(url+'/index', {
-              "action": "viewHeaderDetail",
-              "data": [
-                  "HEADER",
-                  "DETAIL"
-              ],
-              "HEADER": {
-                  "DB": "sdnpakis",
-                  "TABLE": "tx_hdr_rpp",
-                  "PK": [
-                      "RPP_HDR_ID",
-                      id
-                  ]
-              },
-              "DETAIL": {
-                  "DB": "sdnpakis",
-                  "TABLE": "tx_dtl_rpp",
-                  "FK": [
-                      "RPP_HDR_ID",
-                      "RPP_HDR_ID"
-                  ]
-              }
-          })
-        .then(response => (this.detail = response["data"]["DETAIL"],this.header = response["data"]["HEADER"]))
-      }
-    })
-  </script>
 </html>

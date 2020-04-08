@@ -24,11 +24,11 @@
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data KIP</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Laporan KIP</a></li>
+                          <li><a href="#tab_1" data-toggle="tab">Data KIP</a></li>
+                          <li class="active"><a href="#tab_2" data-toggle="tab">Laporan KIP</a></li>
                         </ul>
                         <div class="tab-content">
-                          <div class="tab-pane active" id="tab_1">
+                          <div class="tab-pane" id="tab_1">
                             <?php
                             $start  = $_REQUEST['start'];
                             $page   = 1;
@@ -55,7 +55,7 @@
                                   <td style="text-align:center">
                                     <?php if (!empty($session["DTL_NIS"])) { ?>
                                     <button type="button" v-bind:onclick="'send(' + data.PENGETAHUAN_ID +  ', ' + data.PENGETAHUAN_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
-                                    <a v-bind:href="'?id=update_pengetahuan&start=0&page=1&menu=1&data=' + data.PENGETAHUAN_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
+                                    <a v-bind:href="'?id=update_pengetahuan&menu=1&data=' + data.PENGETAHUAN_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PENGETAHUAN_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.PENGETAHUAN_ID">
@@ -111,7 +111,7 @@
                           </div>
                           </div>
                           <!-- /.tab-pane -->
-                          <div class="tab-pane" id="tab_2">
+                          <div class="tab-pane active" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
                                 <form action="app/model/PengetahuanModel.php?id=insert" method="post" enctype="multipart/form-data">
@@ -122,6 +122,11 @@
                                       <th>Sumber Buku</th>
                                       <th>Halaman</th>
                                     </tr>
+                                  <?php
+                                  $id   =
+                                  $data = mysqli_query($msyqli, "SELECT * FROM `tx_hdr_buku_pengetahuan` as A JOIN `tx_dtl_buku_pengetahuan` as B ON A.PENGETAHUAN_ID = B.DTL_HDR_ID WHERE A.PENGETAHUAN_ID = '$id'");
+
+                                   ?>
                                   <tr>
                                     <td width="5%" style="vertical-align:middle;text-align:center">
                                       1

@@ -8,6 +8,7 @@ $urlPageBerita  = "http://localhost/sdn_pakis_baru/admin/index.php?id=berita&sta
 $urlPageRpp     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
 $urlProta       = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_prota&start=";
 $urlSilabus     = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_silabus&start=";
+$urlPengetahuan = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_pengetahuan&start=";
 $urlPromes      = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_promes&start=";
 $urlRpp         = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rpp&start=";
 $urlBercerita   = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_bercerita&start=";
