@@ -238,6 +238,73 @@
 </div>
 <!-- /.content-wrapper -->
 <script type="text/javascript">
+
+function reject(id) {
+  var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+            "action" : "update",
+            "db"     : "sdnpakis",
+            "table"  : "tx_hdr_buku_bercerita",
+            "update" :
+            {
+               "BERCERITA_STATUS" : "3",
+               "BERCERITA_REMARK" : remark
+            },
+             "where" :
+             {
+              "BERCERITA_ID" : id
+             }
+          })
+      }
+    })
+
+    alert("Pengajuan Ditolak");
+    window.setTimeout(function(){
+    window.location = "<?php echo $urlBercerita; ?>0&menu=2"}, 1000);
+}
+
+function approve(id) {
+  var url = "<?php echo $urlApi; ?>";
+  new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/store', {
+            "action" : "update",
+            "db"     : "sdnpakis",
+            "table"  : "tx_hdr_buku_bercerita",
+            "update" :
+            {
+               "BERCERITA_STATUS" : "2"
+            },
+             "where" :
+             {
+              "BERCERITA_ID" : id
+             }
+          })
+      }
+    })
+
+    alert("Pengajuan Diterima");
+    window.setTimeout(function(){
+    window.location = "<?php echo $urlBercerita; ?>0&menu=2"}, 1000);
+}
+
   start   = <?php echo $start; ?>;
   var url = "<?php echo $urlApi; ?>";
   new Vue({
