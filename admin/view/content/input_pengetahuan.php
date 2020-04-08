@@ -37,27 +37,61 @@
                             <table id="app" class="table table-border">
                               <tr>
                                 <th width="5%" style="text-align:center">Id</th>
-                                <th width="15%" style="text-align:center">Foto Buku</th>
-                                <th width="25%">Judul</th>
-                                <th width="25%">Siswa</th>
-                                <th width="10%" style="text-align:center">Tgl Baca</th>
-                                <th width="20%" style="text-align:center">Option</th>
+                                <th width="15%" style="text-align:center">Nama Siswa</th>
+                                <th width="10%">NIS</th>
+                                <th width="15%">Tgl Laporan</th>
+                                <th width="15%" style="text-align:center">Status</th>
+                                <th width="20%" style="text-align:center">Remark</th>
+                                <th width="10%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="5%" style="text-align:center">{{ data.PENGETAHUAN_ID }}</td>
-                                  <td width="15%" style="text-align:center">
-                                  </td>
-                                  <td width="20%">{{ data.PENGETAHUAN_JUDUL }}</td>
-                                  <td width="25%">{{ data.PENGETAHUAN_SISWA }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.PENGETAHUAN_TANGGAL }}</td>
-                                  <td width="20%" style="text-align:center">
-                                    <button type="button" onclick="VIEW_PENGETAHUAN('tx_hdr_buku_membaca', 2,'PENGETAHUAN_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                  <td style="text-align:center">{{ data.PENGETAHUAN_ID }}</td>
+                                  <td style="text-align:center">{{ data.USER_NAME }}</td>
+                                  <td>{{ data.DTL_NIS }}</td>
+                                  <td>{{ data.PENGETAHUAN_TGL_UPDATE }}</td>
+                                  <td style="text-align:center"><font style="font-weight:800;color:red">{{ data.REFF_NAME }}</font></td>
+                                  <td style="text-align:center"><font style="font-weight:800;color:red">{{ data.PENGETAHUAN_REMARK }}</font></td>
+                                  <td style="text-align:center">
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PENGETAHUAN_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <div class="modal fade" v-bind:id="'modal-default' + data.PENGETAHUAN_ID">
+                                      <div class="modal-dialog" style="width:80%">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Detail Data Kata Ilmu Pengetahuan</h4>
+                                          </div>
+                                          <div class="modal-body" style="text-align:left">
+                                              <div class="box-body" style="margin-bottom:30px">
+                                                <iframe v-bind:src="'view/frame/detailPengatahuan.php?id=' + data.PENGETAHUAN_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
+                                              </div>
+                                              <!-- /.box-body -->
+
+                                              <div class="box-footer">
+                                                <?php if($menu != 1) { ?>
+                                                  <table width="100%">
+                                                  <tr>
+                                                    <td style="padding:0px 10px"><button type="button" v-bind:onclick="'reject(' + data.PENGETAHUAN_ID + ')'"/ class="btn btn-danger"  style="width:100%"> <i class="fa fa-times"></i> Reject </button></td>
+                                                    <td style="padding:0px 10px"><button type="button" v-bind:onclick="'approve(' + data.PENGETAHUAN_ID + ')'"/ class="btn btn-success"  style="width:100%"> <i class="fa fa-check"></i> Approve </button></td>
+                                                  </tr>
+                                                </table>
+                                               <?php } else { ?>
+                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:100%">Close</button>
+                                               <?php } ?>
+                                              </div>
+                                            </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
                                   </td>
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="5">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
@@ -89,6 +123,8 @@
                                       1
                                     </td>
                                     <td width="45%">
+                                      <input type="hidden" name="PENGETAHUAN_ID" value="">
+                                      <input type="hidden" name="DTL_NIS" value="<?php echo $session["USER_NIS"]; ?>">
                                       <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
                                     </td>
                                     <td width="35%">
@@ -255,45 +291,33 @@
         mounted () {
           axios
           .post(url+'/index', {
-            action: 'list',
-            db: 'sdnpakis',
-            table: 'tx_hdr_buku_membaca',
-            start: start,
-            orderBy: ['PENGETAHUAN_ID', 'DESC'],
-            limit: 25
-          })
+              action: 'list',
+              db: 'sdnpakis',
+              table: 'tx_hdr_buku_pengetahuan as A',
+              innerJoin :[
+                  {
+                  table : 'tx_dtl_user_siswa as B',
+                  field1 : 'B.DTL_NIS',
+                  field2 : 'A.PENGETAHUAN_NIS'
+                  },
+                  {
+                     table : "tx_hdr_user as C",
+                     field1 : "B.DTL_HDR_ID",
+                     field2 : "C.USER_ID"
+                   },
+                  {
+                   table  : "TM_REFF as D",
+                   field1 : "D.REFF_ID",
+                   field2 : "A.PENGETAHUAN_STATUS"
+                }
+              ],
+              where : [["D.REFF_TR_ID", "=", "2"]],
+              start: start,
+              orderBy: ['A.PENGETAHUAN_ID', 'DESC'],
+              limit: 25
+              })
           .then(response => (this.info = response["data"]["result"]))
         }
       })
   </script>
 <?php } ?>
-
-
-<script type="text/javascript">
-function DELETE_PENGETAHUAN(id, start, page) {
-  var url = "<?php echo $urlApi; ?>";
-  new Vue({
-      el: '#app',
-      data () {
-        return {
-          info: null
-        }
-      },
-      mounted () {
-        axios
-        .post(url+'/store', {
-          action: 'simpleDelete',
-          db: 'sdnpakis',
-          table: 'tx_hdr_buku_membaca',
-          where : ["PENGETAHUAN_ID", id]
-        })
-        .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
-      }
-    })
-}
-
-function EDIT_PENGETAHUAN(id, start, page) {
-  alert(id);
-}
-</script>
