@@ -28,7 +28,7 @@ switch ($id) {
     "BERCERITA_OKT"            => $_POST['BERCERITA_OKT'],
     "BERCERITA_NOV"            => $_POST['BERCERITA_NOV'],
     "BERCERITA_DES"            => $_POST['BERCERITA_DES'],
-    "BERCERITA_STATUS"         => "0"
+    "BERCERITA_STATUS"         => "1"
     )]);
 
     break;
