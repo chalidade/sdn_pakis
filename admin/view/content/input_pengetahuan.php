@@ -24,8 +24,8 @@
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Kata Ilmu Pengetahuan</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Laporan Kata Ilmu Pengetahuan</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data KIP</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Laporan KIP</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
@@ -45,15 +45,14 @@
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="5%" style="text-align:center">{{ data.MEMBACA_ID }}</td>
+                                  <td width="5%" style="text-align:center">{{ data.PENGETAHUAN_ID }}</td>
                                   <td width="15%" style="text-align:center">
-                                      <img onerror="this.onerror=null; this.src='../public/images/photo.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
                                   </td>
-                                  <td width="20%">{{ data.MEMBACA_JUDUL }}</td>
-                                  <td width="25%">{{ data.MEMBACA_SISWA }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.MEMBACA_TANGGAL }}</td>
+                                  <td width="20%">{{ data.PENGETAHUAN_JUDUL }}</td>
+                                  <td width="25%">{{ data.PENGETAHUAN_SISWA }}</td>
+                                  <td width="10%" style="text-align:center">{{ data.PENGETAHUAN_TANGGAL }}</td>
                                   <td width="20%" style="text-align:center">
-                                    <button type="button" onclick="VIEW_MEMBACA('tx_hdr_buku_membaca', 2,'MEMBACA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <button type="button" onclick="VIEW_PENGETAHUAN('tx_hdr_buku_membaca', 2,'PENGETAHUAN_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
                                   </td>
                                 </tr>
                               </template>
@@ -78,58 +77,112 @@
                             <div class="row">
                               <div class="col-md-12">
                                 <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
-                                <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="MEMBACA_COVER" value="" style="display:none">
-                                  <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
-                                    <center>
-                                      <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
-                                    </center>
-                                  </div>
-                                </label>
-                              </div>
-                              <div class="col-md-12">
-                                  <label for="title" style="width:100%">
-                                    Tanggal Baca
-                                    <input type="hidden" id="title" class="form-control" name="MEMBACA_ID" value="" style="line-height:15px">
-                                    <input type="date" id="title" class="form-control" name="MEMBACA_TANGGAL" value="" style="line-height:15px">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    NIS
-                                    <?php if ($session["USER_ROLE"] == 1) { ?>
-                                      <input type="input" id="title" class="form-control" disabled value="<?php echo $siswa["DTL_NIS"]; ?>">
-                                      <input type="hidden" id="title" class="form-control" name="MEMBACA_SISWA" value="<?php echo $siswa["DTL_NIS"]; ?>">
-                                    <?php } else { ?>
-                                      <input type="input" id="title" class="form-control" name="MEMBACA_SISWA" value="">
-                                    <?php } ?>
-                                  </label>
-                                  <!-- <label for="title" style="width:100%">
-                                    Nama Guru
-                                    <input type="input" id="title" class="form-control" name="MEMBACA_GURU" value="">
-                                  </label> -->
-                                  <label for="title" style="width:100%">
-                                    Judul
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_JUDUL" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Pengarang
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_PENGARANG" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Penerbit
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_PENERBIT" value="">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    Tokoh
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_TOKOH" value="">
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Rangkuman
-                                    <textarea type="text" id="desc" class="form-control" name="MEMBACA_RANGKUMAN" style="height:150px"></textarea>
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Pesan Moral
-                                    <textarea type="text" id="desc" class="form-control" name="MEMBACA_SARAN" style="height:150px"></textarea>
-                                  </label>
+                                  <table class="table table-responsive">
+                                    <tr>
+                                      <th width="5%">No</th>
+                                      <th>Kalimat Pengetahuan</th>
+                                      <th>Sumber Buku</th>
+                                      <th>Halaman</th>
+                                    </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      1
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      2
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      3
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      4
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      5
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      6
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="5%" style="vertical-align:middle;text-align:center">
+                                      7
+                                    </td>
+                                    <td width="45%">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                    </td>
+                                    <td width="35%">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                    </td>
+                                    <td width="15%">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                    </td>
+                                  </tr>
+                                  </table>
                               </div>
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-success" name="button" style="width:100%;margin-top:20px">Simpan</button>
@@ -179,9 +232,9 @@
             action: 'list',
             db: 'sdnpakis',
             table: 'tx_hdr_buku_membaca',
-            where : [['MEMBACA_SISWA','=', '<?php echo $siswa["DTL_NIS"]; ?>']],
+            where : [['PENGETAHUAN_SISWA','=', '<?php echo $siswa["DTL_NIS"]; ?>']],
             start: start,
-            orderBy: ['MEMBACA_ID', 'DESC'],
+            orderBy: ['PENGETAHUAN_ID', 'DESC'],
             limit: 25
           })
           .then(response => (this.info = response["data"]["result"]))
@@ -206,7 +259,7 @@
             db: 'sdnpakis',
             table: 'tx_hdr_buku_membaca',
             start: start,
-            orderBy: ['MEMBACA_ID', 'DESC'],
+            orderBy: ['PENGETAHUAN_ID', 'DESC'],
             limit: 25
           })
           .then(response => (this.info = response["data"]["result"]))
@@ -217,7 +270,7 @@
 
 
 <script type="text/javascript">
-function DELETE_MEMBACA(id, start, page) {
+function DELETE_PENGETAHUAN(id, start, page) {
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -232,7 +285,7 @@ function DELETE_MEMBACA(id, start, page) {
           action: 'simpleDelete',
           db: 'sdnpakis',
           table: 'tx_hdr_buku_membaca',
-          where : ["MEMBACA_ID", id]
+          where : ["PENGETAHUAN_ID", id]
         })
         .then(response => (alert(this.info = response["data"])))
         .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
@@ -240,7 +293,7 @@ function DELETE_MEMBACA(id, start, page) {
     })
 }
 
-function EDIT_MEMBACA(id, start, page) {
+function EDIT_PENGETAHUAN(id, start, page) {
   alert(id);
 }
 </script>

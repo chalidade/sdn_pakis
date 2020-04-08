@@ -44,7 +44,8 @@
                                 <th width="25%">Nama Siswa</th>
                                 <th width="15%">NIS</th>
                                 <th width="20%">Tgl Report</th>
-                                <th width="20%">Status</th>
+                                <th width="15%">Status</th>
+                                <th width="20%">Remark</th>
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
@@ -53,7 +54,8 @@
                                   <td>{{ data.USER_NAME }}</td>
                                   <td>{{ data.DTL_NIS }}</td>
                                   <td>{{ data.BERCERITA_UPDATE }}</td>
-                                  <td><font style="font-weight:800;color:red">{{ data.REFF_NAME }}</font></td>
+                                  <td><font style="font-weight:800;font-size:12px;color:red">{{ data.REFF_NAME }}</font></td>
+                                  <td><font style="font-weight:800;;font-size:12px;color:red">{{ data.BERCERITA_REMARK }}</font></td>
                                   <td style="text-align:center">
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.BERCERITA_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.BERCERITA_ID">
@@ -62,7 +64,7 @@
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">{{data.USER_NAME}}</h4>
+                                            <h4 class="modal-title">Jumlah Buku</h4>
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                               <div class="box-body" style="margin-bottom:30px">
@@ -93,7 +95,7 @@
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="5">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
@@ -290,7 +292,8 @@ function approve(id) {
             "table"  : "tx_hdr_buku_bercerita",
             "update" :
             {
-               "BERCERITA_STATUS" : "2"
+               "BERCERITA_STATUS" : "2",
+               "BERCERITA_REMARK" : ""
             },
              "where" :
              {
