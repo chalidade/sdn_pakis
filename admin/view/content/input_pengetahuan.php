@@ -76,7 +76,7 @@
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
+                                <form action="app/model/PengetahuanModel.php?id=insert" method="post" enctype="multipart/form-data">
                                   <table class="table table-responsive">
                                     <tr>
                                       <th width="5%">No</th>
