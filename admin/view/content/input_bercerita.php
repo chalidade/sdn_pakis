@@ -117,8 +117,11 @@
                           <!-- /.tab-pane -->
                           <?php
                           if ($session["USER_ROLE"] == 1) {
+                            // Rangking
+                            include "app/helper/hitungRangking.php";
+                            // End Rangking
                             $nis       = $session["DTL_NIS"];
-                            $sql       = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_buku_bercerita` WHERE `BERCERITA_NIS` = '$nis'");
+                            $sql       = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_buku_bercerita` as A JOIN `TM_REFF` as B ON B.REFF_ID = A.BERCERITA_STATUS WHERE A.`BERCERITA_NIS` = '$nis' AND B.REFF_TR_ID = '2'");
                             $bercerita = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
                            ?>
                           <div class="tab-pane active" id="tab_2">
@@ -206,7 +209,7 @@
                                     <td>STATUS</td>
                                     <td>:</td>
                                     <td>
-                                      <font color="red"><b>Disetujui</b></font>
+                                      <font color="red"><b><?php echo $bercerita["REFF_NAME"]; ?></b></font>
                                     </td>
                                   </tr>
                                 </table>

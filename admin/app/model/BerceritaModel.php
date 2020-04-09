@@ -41,7 +41,7 @@ switch ($id) {
 }
 
 $data = json_encode($json);
-header('Content-Type: application/json'); echo $data;
+// header('Content-Type: application/json'); echo $data;
 
-// include "../helper/simpleSaveHelper.php";
+include "../helper/simpleSaveHelper.php";
  ?>

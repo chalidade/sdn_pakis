@@ -8,7 +8,7 @@ $cekRangking    = json_decode(json_encode(mysqli_fetch_assoc(mysqli_query($mysql
 $jmlCerita  = $sqlCerita["BERCERITA_JAN"]+$sqlCerita["BERCERITA_FEB"]+$sqlCerita["BERCERITA_MAR"]+$sqlCerita["BERCERITA_APR"]+$sqlCerita["BERCERITA_MEI"]+$sqlCerita["BERCERITA_JUN"]+$sqlCerita["BERCERITA_JUL"]+$sqlCerita["BERCERITA_AUG"]+$sqlCerita["BERCERITA_SEP"]+$sqlCerita["BERCERITA_OKT"]+$sqlCerita["BERCERITA_NOV"]+$sqlCerita["BERCERITA_DES"];
 
  if (!empty($sqlBaca["TOTAL_MEMBACA"])) {
-   $membaca   = $sqlBaca["TOTAL_MEMBACA"];
+   $membaca   = $sqlBaca["TOTAL_MEMBACA"]*2;
  } else {
    $membaca   = 0;
  }
