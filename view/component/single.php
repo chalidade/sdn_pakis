@@ -29,13 +29,11 @@ $berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
             <table width="100%">
             <?php
              $sql   = "
-                       SELECT COUNT(A.MEMBACA_SISWA) AS total, B.*, C.*
-                       FROM tx_hdr_buku_membaca as A
-                       JOIN tx_dtl_user_siswa as B ON B.DTL_NIS = A.MEMBACA_SISWA
-                       JOIN tx_hdr_user as C ON B.DTL_HDR_ID = C.USER_ID
-                       GROUP BY A.MEMBACA_SISWA
-                       ORDER BY total DESC
-                       LIMIT 10
+             SELECT * FROM `ts_rangking` as A
+             JOIN tx_dtl_user_siswa as B ON B.DTL_NIS = A.RANGKING_NIS
+             JOIN tx_hdr_user as C ON B.DTL_HDR_ID = C.USER_ID
+             ORDER BY RANGKING_TOTAL DESC
+             LIMIT 10
                        ";
              $query = mysqli_query($mysqli, $sql);
              $no    = 1;
@@ -45,9 +43,9 @@ $berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
                 <?php if ($no > 3) { ?>
                   <td style="vertical-align:top;width:5%"><h3 style="padding-right:20px;text-align:center"><?php echo $no.".";$no++; ?></h3></td>
                 <?php } else { ?>
-                  <td style="vertical-align:top;width:5%"><h1 style="padding-right:20px;text-align:center"><?php echo $no.".";$no++; ?></h1></td>
+                  <td style="vertical-align:top;width:5%"><h2 style="padding-right:20px;text-align:center"><?php echo $no.".";$no++; ?></h2></td>
                 <?php } ?>
-                <td style="vertical-align:top;width:25%"><img onerror="this.onerror=null; this.src='public/images/user.png'" src="admin/resource/public/USER/<?php echo $siswa["USER_PHOTO"]; ?>" class="img-fluid mb-4" style="border-radius:50px;width:50px;"></td>
+                <td style="vertical-align:top;width:25%"><img onerror="this.onerror=null; this.src='public/images/user.png'" src="admin/resource/public/USER/<?php echo $siswa["USER_PHOTO"]; ?>" class="img-fluid mb-4" style="border-radius:50px;width:50px;height:50px"></td>
                 <td  style="vertical-align:top;color:#000;font-size:14px"><b><?php echo $siswa["USER_NAME"]; ?></b><br><font style="font-size:12px"><?php echo $siswa["DTL_NIS"]; ?> | <?php echo $siswa["DTL_TINGKAT"]."-".$siswa["DTL_KELAS"]; ?></font></td>
               </tr>
             <?php } ?>
