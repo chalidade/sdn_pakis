@@ -32,7 +32,10 @@
                             <?php
                             $start  = $_REQUEST['start'];
                             $page   = 1;
-                             ?>
+                            // Rangking
+                            include "app/helper/hitungRangking.php";
+                            // End Rangking
+                            ?>
                            <div class="table-responsive">
                             <table id="app" class="table table-border">
                               <tr>
@@ -54,8 +57,8 @@
                                   <td style="text-align:center"><font style="font-weight:800;color:red">{{ data.PENGETAHUAN_REMARK }}</font></td>
                                   <td style="text-align:center">
                                     <?php if (!empty($session["DTL_NIS"])) { ?>
-                                    <button type="button" v-bind:onclick="'send(' + data.PENGETAHUAN_ID +  ', ' + data.PENGETAHUAN_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
-                                    <a v-bind:href="'?id=update_pengetahuan&start=0&page=1&menu=1&data=' + data.PENGETAHUAN_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
+                                    <button v-if='data.REFF_ID != 2' type="button" v-bind:onclick="'send(' + data.PENGETAHUAN_ID +  ', ' + data.PENGETAHUAN_STATUS +  ')'"/ class="btn btn-success option"> <i class="fa fa-send"></i> </button>
+                                    <a v-if='data.REFF_ID != 2' v-bind:href="'?id=update_pengetahuan&start=0&page=1&menu=1&data=' + data.PENGETAHUAN_ID"  class="btn btn-warning option"><i class="fa fa-edit"></i></a>
                                     <?php } ?>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.PENGETAHUAN_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
                                     <div class="modal fade" v-bind:id="'modal-default' + data.PENGETAHUAN_ID">
@@ -71,7 +74,6 @@
                                                 <iframe v-bind:src="'view/frame/detailPengatahuan.php?id=' + data.PENGETAHUAN_ID" width="100%" height="400" style="border:none;overflow:hidden;"></iframe>
                                               </div>
                                               <!-- /.box-body -->
-
                                               <div class="box-footer">
                                                 <?php if(empty($session["DTL_NIS"])) { ?>
                                                   <table width="100%">
