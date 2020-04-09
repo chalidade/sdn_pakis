@@ -36,6 +36,9 @@
                             <?php
                             $start  = $_REQUEST['start'];
                             $page   = 1;
+                            // Rangking
+                            include "app/helper/hitungRangking.php";
+                            // End Rangking
                              ?>
                            <div class="table-responsive">
                             <table class="table table-border">
