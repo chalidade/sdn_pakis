@@ -31,44 +31,20 @@
         $start = 0;
         $page  = 1;
       }
-      $count   = json_decode(json_encode(mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT count(DISTINCT DTL_NIS) as TOTAL_DATA FROM `tx_dtl_user_siswa`"))), TRUE);
+      $count   = json_decode(json_encode(mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT count(DTL_NIS) as TOTAL_DATA FROM `tx_dtl_user_siswa`"))), TRUE);
       $count   = $count["TOTAL_DATA"];
       $limit   = 25;
       $pagi    = ceil($count/$limit);
       $sql     = "
-                 SELECT *
-                 FROM tx_dtl_user_siswa as B
+                 SELECT * FROM `ts_rangking` as A
+                 JOIN tx_dtl_user_siswa as B ON B.DTL_NIS = A.RANGKING_NIS
                  JOIN tx_hdr_user as C ON B.DTL_HDR_ID = C.USER_ID
+                 ORDER BY RANGKING_TOTAL DESC
                  LIMIT $start, $limit
                  ";
        $query  = mysqli_query($mysqli, $sql);
        $no     = $start+1;
        while ($siswa = mysqli_fetch_array($query)) {
-        $sqlBaca    = json_decode(json_encode(mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT count('MEMBACA_SISWA') as TOTAL_MEMBACA FROM tx_hdr_buku_membaca WHERE MEMBACA_SISWA = ".$siswa['DTL_NIS'].""))), TRUE);
-        $sqlCerita  = json_decode(json_encode(mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT * FROM tx_hdr_buku_bercerita WHERE BERCERITA_NIS = ".$siswa['DTL_NIS'].""))), TRUE);
-        $sqlTahu    = json_decode(json_encode(mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT count('PENGETAHUAN_NIS') as TOTAL_PENGETAHUAN FROM tx_hdr_buku_pengetahuan WHERE PENGETAHUAN_STATUS = '2' AND PENGETAHUAN_NIS = ".$siswa['DTL_NIS'].""))), TRUE);
-
-        $jmlCerita  = $sqlCerita["BERCERITA_JAN"]+$sqlCerita["BERCERITA_FEB"]+$sqlCerita["BERCERITA_MAR"]+$sqlCerita["BERCERITA_APR"]+$sqlCerita["BERCERITA_MEI"]+$sqlCerita["BERCERITA_JUN"]+$sqlCerita["BERCERITA_JUL"]+$sqlCerita["BERCERITA_AUG"]+$sqlCerita["BERCERITA_SEP"]+$sqlCerita["BERCERITA_OKT"]+$sqlCerita["BERCERITA_NOV"]+$sqlCerita["BERCERITA_DES"];
-
-         if (!empty($sqlBaca["TOTAL_MEMBACA"])) {
-           $bercerita   = $sqlBaca["TOTAL_MEMBACA"];
-         } else {
-           $bercerita   = 0;
-         }
-
-         if (!empty($jmlCerita)) {
-           $menulis   = $jmlCerita;
-         } else {
-           $menulis   = 0;
-         }
-
-         if (!empty($sqlTahu["TOTAL_PENGETAHUAN"])) {
-           $kip   = $sqlTahu["TOTAL_PENGETAHUAN"];
-         } else {
-           $kip   = 0;
-         }
-
-         $sum       = $bercerita+$menulis+$kip;
        ?>
         <tr>
           <?php if ($no > 3) { ?>
@@ -85,10 +61,10 @@
             </center>
           <td  style="vertical-align:top;color:#000;"><b><?php echo $siswa["USER_NAME"]; ?></b><br><font style="font-size:14px"><?php echo $siswa["DTL_NIS"]; ?></font></td>
           <td style="text-align:center"><?php echo $siswa["DTL_TINGKAT"]." ".$siswa["DTL_KELAS"]; ?></td>
-          <td style="text-align:center"><?php echo $bercerita; ?></td>
-          <td style="text-align:center"><?php echo $menulis; ?></td>
-          <td style="text-align:center"><?php echo $kip; ?></td>
-          <td style="text-align:center"><?php echo $sum; ?></td>
+          <td style="text-align:center"><?php echo $siswa["RANGKING_MEMBACA"]; ?></td>
+          <td style="text-align:center"><?php echo $siswa["RANGKING_BERCERITA"]; ?></td>
+          <td style="text-align:center"><?php echo $siswa["RANGKING_PENGETAHUAN"]; ?></td>
+          <td style="text-align:center"><?php echo $siswa["RANGKING_TOTAL"]; ?></td>
         </tr>
       <?php } ?>
     </table>
