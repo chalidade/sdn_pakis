@@ -114,7 +114,7 @@
                           <div class="tab-pane active" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="app/model/PengetahuanModel.php?id=insert" method="post" enctype="multipart/form-data">
+                                <form action="app/model/PengetahuanModel.php?id=update" method="post" enctype="multipart/form-data">
                                   <table class="table table-responsive">
                                     <tr>
                                       <th width="5%">No</th>
@@ -123,110 +123,28 @@
                                       <th>Halaman</th>
                                     </tr>
                                   <?php
-                                  $id   =
-                                  $data = mysqli_query($msyqli, "SELECT * FROM `tx_hdr_buku_pengetahuan` as A JOIN `tx_dtl_buku_pengetahuan` as B ON A.PENGETAHUAN_ID = B.DTL_HDR_ID WHERE A.PENGETAHUAN_ID = '$id'");
-
-                                   ?>
+                                  $id   = $_REQUEST["data"];
+                                  $no   = 1;
+                                  $data = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_buku_pengetahuan` as A JOIN `tx_dtl_buku_pengetahuan` as B ON A.PENGETAHUAN_ID = B.DTL_HDR_ID WHERE A.PENGETAHUAN_ID = '$id'");
+                                  while ($pengetahuan = mysqli_fetch_array($data)) {
+                                  ?>
                                   <tr>
                                     <td width="5%" style="vertical-align:middle;text-align:center">
-                                      1
+                                      <?php echo $no;$no++; ?>
                                     </td>
                                     <td width="45%">
-                                      <input type="hidden" name="PENGETAHUAN_ID" value="">
-                                      <input type="hidden" name="DTL_NIS" value="<?php echo $session["USER_NIS"]; ?>">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
+                                      <input type="hidden" name="PENGETAHUAN_ID" value="<?php echo $pengetahuan["PENGETAHUAN_ID"]; ?>">
+                                      <input type="hidden" name="PENGETAHUAN_NIS" value="<?php echo $session["DTL_NIS"]; ?>">
+                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="<?php echo $pengetahuan["DTL_KALIMAT_PENGETAHUAN"]; ?>">
                                     </td>
                                     <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
+                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="<?php echo $pengetahuan["DTL_SUMBER_BUKU"]; ?>">
                                     </td>
                                     <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
+                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="<?php echo $pengetahuan["DTL_HALAMAN"]; ?>">
                                     </td>
                                   </tr>
-                                  <tr>
-                                    <td width="5%" style="vertical-align:middle;text-align:center">
-                                      2
-                                    </td>
-                                    <td width="45%">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
-                                    </td>
-                                    <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
-                                    </td>
-                                    <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="5%" style="vertical-align:middle;text-align:center">
-                                      3
-                                    </td>
-                                    <td width="45%">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
-                                    </td>
-                                    <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
-                                    </td>
-                                    <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="5%" style="vertical-align:middle;text-align:center">
-                                      4
-                                    </td>
-                                    <td width="45%">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
-                                    </td>
-                                    <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
-                                    </td>
-                                    <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="5%" style="vertical-align:middle;text-align:center">
-                                      5
-                                    </td>
-                                    <td width="45%">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
-                                    </td>
-                                    <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
-                                    </td>
-                                    <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="5%" style="vertical-align:middle;text-align:center">
-                                      6
-                                    </td>
-                                    <td width="45%">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
-                                    </td>
-                                    <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
-                                    </td>
-                                    <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="5%" style="vertical-align:middle;text-align:center">
-                                      7
-                                    </td>
-                                    <td width="45%">
-                                      <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
-                                    </td>
-                                    <td width="35%">
-                                      <input type="text" required class="form-control" name="DTL_SUMBER_BUKU[]" value="">
-                                    </td>
-                                    <td width="15%">
-                                      <input type="text" required class="form-control" name="DTL_HALAMAN[]" value="">
-                                    </td>
-                                  </tr>
+                                  <?php } ?>
                                   </table>
                               </div>
                               <div class="col-md-12">

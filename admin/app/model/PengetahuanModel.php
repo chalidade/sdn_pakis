@@ -5,7 +5,7 @@ include "../config/setting.php";
 
 $id      = $_REQUEST['id'];
 $total   = count($_POST['DTL_KALIMAT_PENGETAHUAN']);
-$protaId = $_POST["PENGETAHUAN_ID"];
+$pengID  = $_POST["PENGETAHUAN_ID"];
 
 for ($i=0; $i < $total; $i++) {
   $arrdetil .= '
@@ -51,8 +51,8 @@ switch ($id) {
     break;
 
     case 'update':
-      $delHeader = mysqli_query($mysqli, "DELETE FROM `tx_hdr_prota` WHERE `tx_hdr_prota`.`PROTA_ID`  = '$protaId'");
-      $delDetail = mysqli_query($mysqli, "DELETE FROM `tx_dtl_prota` WHERE `tx_dtl_prota`.`DTL_HDR_ID` = '$protaId'");
+      $delHeader = mysqli_query($mysqli, "DELETE FROM `tx_hdr_buku_pengetahuan` WHERE `tx_hdr_buku_pengetahuan`.`PENGETAHUAN_ID`  = '$pengID'");
+      $delDetail = mysqli_query($mysqli, "DELETE FROM `tx_dtl_buku_pengetahuan` WHERE `tx_dtl_buku_pengetahuan`.`DTL_HDR_ID` = '$pengID'");
 
       $page      = "input_pengetahuan";
       $json      = '{
@@ -63,7 +63,7 @@ switch ($id) {
                     ],
                     "HEADER": {
                         "DB": "'.$databaseApi.'",
-                        "TABLE": "tx_hdr_prota",
+                        "TABLE": "tx_hdr_buku_pengetahuan",
                         "PK": "PENGETAHUAN_ID",
                         "VALUE": [
                             {

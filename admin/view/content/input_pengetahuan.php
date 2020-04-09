@@ -128,7 +128,7 @@
                                     </td>
                                     <td width="45%">
                                       <input type="hidden" name="PENGETAHUAN_ID" value="">
-                                      <input type="hidden" name="DTL_NIS" value="<?php echo $session["USER_NIS"]; ?>">
+                                      <input type="hidden" name="PENGETAHUAN_NIS" value="<?php echo $session["DTL_NIS"]; ?>">
                                       <input type="text" required class="form-control" name="DTL_KALIMAT_PENGETAHUAN[]" value="">
                                     </td>
                                     <td width="35%">
