@@ -2,8 +2,13 @@
   <div class="container">
     <div class="site-navbar bg-light">
       <div class="row align-items-center">
-        <div class="col-4">
-          <h2 class="mb-0 site-logo"><a href="index.html" class="font-weight-bold text-uppercase">SDN PAKIS V SURABAYA</a></h2>
+        <div class="col-4" style="padding:10px">
+            <a href="index.php" class="font-weight-bold text-uppercase">
+              <h2 class="mb-0 site-logo" id="logoText">
+              SDN PAKIS V SURABAYA
+              </h2>
+              <img src="public/images/logo.png" alt="" width="50px" id="logoImg">
+            </a>
         </div>
         <div class="col-8">
           <nav class="site-navigation text-right" role="navigation">
@@ -12,23 +17,6 @@
 
               <ul class="site-menu js-clone-nav d-none d-lg-block">
                 <li class="active"><a href="index.php">Home</a></li>
-                <!-- <li class="has-children">
-                  <a href="about.html">About</a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                    <li class="has-children">
-                      <a href="#">Sub Menus</a>
-                      <ul class="dropdown">
-                        <li><a href="testimonials.html">Testimonials</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li> -->
                 <li><a href="index.php?id=membaca">Membaca</a></li>
                 <li><a href="index.php?id=berita">Berita</a></li>
                 <li><a href="index.php?id=ebook">E-Book</a></li>
@@ -53,3 +41,13 @@
     </div>
   </div>
 </div>
+
+<script>
+  if (screen.width < 1011) {
+    document.getElementById("logoText").style.display = "none";
+    document.getElementById("logoImg").style.display = "block";
+  } else {
+    document.getElementById("logoText").style.display = "block";
+    document.getElementById("logoImg").style.display = "none";
+  }
+</script>

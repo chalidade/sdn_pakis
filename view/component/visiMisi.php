@@ -1,5 +1,5 @@
 <div class="site-half mb-5" data-aos="fade" id="visi">
-  <div class="img-bg-1" style="background-image: url('public/images/img_4.jpg');margin-bottom:20px"></div>
+  <div class="img-bg-1" style="background-image: url('public/images/visi.jpg');background-size: cover;margin-bottom:20px;background-position-y: -45px;"></div>
   <div class="container">
     <div class="row no-gutters align-items-stretch">
       <div class="col-lg-6 ml-lg-auto" style="padding-left:20px">
@@ -23,7 +23,7 @@
 </div>
 
 <div class="site-half mb-5" data-aos="fade" id="misi">
-  <div class="img-bg-1" style="background-image: url('public/images/img_4.jpg');margin-bottom:20px"></div>
+  <div class="img-bg-1" style="background-image: url('public/images/misi.jpg');margin-bottom:20px"></div>
   <div class="container">
     <div class="row no-gutters align-items-stretch">
       <div class="col-lg-6 ml-lg-auto" style="padding-left:20px">
