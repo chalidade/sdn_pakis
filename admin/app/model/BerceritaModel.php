@@ -12,9 +12,10 @@ switch ($id) {
     "action"                   => "simpleSave",
     "db"                       => "sdnpakis",
     "table"                    => "tx_hdr_buku_bercerita",
-    "primaryKey"               => "BERCERITA_NIS",
+    "primaryKey"               => "BERCERITA_ID",
     "value"                    => [
     array(
+    "BERCERITA_ID"             => $_POST['BERCERITA_ID'],
     "BERCERITA_NIS"            => $_POST['BERCERITA_NIS'],
     "BERCERITA_JAN"            => $_POST['BERCERITA_JAN'],
     "BERCERITA_FEB"            => $_POST['BERCERITA_FEB'],

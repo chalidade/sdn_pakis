@@ -8,7 +8,7 @@
       </div>
       <div class="row">
         <script src="public/js/lightwidget.js"></script>
-        <iframe src="//lightwidget.com/widgets/dd8e2004987c54438c98b586409a0c53.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+        <iframe src="//lightwidget.com/widgets/212edc44b56c50ef8754fe28da46c6b8.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 <?php
 include "../../app/config/setting.php";
+include "../../app/config/connection.php";
 error_reporting(0);
 $id     = $_REQUEST["id"];
 if (!empty($_REQUEST["print"])) {
@@ -28,8 +29,14 @@ if (!empty($_REQUEST["print"])) {
   </head>
 
  <body style="padding:10px;height:500px">
+     <?php
+      $data               = $_REQUEST["id"];
+      $hdrQuery           = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_silabus` WHERE `SILABUS_HDR_ID` = '$data' ");
+      $hdrSilabus         = json_decode(json_encode(mysqli_fetch_assoc($hdrQuery)),TRUE);
+      $dtlSilabus         = mysqli_query($mysqli, "SELECT * FROM `tx_dtl_silabus` WHERE `SILABUS_HDR_ID` = '$data'");
+       ?>
     <div id="app" style="width:100%" class="Section1">
-      <h1 style="text-align:center">SILABUS TEMATIK KELAS {{header[0].SILABUS_HDR_KELAS}}
+      <h1 style="text-align:center">SILABUS TEMATIK KELAS <?php echo $hdrSilabus['SILABUS_HDR_KELAS']; ?>
       </h1>
     <br>
       <table width="100%" id="myTable" class="table order-list">
@@ -37,14 +44,14 @@ if (!empty($_REQUEST["print"])) {
           <td width="15%"><b>Satuan Pendidikan<b></td>
           <td width="2%">:</td>
           <td>
-            {{header[0].SILABUS_HDR_SATUAN_PENDIDIKAN}}
+            <?php echo $hdrSilabus['SILABUS_HDR_SATUAN_PENDIDIKAN']; ?>
           </td>
         </tr>
         <tr>
           <td width="15%"><b>Kelas</b></td>
           <td width="2%">:</td>
           <td>
-            {{header[0].SILABUS_HDR_KELAS}}
+            <?php echo $hdrSilabus['SILABUS_HDR_KELAS']; ?>
           </td>
         </tr>
         <tr>
@@ -52,14 +59,7 @@ if (!empty($_REQUEST["print"])) {
           <td>:</td>
         </tr>
         <tr>
-          <td colspan="3">
-              <?php
-                include "../../app/config/connection.php";
-                $sql = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_silabus` WHERE `SILABUS_HDR_ID` = '$id'");
-                while ($data = mysqli_fetch_array($sql)) {
-                  echo $data["SILABUS_HDR_KOMPETENSI_INTI"];
-                }
-               ?>
+          <td colspan="3"><?php echo $hdrSilabus["SILABUS_HDR_KOMPETENSI_INTI"]; ?>
           </td>
         </tr>
       </table>
@@ -74,59 +74,21 @@ if (!empty($_REQUEST["print"])) {
           <th width="11%">Alokasi Waktu</th>
           <th width="12%">Sumber Belajar</th>
         </tr>
-      <template  v-for="data in detail">
+        <?php
+         $no = 0;
+         while ($detail = mysqli_fetch_array($dtlSilabus)) {
+        ?>
         <tr>
-          <td width="15%">{{data.SILABUS_DTL_MUATAN_PELAJARAN}}</td>
-          <td width="15%">{{data.SILABUS_DTL_KOMPETENSI_DASAR}}</td>
-          <td width="15%">{{data.SILABUS_DTL_TEMA}}</td>
-          <td width="15%">{{data.SILABUS_DTL_PEMBELAJARAN}}</td>
-          <td width="12%" style="text-align:center">{{data.SILABUS_DTL_PENLAIAN}}</td>
-          <td width="11%" style="text-align:center">{{data.SILABUS_DTL_ALOKASI_WAKTU}}</td>
-          <td width="12%">{{data.SILABUS_DTL_SUMBER_BELAJAR}}</td>
+          <td width="15%"><?php echo $detail['SILABUS_DTL_MUATAN_PELAJARAN']; ?></td>
+          <td width="15%"><?php echo $detail['SILABUS_DTL_KOMPETENSI_DASAR']; ?></td>
+          <td width="15%"><?php echo $detail['SILABUS_DTL_TEMA']; ?></td>
+          <td width="15%"><?php echo $detail['SILABUS_DTL_PEMBELAJARAN']; ?></td>
+          <td width="12%" style="text-align:center"><?php echo $detail['SILABUS_DTL_PENLAIAN']; ?></td>
+          <td width="11%" style="text-align:center"><?php echo $detail['SILABUS_DTL_ALOKASI_WAKTU']; ?></td>
+          <td width="12%"><?php echo $detail['SILABUS_DTL_SUMBER_BELAJAR']; ?></td>
         </tr>
-    </template>
+      <?php } ?>
     </table>
     </div>
   </body>
-
-  <script type="text/javascript">
-  var url = "http://localhost/uapi";
-  var id  = "<?php echo $id; ?>";
-  new Vue({
-      el: '#app',
-      data () {
-        return {
-          detail: null,
-          header: null
-        }
-      },
-      mounted () {
-        axios
-        .post(url+'/index', {
-              "action": "viewHeaderDetail",
-              "data": [
-                  "HEADER",
-                  "DETAIL"
-              ],
-              "HEADER": {
-                  "DB": "sdnpakis",
-                  "TABLE": "tx_hdr_silabus",
-                  "PK": [
-                      "SILABUS_HDR_ID",
-                      id
-                  ]
-              },
-              "DETAIL": {
-                  "DB": "sdnpakis",
-                  "TABLE": "tx_dtl_silabus",
-                  "FK": [
-                      "SILABUS_HDR_ID",
-                      "SILABUS_HDR_ID"
-                  ]
-              }
-          })
-        .then(response => (this.detail = response["data"]["DETAIL"],this.header = response["data"]["HEADER"]))
-      }
-    })
-  </script>
 </html>

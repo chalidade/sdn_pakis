@@ -13,18 +13,14 @@
       {{ info }}
     </div>
      <img src="<?php echo $publicImage.'pleasewait1.gif'; ?>" alt="" style="width:50%;margin:auto;z-index:-1">
-     <?php
-     if (isset($modal)) {
-       header("Refresh: 5; URL=$urlModal/$page");
-     } else {
-       header("Refresh: 5; URL=$urlAdmin?id=$page&start=0&page=1&menu=1");
-     }
-     ?>
    </center>
   </body>
   <script type="text/javascript">
-    var json = <?php echo $data ?>;
-    var url = "<?php echo $urlApi ?>";
+    var modal    = "<?php echo $modal ?>";
+    var json     = <?php echo $data ?>;
+    var url      = "<?php echo $urlApi ?>";
+    var urlModal = "<?php echo $urlModal."/".$page ?>";
+    var urlMenu  = "<?php echo $urlAdmin."?id=".$page."&start=0&page=1&menu=1"; ?>";
     new Vue({
         el: '#app',
         data () {
@@ -38,5 +34,13 @@
           .then(response => (this.info = response["data"]["message"]))
         }
       })
+
+      window.setTimeout(function(){
+      if (modal !== '') {
+         window.location.href = urlModal;
+      } else {
+         window.location.href = urlMenu;
+      }
+      }, 5000);
   </script>
 </html>
