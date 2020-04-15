@@ -17,15 +17,15 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Aku Suka Membaca</h2>
+                  <h2 class="page-header">Menulis</h2>
 
                   <div class="row">
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Membaca</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Laporan Membaca</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Menulis</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Laporan Menulis</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
