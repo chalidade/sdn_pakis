@@ -25,7 +25,7 @@
                       <div class="nav-tabs-custom">
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
-                            <div class="table-responsive">
+                            <div class="table-responsive"> 
                             <?php
                             $menu   = $_REQUEST["menu"];
                             $start  = $_REQUEST['start'];

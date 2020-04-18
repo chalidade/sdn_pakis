@@ -28,7 +28,7 @@
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" action="app/model/ProtaModel.php?id=insert" method="post" enctype="multipart/form-data">
-                  <div class="box-body">
+                  <div class="box-body table-responsive">
                     <table width="100%" id="myTable" class="table order-list">
                       <tr>
                         <td width="15%"><b>Satuan Pendidikan<b></td>
@@ -56,11 +56,12 @@
                     </table>
                     <br>
                     <h4><b>Semester 1</b></h4>
+                    <div class="table-responsive">
                     <table class="text-center" border="1" width="100%">
                       <tr>
                         <th width="10%">No</th>
                         <th width="40%">Tema/Sub Tema</th>
-                        <th width="10%">Alokasi Waktu</th>
+                        <th width="10%">Waktu</th>
                         <th width="30%">Keterangan</th>
                         <th width="10%">Option</th>
                       </tr>
@@ -77,6 +78,7 @@
                         </td>
                       </tr>
                     </table>
+                  </div>
                     <br>
                     <h4><b>Semester 2</b></h4>
                     <table class="text-center" border="1" width="100%">

@@ -31,7 +31,7 @@
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" action="app/model/AbsenModel.php?id=siswa" method="post" enctype="multipart/form-data">
-                  <div class="box-body">
+                  <div class="box-body table-responsive">
                     <table width="100%" class="table order-list">
                       <tr>
                         <td width="15%"><b>Nama Guru<b></td>

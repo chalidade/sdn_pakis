@@ -28,7 +28,7 @@
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" action="app/model/RppModel.php?id=update" method="post" enctype="multipart/form-data">
-                  <div class="box-body">
+                  <div class="box-body table-responsive">
                     <table width="100%" id="myTable" class="table order-list">
                       <tr>
                         <td width="15%"><b>Satuan Pendidikan<b></td>
