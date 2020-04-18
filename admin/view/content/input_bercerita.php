@@ -104,10 +104,10 @@
                                     if ($prev < 0) $prev = 0;
                                     $next = $start+25;
                                    ?>
-                                  <a href="<?php echo $urlPageMembaca.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
+                                  <a href="<?php echo $urlBercerita.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
                                 </td>
                                 <td colspan="3">
-                                  <a href="<?php echo $urlPageMembaca.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
+                                  <a href="<?php echo $urlBercerita.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
                                 </td>
                               </tr>
                             </table>

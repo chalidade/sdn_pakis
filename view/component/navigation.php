@@ -23,7 +23,7 @@
                   <?php
                   if (!empty($session["USER_NAME"])) { ?>
                     <li class="has-children">
-                    <img src="admin/resource/public/USER/<?php echo $session["USER_PHOTO"]; ?>" style="width:50px;border-radius:50px">
+                    <img src="admin/resource/public/User/<?php echo $session["USER_PHOTO"]; ?>" style="height: 50px;width:50px;border-radius:50px">
                     <ul class="dropdown arrow-top" style="width: 105px;">
                       <li><a href="admin/index.php?id=home" style="padding-left: 15px;">Dashboard</a></li>
                       <li><a href="view/content/auth.php?id=logout" style="padding-left: 15px;">Logout</a></li>

@@ -162,7 +162,7 @@
           <ul class="treeview-menu">
             <li><a href="index.php?id=input_membaca&start=0&page=1">Menulis</a></li>
             <li><a href="index.php?id=input_bercerita&start=0&page=1">Bercerita</a></li>
-            <li><a href="index.php?id=input_pengetahuan&start=0&page=1">Kalimat Ilmu Pengetahuan</a></li>
+            <li><a href="index.php?id=input_pengetahuan&start=0&page=1">Kalimat Pengetahuan</a></li>
             <li><a href="index.php?id=data_rangking&start=0">Rangking Siswa Membaca</a></li>
           </ul>
         </li>

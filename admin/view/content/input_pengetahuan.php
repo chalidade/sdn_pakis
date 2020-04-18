@@ -17,7 +17,7 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Kalimat Ilmu Pengetahuan</h2>
+                  <h2 class="page-header">Kalimat Pengetahuan</h2>
 
                   <div class="row">
                     <div class="col-md-12">
@@ -103,10 +103,10 @@
                                     if ($prev < 0) $prev = 0;
                                     $next = $start+25;
                                    ?>
-                                  <a href="<?php echo $urlPageMembaca.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
+                                  <a href="<?php echo $urlPengetahuan.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
                                 </td>
                                 <td colspan="3">
-                                  <a href="<?php echo $urlPageMembaca.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
+                                  <a href="<?php echo $urlPengetahuan.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
                                 </td>
                               </tr>
                             </table>
