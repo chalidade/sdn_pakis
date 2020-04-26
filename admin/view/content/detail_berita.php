@@ -66,9 +66,9 @@ $berita    = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
         <div class="col-md-12" style="margin-top:15px">
             <label for="title" style="width:100%;text-align:left">
               Judul
-              <input type="text" id="title" class="form-control" name="BERITA_JUDUL" style="font-weight:400" v-bind:value="<?php echo $berita["BERITA_JUDUL"]; ?>">
-              <input type="hidden" name="BERITA_USER" v-bind:value="<?php echo $berita["BERITA_USER"]; ?>">
-              <input type="hidden" name="BERITA_ID" v-bind:value="<?php echo $berita["BERITA_ID"]; ?>">
+              <input type="text" id="title" class="form-control" name="BERITA_JUDUL" style="font-weight:400" value="<?php echo $berita["BERITA_JUDUL"]; ?>">
+              <input type="hidden" name="BERITA_USER" value="<?php echo $berita["BERITA_USER"]; ?>">
+              <input type="hidden" name="BERITA_ID" value="<?php echo $berita["BERITA_ID"]; ?>">
             </label>
             <label for="desc" style="width:100%;margin-top:20px;text-align:left">
               Deskripsi

@@ -24,8 +24,8 @@
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data KIP</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Laporan KIP</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data KP</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Laporan KP</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
