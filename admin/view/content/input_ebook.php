@@ -17,24 +17,21 @@
           <div class="box box-warning content">
 
             <!-- START CUSTOM TABS -->
-                  <h2 class="page-header">Menulis</h2>
+                  <h2 class="page-header">Electronic Book</h2>
 
                   <div class="row">
                     <div class="col-md-12">
                       <!-- Custom Tabs -->
                       <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Menulis</a></li>
-                          <li><a href="#tab_2" data-toggle="tab">Laporan Menulis</a></li>
+                          <li class="active"><a href="#tab_1" data-toggle="tab">Data Ebook</a></li>
+                          <li><a href="#tab_2" data-toggle="tab">Input Ebook</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab_1">
                             <?php
                             $start  = $_REQUEST['start'];
                             $page   = 1;
-                            // Rangking
-                            include "app/helper/hitungRangking.php";
-                            // End Rangking
                              ?>
                            <div class="table-responsive">
                             <table id="app" class="table table-border">
@@ -80,58 +77,37 @@
                           <div class="tab-pane" id="tab_2">
                             <div class="row">
                               <div class="col-md-12">
-                                <form action="app/model/MembacaModel.php?id=modalMembaca" method="post" enctype="multipart/form-data">
+                                <form action="app/model/EbookModel.php?id=insert" method="post" enctype="multipart/form-data">
                                 <label class="container" for="imgSlider1" style="height:200px; width:100%;border:1px solid #d4d4d4;margin-bottom:20px">
-                                  <input type="file" id="imgSlider1" name="MEMBACA_COVER" value="" style="display:none">
+                                  <input type="file" id="imgSlider1" name="BOOK_COVER" value="" style="display:none">
                                   <div class="sliderChangePicture" style="border:1px solid;width:100%;margin-top:150px;padding:5px 10px;">
                                     <center>
-                                      <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
+                                      <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Cover</font>
                                     </center>
                                   </div>
                                 </label>
                               </div>
                               <div class="col-md-12">
                                   <label for="title" style="width:100%">
-                                    Tanggal Baca
-                                    <input type="hidden" id="title" class="form-control" name="MEMBACA_ID" value="" style="line-height:15px">
-                                    <input type="date" id="title" class="form-control" name="MEMBACA_TANGGAL" value="" style="line-height:15px">
-                                  </label>
-                                  <label for="title" style="width:100%">
-                                    NIS
-                                    <?php if ($session["USER_ROLE"] == 1) { ?>
-                                      <input type="input" id="title" class="form-control" disabled value="<?php echo $siswa["DTL_NIS"]; ?>">
-                                      <input type="hidden" id="title" class="form-control" name="MEMBACA_SISWA" value="<?php echo $siswa["DTL_NIS"]; ?>">
-                                    <?php } else { ?>
-                                      <input type="input" id="title" class="form-control" name="MEMBACA_SISWA" value="">
-                                    <?php } ?>
-                                  </label>
-                                  <!-- <label for="title" style="width:100%">
-                                    Nama Guru
-                                    <input type="input" id="title" class="form-control" name="MEMBACA_GURU" value="">
-                                  </label> -->
-                                  <label for="title" style="width:100%">
                                     Judul
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_JUDUL" value="">
+                                    <input type="hidden" id="title" class="form-control" name="BOOK_ID" value="" style="line-height:15px">
+                                    <input type="text" id="title" class="form-control" name="BOOK_JUDUL" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Pengarang
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_PENGARANG" value="">
+                                    <input type="text" id="title" class="form-control" name="BOOK_PENGARANG" value="">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Penerbit
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_PENERBIT" value="">
+                                    <input type="text" id="title" class="form-control" name="BOOK_PENERBIT" value="">
                                   </label>
                                   <label for="title" style="width:100%">
-                                    Tokoh
-                                    <input type="text" id="title" class="form-control" name="MEMBACA_TOKOH" value="">
+                                    Tahun
+                                    <input type="text" id="title" class="form-control" name="BOOK_TAHUN" value="">
                                   </label>
-                                  <label for="desc" style="width:100%">
-                                    Rangkuman
-                                    <textarea type="text" id="desc" class="form-control" name="MEMBACA_RANGKUMAN" style="height:150px"></textarea>
-                                  </label>
-                                  <label for="desc" style="width:100%">
-                                    Pesan Moral
-                                    <textarea type="text" id="desc" class="form-control" name="MEMBACA_SARAN" style="height:150px"></textarea>
+                                  <label for="title" style="width:100%">
+                                    Upload Ebook
+                                    <input type="file" id="title" class="form-control" name="BOOK_TOKOH" value="">
                                   </label>
                               </div>
                               <div class="col-md-12">
