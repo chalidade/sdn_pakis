@@ -65,71 +65,80 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                             <div class="table-responsive">
+                                              <form action="app/model/SiswaModel.php?id=update&data=home" method="post" enctype="multipart/form-data">
                                               <table class="table table-border">
                                                 <tr>
                                                   <td rowspan="8" width="40%" style="vertical-align:middle;vertical-align:top">
                                                     <label class="" for="imgSlider1">
                                                       <img onerror="this.onerror=null; this.src='../public/images/user.png'" v-bind:src="'<?php echo $publicUser ?>' + data.USER_PHOTO"/ style='width:100%;padding:5px' alt=''>
                                                       <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
+                                                        <input type="file" id="imgSlider1" name="USER_PHOTO" style="display:none">
+                                                        <input type="hidden" name="USER_PHOTO_BACKUP" v-bind:value="data.USER_PHOTO">
+                                                        <input type="hidden" name="USER_ID" v-bind:value="data.USER_ID">
+                                                        <input type="hidden" name="USER_PASSWORD" v-bind:value="data.USER_PASSWORD">
+                                                        <input type="hidden" name="USER_PASSWORD" v-bind:value="data.USER_PASSWORD">
+                                                        <input type="hidden" name="DTL_TINGKAT" v-bind:value="data.DTL_TINGKAT">
+                                                        <input type="hidden" name="DTL_KELAS" v-bind:value="data.DTL_KELAS">
                                                         <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
                                                       </div>
                                                     </label>
                                                   </td>
                                                   <td width="20%" style="font-weight:800">NIS</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.DTL_NIS" style="width:100%;border:none;"></td>
+                                                  <td><input type="text" name="DTL_NIS" v-bind:value="data.DTL_NIS" style="width:100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Nama Lengkap</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.USER_NAME" style="width: 100%;border:none;"></td>
+                                                  <td><input type="text" name="USER_NAME" v-bind:value="data.USER_NAME" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Email</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="email" v-bind:value="data.USER_EMAIL" style="width: 100%;border:none;"></td>
+                                                  <td><input type="email" name="USER_EMAIL" v-bind:value="data.USER_EMAIL" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Nomor Telpon</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.DTL_PHONE" style="width: 100%;border:none;"></td>
+                                                  <td><input type="text" name="DTL_PHONE" v-bind:value="data.DTL_PHONE" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Alamat</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.USER_ADDRESS" style="width: 100%;border:none;"></td>
+                                                  <td><input type="text" name="USER_ADDRESS" v-bind:value="data.USER_ADDRESS" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">TTL</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.USER_BIRTHPLACE" style="width: 35%;border:none;">, <input type="text" v-bind:value="data.USER_BIRTHDATE" style="width: 50%;border:none;"></td>
+                                                  <td><input type="text" name="USER_BIRTHPLACE" v-bind:value="data.USER_BIRTHPLACE" style="width: 35%;border:none;">, <input type="text" name="USER_BIRTHDATE" v-bind:value="data.USER_BIRTHDATE" style="width: 50%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Nama Ayah</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.DTL_AYAH" style="width: 100%;border:none;"></td>
+                                                  <td><input type="text" name="DTL_AYAH" v-bind:value="data.DTL_AYAH" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td width="20%" style="font-weight:800">Nama Ibu</td>
                                                   <td width="1%">:</td>
-                                                  <td><input type="text" v-bind:value="data.DTL_IBU" style="width: 100%;border:none;"></td>
+                                                  <td><input type="text" name="DTL_IBU" v-bind:value="data.DTL_IBU" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
                                                   <td colspan="4" style="font-weight:800"> Rincian Prestasi : </td>
                                                 </tr>
                                                 <tr>
                                                   <td colspan="4">
-                                                    <textarea name="name" rows="8" cols="60" style="border:none">{{data.DTL_PRESTASI}}</textarea>
+                                                    <textarea name="DTL_PRESTASI" rows="8" cols="60" style="border:none">{{data.DTL_PRESTASI}}</textarea>
                                                   </td>
                                                 </tr>
                                                 <tr>
                                                   <td colspan="4">
                                                     <table width="100%">
                                                       <tr>
-                                                        <td><button class="btn btn-success" name="button" style="width:100%">Edit</button></td>
+                                                        <td><button type="submit" class="btn btn-success" name="button" style="width:100%">Edit</button></td>
                                                         <td width="1%"></td>
                                                         <td width="10%"><button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:100%"><i class="fa fa-trash"></i></button></td>
                                                       </tr>
+                                                    </form>
                                                     </table>
                                                   </td>
                                                 </tr>

@@ -28,8 +28,8 @@ switch ($id) {
             'USER_EMAIL'      => $_POST["USER_EMAIL"],
             'USER_ADDRESS'    => $_POST["USER_ADDRESS"],
             'USER_ROLE'       => '1',
-            'USER_PASSWORD'   => "",
-            'USER_BIRTHDATE'  => $_POST["USER_BIRTHDAY"],
+            'USER_PASSWORD'   => '',
+            'USER_BIRTHDATE'  => $_POST["USER_BIRTHDATE"],
             'USER_BIRTHPLACE' => $_POST["USER_BIRTHPLACE"],
             'USER_NIP'        => '',
             'USER_TOKEN'      => '',
@@ -76,7 +76,11 @@ switch ($id) {
         $photo = $_POST["USER_PHOTO_BACKUP"];
       }
 
-      $page  = "detail_siswa.php?id=$userId";
+      if (!empty($_REQUEST['data'])) {
+        $page = "../../index.php?id=data_siswa&start=0";
+      } else {
+        $page  = "detail_siswa.php?id=$userId";
+      }
       $modal = "true";
       $json = array (
         'action' => 'saveheaderdetail',
@@ -98,7 +102,7 @@ switch ($id) {
               'USER_ADDRESS'    => $_POST["USER_ADDRESS"],
               'USER_ROLE'       => '1',
               'USER_PASSWORD'   => $_POST["USER_PASSWORD"],
-              'USER_BIRTHDATE'  => $_POST["USER_BIRTHDAY"],
+              'USER_BIRTHDATE'  => $_POST["USER_BIRTHDATE"],
               'USER_BIRTHPLACE' => $_POST["USER_BIRTHPLACE"],
               'USER_NIP'        => '',
               'USER_TOKEN'      => '',
@@ -124,7 +128,8 @@ switch ($id) {
               'DTL_KELAS'    => $_POST["DTL_KELAS"],
               'DTL_AYAH'     => $_POST["DTL_AYAH"],
               'DTL_IBU'      => $_POST["DTL_IBU"],
-              'DTL_PRESTASI' => '',
+              'DTL_PHONE'    => $_POST["DTL_PHONE"],
+              'DTL_PRESTASI' => $_POST["DTL_PRESTASI"],
               'DTL_NIS'      => $_POST["DTL_NIS"]
             ),
           ),

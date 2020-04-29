@@ -62,6 +62,7 @@
                                           </div>
                                           <div class="modal-body" style="text-align:left">
                                             <div class="table-responsive">
+                                              <form action="app/model/GuruModel.php?id=update&data=home" method="post" enctype="multipart/form-data">
                                               <table class="table table-border">
                                                 <tr>
                                                   <td rowspan="7" width="40%" style="vertical-align:middle">
@@ -70,6 +71,17 @@
                                                       <div class="sliderChangePicture" style="border:1px solid;background: white;width:100%;margin-top:0px;padding:0px 10px;">
                                                         <i class="fa fa-camera"></i> <font style="font-weight:100;margin-left:5px;"> Change Picture</font>
                                                       </div>
+                                                      <input type="file" id="imgSlider1" name="USER_PHOTO" style="display:none">
+                                                      <input type="hidden" name="USER_PHOTO_BACKUP" v-bind:value="data.USER_PHOTO">
+                                                      <input type="hidden" name="USER_ID" v-bind:value="data.USER_ID">
+                                                      <input type="hidden" name="USER_PASSWORD" v-bind:value="data.USER_PASSWORD">
+                                                      <input type="hidden" name="DTL_NUPTK" v-bind:value="data.DTL_NUPTK">
+                                                      <input type="hidden" name="DTL_IJAZAH" v-bind:value="data.DTL_IJAZAH">
+                                                      <input type="hidden" name="DTL_IJAZAH_TAHUN" v-bind:value="data.DTL_IJAZAH_TAHUN">
+                                                      <input type="hidden" name="DTL_IJAZAH_JURUSAN" v-bind:value="data.DTL_IJAZAH_JURUSAN">
+                                                      <input type="hidden" name="DTL_TANGGAL_MULAI" v-bind:value="data.DTL_TANGGAL_MULAI">
+                                                      <input type="hidden" name="DTL_GOL" v-bind:value="data.DTL_GOL">
+                                                      <input type="hidden" name="DTL_TELPON" v-bind:value="data.DTL_TELPON">
                                                     </label>
                                                   </td>
                                                   <td width="20%" style="font-weight:800">NIP</td>
@@ -115,6 +127,7 @@
                                                         <td width="10%"><button type="button" v-bind:onclick="'DELETE_USER(' + data.USER_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger" style="width:100%"><i class="fa fa-trash"></i></button></td>
                                                       </tr>
                                                     </table>
+                                                  </form>
                                                   </td>
                                                 </tr>
                                               </table>
