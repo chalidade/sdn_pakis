@@ -134,7 +134,6 @@
           </a>
           <ul class="treeview-menu">
             <!-- <li><a href="index.php?id=input_keuangan">Input Keuangan</a></li> -->
-            <!-- <li><a href="index.php?id=input_inventaris">Input Inventaris</a></li> -->
             <li><a href="index.php?id=data_keuangan&start=0">Keuangan</a></li>
             <li><a href="index.php?id=data_inventaris&start=0&menu=1">Inventaris</a></li>
           </ul>
@@ -194,6 +193,7 @@
           <ul class="treeview-menu">
             <li><a href="index.php?id=homepage">Homepage</a></li>
             <li><a href="index.php?id=berita&start=0">Berita</a></li>
+            <li><a href="index.php?id=input_ebook">Ebook</a></li>
           </ul>
         </li>
       <?php } ?>

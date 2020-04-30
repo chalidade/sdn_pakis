@@ -55,12 +55,30 @@
                                   <td width="25%">{{ data.BOOK_PENERBIT }}</td>
                                   <td width="15%">{{ data.BOOK_TAHUN }}</td>
                                   <td width="20%" style="text-align:center">
-                                    <button type="button" onclick="VIEW_BOOK('tx_hdr_buku_membaca', 2,'BOOK_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                    <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.BOOK_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+
+                                    <div class="modal fade" v-bind:id="'modal-default' + data.BOOK_ID">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" style="text-transform:uppercase">{{data.BOOK_JUDUL}}</h4>
+                                          </div>
+                                          <div class="modal-body" style="text-align:left">
+                                            <iframe v-bind:src="'<?php echo $publicMembaca ?>' + data.BOOK_FILE" width="100%" height="500px"></iframe>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
                                   </td>
                                 </tr>
                               </template>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="5">
                                   <?php
                                     $prev = $start-25;
                                     if ($prev < 0) $prev = 0;
