@@ -2,3 +2,4 @@ admin/app/config/connection.php
 *.jpg
 *.png
 *.jpeg
+*.pdf

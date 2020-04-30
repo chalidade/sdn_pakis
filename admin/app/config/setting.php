@@ -17,6 +17,7 @@ $urlDataGuru    = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_guru&
 $urlDataSTAFF   = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_staff&start=";
 $urlDataSiswa   = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_siswa&start=";
 $urlPageMembaca = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_membaca&start=";
+$urlEbook       = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_ebook&start=";
 $urlPageRangking= "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rangking&start=";
 $urlAnalisisHB  = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_analisis_hb&start=";
 $urlAbsenSiswa  = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_absen_siswa&guru=";

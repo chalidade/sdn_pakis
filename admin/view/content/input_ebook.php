@@ -39,22 +39,24 @@
                                 <th width="5%" style="text-align:center">Id</th>
                                 <th width="15%" style="text-align:center">Foto Buku</th>
                                 <th width="25%">Judul</th>
-                                <th width="25%">Siswa</th>
-                                <th width="10%" style="text-align:center">Tgl Baca</th>
-                                <!-- <th width="20%" style="text-align:center">Option</th> -->
+                                <th width="15%">Pengarang</th>
+                                <th width="15%">Penerbit</th>
+                                <th width="15%">Tahun</th>
+                                <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
                                 <tr>
-                                  <td width="5%" style="text-align:center">{{ data.MEMBACA_ID }}</td>
+                                  <td width="5%" style="text-align:center">{{ data.BOOK_ID }}</td>
                                   <td width="15%" style="text-align:center">
-                                      <img onerror="this.onerror=null; this.src='../public/images/photo.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.MEMBACA_COVER"/ style='width:80px;padding:5px' alt=''>
+                                      <img onerror="this.onerror=null; this.src='../public/images/photo.png'" v-bind:src="'<?php echo $publicMembaca ?>' + data.BOOK_COVER"/ style='width:80px;padding:5px' alt=''>
                                   </td>
-                                  <td width="20%">{{ data.MEMBACA_JUDUL }}</td>
-                                  <td width="25%">{{ data.MEMBACA_SISWA }}</td>
-                                  <td width="10%" style="text-align:center">{{ data.MEMBACA_TANGGAL }}</td>
-                                  <!-- <td width="20%" style="text-align:center">
-                                    <button type="button" onclick="VIEW_MEMBACA('tx_hdr_buku_membaca', 2,'MEMBACA_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
-                                  </td> -->
+                                  <td width="20%">{{ data.BOOK_JUDUL }}</td>
+                                  <td width="25%">{{ data.BOOK_PENGARANG }}</td>
+                                  <td width="25%">{{ data.BOOK_PENERBIT }}</td>
+                                  <td width="15%">{{ data.BOOK_TAHUN }}</td>
+                                  <td width="20%" style="text-align:center">
+                                    <button type="button" onclick="VIEW_BOOK('tx_hdr_buku_membaca', 2,'BOOK_ID',<?php echo $start; ?>,<?php echo $page; ?>)" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
+                                  </td>
                                 </tr>
                               </template>
                               <tr>
@@ -64,10 +66,10 @@
                                     if ($prev < 0) $prev = 0;
                                     $next = $start+25;
                                    ?>
-                                  <a href="<?php echo $urlPageMembaca.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
+                                  <a href="<?php echo $urlEbook.$prev; ?>" type="button" name="button" class="btn btn-primary"><</a>
                                 </td>
                                 <td colspan="3">
-                                  <a href="<?php echo $urlPageMembaca.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
+                                  <a href="<?php echo $urlEbook.$next; ?>" style="float:right" type="button" class="btn btn-primary">></a>
                                 </td>
                               </tr>
                             </table>
@@ -105,9 +107,9 @@
                                     Tahun
                                     <input type="text" id="title" class="form-control" name="BOOK_TAHUN" value="">
                                   </label>
-                                  <label for="title" style="width:100%">
+                                  <label for="ebook" style="width:100%">
                                     Upload Ebook
-                                    <input type="file" id="title" class="form-control" name="BOOK_TOKOH" value="">
+                                    <input type="file" id="ebook" class="form-control" name="BOOK_FILE" value="">
                                   </label>
                               </div>
                               <div class="col-md-12">
@@ -141,7 +143,6 @@
 </div>
 <!-- /.content-wrapper -->
 
-<?php if ($session["USER_ROLE"] == "1") { ?>
   <script type="text/javascript">
     start   = <?php echo $start; ?>;
     var url = "<?php echo $urlApi; ?>";
@@ -157,46 +158,18 @@
           .post(url+'/index', {
             action: 'list',
             db: 'sdnpakis',
-            table: 'tx_hdr_buku_membaca',
-            where : [['MEMBACA_SISWA','=', '<?php echo $siswa["DTL_NIS"]; ?>']],
+            table: 'tx_hdr_ebook',
             start: start,
-            orderBy: ['MEMBACA_ID', 'DESC'],
+            orderBy: ['BOOK_ID', 'DESC'],
             limit: 25
           })
           .then(response => (this.info = response["data"]["result"]))
         }
       })
   </script>
-<?php } else {?>
-  <script type="text/javascript">
-    start   = <?php echo $start; ?>;
-    var url = "<?php echo $urlApi; ?>";
-    new Vue({
-        el: '#app',
-        data () {
-          return {
-            info: null
-          }
-        },
-        mounted () {
-          axios
-          .post(url+'/index', {
-            action: 'list',
-            db: 'sdnpakis',
-            table: 'tx_hdr_buku_membaca',
-            start: start,
-            orderBy: ['MEMBACA_ID', 'DESC'],
-            limit: 25
-          })
-          .then(response => (this.info = response["data"]["result"]))
-        }
-      })
-  </script>
-<?php } ?>
-
 
 <script type="text/javascript">
-function DELETE_MEMBACA(id, start, page) {
+function DELETE_BOOK(id, start, page) {
   var url = "<?php echo $urlApi; ?>";
   new Vue({
       el: '#app',
@@ -210,16 +183,16 @@ function DELETE_MEMBACA(id, start, page) {
         .post(url+'/store', {
           action: 'simpleDelete',
           db: 'sdnpakis',
-          table: 'tx_hdr_buku_membaca',
-          where : ["MEMBACA_ID", id]
+          table: 'tx_hdr_ebook',
+          where : ["BOOK_ID", id]
         })
         .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "<?php echo $urlPageMembaca; ?>"+start+"&page="+page));
+        .then(response=>(window.location = "<?php echo $urlEbook; ?>"+start+"&page="+page));
       }
     })
 }
 
-function EDIT_MEMBACA(id, start, page) {
+function EDIT_BOOK(id, start, page) {
   alert(id);
 }
 </script>
