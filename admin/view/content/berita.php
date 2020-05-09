@@ -191,9 +191,9 @@ function DELETE_BERITA(id, start, page) {
           where : ["BERITA_ID", id]
         })
         .then(response => (alert(this.info = response["data"])))
-        .then(response=>(window.location = "<?php echo $urlPageBerita; ?>"+start+"&page="+page));
       }
     })
+    window.location = "<?php echo $urlPageBerita; ?>"+start+"&page="+page;
 }
 
 start   = <?php echo $start; ?>;

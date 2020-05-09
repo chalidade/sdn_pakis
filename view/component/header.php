@@ -23,6 +23,10 @@ if (!isset($_REQUEST['id'])) {
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Work+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="public/fonts/icomoon/style.css">
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+    .mySlides {display:none;}
+    </style>
     <link rel="stylesheet" href="public/css/magnific-popup.css">
     <link rel="stylesheet" href="public/css/jquery-ui.css">
     <link rel="stylesheet" href="public/css/owl.carousel.min.css">

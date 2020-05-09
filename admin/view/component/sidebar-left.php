@@ -72,6 +72,9 @@
             <li><a href="index.php?id=data_silabus&start=0&menu=2">Silabus</a></li>
             <li><a href="index.php?id=data_rpp&start=0&menu=2">RPP</a></li>
             <li><a href="index.php?id=data_inventaris&start=0&menu=2">Inventaris</a></li>
+            <li><a href="index.php?id=data_rapbs&start=0&menu=2">RAPBS</a></li>
+            <li><a href="index.php?id=data_rkas&start=0&menu=2">RKAS</a></li>
+
           </ul>
         </li>
         <!-- <li class="treeview">
@@ -134,7 +137,8 @@
           </a>
           <ul class="treeview-menu">
             <!-- <li><a href="index.php?id=input_keuangan">Input Keuangan</a></li> -->
-            <li><a href="index.php?id=data_keuangan&start=0">Keuangan</a></li>
+            <li><a href="index.php?id=data_rapbs&start=0&menu=1">RAPBS</a></li>
+            <li><a href="index.php?id=data_rkas&start=0&menu=1">RKAS</a></li>
             <li><a href="index.php?id=data_inventaris&start=0&menu=1">Inventaris</a></li>
           </ul>
         </li>
@@ -193,7 +197,7 @@
           <ul class="treeview-menu">
             <li><a href="index.php?id=homepage">Homepage</a></li>
             <li><a href="index.php?id=berita&start=0">Berita</a></li>
-            <li><a href="index.php?id=input_ebook">Ebook</a></li>
+            <li><a href="index.php?id=input_ebook&start=0">Ebook</a></li>
           </ul>
         </li>
       <?php } ?>

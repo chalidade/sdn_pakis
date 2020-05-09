@@ -184,9 +184,7 @@
           .then(response => (this.info = response["data"]["result"]))
         }
       })
-  </script>
-
-<script type="text/javascript">
+      
 function DELETE_BOOK(id, start, page) {
   var url = "<?php echo $urlApi; ?>";
   new Vue({

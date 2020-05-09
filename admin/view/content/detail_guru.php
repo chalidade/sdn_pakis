@@ -100,7 +100,7 @@ if (!empty($_REQUEST["print"])) {
   <script type="text/javascript">
   var url   = "<?php echo $urlApi; ?>";
   var id  = "<?php echo $id; ?>";
-    new Vue({
+  new Vue({
         el: '#app',
         data () {
           return {

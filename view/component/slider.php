@@ -1,4 +1,3 @@
-
 <div class="slide-one-item home-slider owl-carousel" id="slider">
   <?php
     $sql = mysqli_query($mysqli, "SELECT * FROM `tx_home_slider`");
@@ -17,3 +16,11 @@
   </div>
 <?php } ?>
 </div>
+
+<script>
+  if (screen.width < 1011) {
+    document.getElementById("slider").style.display = "none";
+  } else {
+    document.getElementById("slider").style.display = "block";
+  }
+</script>
