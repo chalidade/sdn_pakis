@@ -121,7 +121,8 @@
                             include "app/helper/hitungRangking.php";
                             // End Rangking
                             $nis       = $session["DTL_NIS"];
-                            $sql       = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_buku_bercerita` as A JOIN `TM_REFF` as B ON B.REFF_ID = A.BERCERITA_STATUS WHERE A.`BERCERITA_NIS` = '$nis' AND B.REFF_TR_ID = '2'");
+                            $year      = $_REQUEST["tahun"];
+                            $sql       = mysqli_query($mysqli, "SELECT * FROM `tx_hdr_buku_bercerita` as A JOIN `TM_REFF` as B ON B.REFF_ID = A.BERCERITA_STATUS WHERE A.`BERCERITA_NIS` = '$nis' AND B.REFF_TR_ID = '2' AND A.`BERCERITA_YEAR` = '$year'");
                             $bercerita = json_decode(json_encode(mysqli_fetch_assoc($sql)), TRUE);
                            ?>
                           <div class="tab-pane active" id="tab_2">
@@ -130,9 +131,27 @@
                               <div class="col-md-12 table-responsive">
                                 <table class="table">
                                   <tr>
+                                    <td>Tahun</td>
+                                    <td>:</td>
+                                    <td>
+                                      <select class="form-control" onchange="Tahun()" id="tahun">
+                                        <option selected disabled>-- Pilih Tahun --</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                      </select>
+                                    </td>
+                                  </tr>
+                                  <tr>
                                     <td width="15%">Nama</td>
                                     <td width="2%">:</td>
-                                    <td> <input type="text" disabled value="<?php echo $session["USER_NAME"]; ?>" class="form-control"> </td>
+                                    <td>
+                                      <input type="hidden" name="BERCERITA_YEAR" value="<?php echo $year; ?>">
+                                      <input type="text" disabled value="<?php echo $session["USER_NAME"]; ?>" class="form-control"> </td>
                                   </tr>
                                   <tr>
                                     <td>NIS</td>
@@ -246,6 +265,11 @@
 </div>
 <!-- /.content-wrapper -->
 <script type="text/javascript">
+
+function Tahun() {
+  var tahun       = document.getElementById("tahun").value;
+  window.location = "<?php echo $urlBercerita; ?>0&tahun="+tahun+"&menu=1";
+}
 
 function reject(id) {
   var remark = prompt("Alasan Penolakan:", "Data Tidak Lengkap");

@@ -34,6 +34,7 @@ if (!empty($_REQUEST["print"])) {
     <table width="100%">
       <tr>
         <td width="50%" style="font-weight:800;vertical-align:top">
+          <input type="hidden" name="USER_ID" v-bind:value="data[0].USER_ID">
           <p>Nama Lengkap : <br><input type="text" name="USER_NAME" v-bind:value="data[0].USER_NAME" style="border:none"></p>
           <p>Alamat : <br><input type="text" name="USER_ADDRESS" v-bind:value="data[0].USER_ADDRESS" style="border:none"></p>
           <p>Tempat, Tanggal Lahir : <br>
@@ -50,7 +51,7 @@ if (!empty($_REQUEST["print"])) {
         </td>
         <td rowspan="18" width="50%" style="vertical-align:top;">
           <label class="" for="imgSlider1" style="margin:auto">
-            <center><img onerror="this.onerror=null; this.src='../public/images/user.png'" v-bind:src="'../../<?php echo $publicUser ?>' + data[0].USER_PHOTO" style='width:80%;padding:5px' alt=''>
+            <center><img onerror="this.onerror=null; this.src='../../../public/images/user.png'" v-bind:src="'../../<?php echo $publicUser ?>' + data[0].USER_PHOTO" style='width:80%;padding:5px' alt=''>
               <input type="file" id="imgSlider1" name="USER_PHOTO" style="display:none">
               <input type="hidden" name="USER_PHOTO_BACKUP" v-bind:value="data[0].USER_PHOTO">
             <div style="border:1px solid;background: white;width:70%;margin:auto">

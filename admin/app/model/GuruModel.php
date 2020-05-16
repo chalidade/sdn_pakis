@@ -7,6 +7,8 @@ $id = $_REQUEST['id'];
 
 if (isset($_REQUEST["ext"])) {
   $role = "3";
+} else if (isset($_REQUEST["adm"])) {
+  $role = "4";
 } else {
   $role = "2";
 }
