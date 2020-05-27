@@ -28,10 +28,50 @@
                           <li><a href="#tab_2" data-toggle="tab">Tambah Data Siswa</a></li>
                         </ul>
                         <div class="tab-content">
+                          <form class="" action="index.php?id=data_siswa&start=0&page=1" method="post">
                           <div class="tab-pane active" id="tab_1">
+                            <table>
+                              <tr>
+                                <td width="65%"></td>
+                                <td>
+                                  <input type="text" name="search" class="form-control" value="">
+                                </td>
+                                <td>
+                                  <select name="tingkat" class="form-control">
+                                    <option disabled selected>Tingkat</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                  </select>
+                                </td>
+                                <td>
+                                  <select name="kelas" class="form-control">
+                                    <option disabled selected>Kelas</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+                                    <option value="H">H</option>
+                                  </select>
+                                </td>
+                                <td>
+                                  <input type="submit" class="btn btn-submit" value="Search">
+                                </td>
+                              </tr>
+                            </table>
+                          </form>
                             <div class="table-responsive">
                             <?php
                             $start  = $_REQUEST['start'];
+                            if (isset($_POST['search'])) $search   = $_POST['search'];
+                            if (isset($_POST['tingkat'])) $tingkat = $_POST['tingkat'];
+                            if (isset($_POST['kelas'])) $kelas     = $_POST['kelas'];
                             $page   = 1;
                              ?>
                             <table cellpadding="10" id="app" class="table table-border" width="100%">
@@ -350,9 +390,15 @@ function EDIT_USER(id, start, page) {
   alert(id);
 }
 
-  start   = <?php echo $start; ?>;
-  var url = "<?php echo $urlApi; ?>";
-  new Vue({
+  start       = <?php echo $start; ?>;
+  var url     = "<?php echo $urlApi; ?>";
+  var search  = "%<?php echo $search; ?>%";
+  var tingkat = "<?php echo $tingkat; ?>";
+  var kelas   = "<?php echo $kelas; ?>";
+
+if (search === "%%") {
+  if (tingkat) {
+    new Vue({
       el: '#app',
       data () {
         return {
@@ -362,27 +408,164 @@ function EDIT_USER(id, start, page) {
       mounted () {
         axios
         .post(url+'/index', {
-              "action"    : "list",
-              "db"        : "sdnpakis",
-              "table"     : "tx_hdr_user as A",
-              "innerJoin" : [
-                  {
-                      "table": "tx_dtl_user_siswa as B",
-                      "field1": "A.USER_ID",
-                      "field2": "B.DTL_HDR_ID"
-                  }
-              ],
-              "where": [
-                  [
-                      "A.USER_ROLE",
-                      "=",
-                      "1"
-                  ]
-              ],
-              "start": start,
-              "limit": 25
-          })
+          "action"    : "list",
+          "db"        : "sdnpakis",
+          "table"     : "tx_hdr_user as A",
+          "innerJoin" : [
+            {
+              "table": "tx_dtl_user_siswa as B",
+              "field1": "A.USER_ID",
+              "field2": "B.DTL_HDR_ID"
+            }
+          ],
+          "where": [
+            [
+              "A.USER_ROLE",
+              "=",
+              "1"
+            ],
+            [
+              "B.DTL_TINGKAT",
+              "=",
+              tingkat
+            ],
+            [
+              "B.DTL_KELAS",
+              "=",
+              kelas
+            ]
+          ],
+          "start": start,
+          "limit": 25
+        })
         .then(response => (this.info = response["data"]["result"]))
       }
     })
+  } else {
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/index', {
+          "action"    : "list",
+          "db"        : "sdnpakis",
+          "table"     : "tx_hdr_user as A",
+          "innerJoin" : [
+            {
+              "table": "tx_dtl_user_siswa as B",
+              "field1": "A.USER_ID",
+              "field2": "B.DTL_HDR_ID"
+            }
+          ],
+          "where": [
+            [
+              "A.USER_ROLE",
+              "=",
+              "1"
+            ]
+          ],
+          "start": start,
+          "limit": 25
+        })
+        .then(response => (this.info = response["data"]["result"]))
+      }
+    })
+  }
+} else if(search) {
+  if (tingkat) {
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/index', {
+          "action"    : "list",
+          "db"        : "sdnpakis",
+          "table"     : "tx_hdr_user as A",
+          "innerJoin" : [
+            {
+              "table": "tx_dtl_user_siswa as B",
+              "field1": "A.USER_ID",
+              "field2": "B.DTL_HDR_ID"
+            }
+          ],
+          "where": [
+            [
+              "A.USER_ROLE",
+              "=",
+              "1"
+            ],
+            [
+              "B.DTL_TINGKAT",
+              "=",
+              tingkat
+            ],
+            [
+              "B.DTL_KELAS",
+              "=",
+              kelas
+            ],
+            [
+              "A.USER_NAME",
+              "like",
+              search
+            ]
+          ],
+          "start": start,
+          "limit": 25
+        })
+        .then(response => (this.info = response["data"]["result"]))
+      }
+    })
+  } else {
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+        .post(url+'/index', {
+          "action"    : "list",
+          "db"        : "sdnpakis",
+          "table"     : "tx_hdr_user as A",
+          "innerJoin" : [
+            {
+              "table": "tx_dtl_user_siswa as B",
+              "field1": "A.USER_ID",
+              "field2": "B.DTL_HDR_ID"
+            }
+          ],
+          "where": [
+            [
+              "A.USER_ROLE",
+              "=",
+              "1"
+            ],
+            [
+              "A.USER_NAME",
+              "like",
+              search
+            ]
+          ],
+          "start": start,
+          "limit": 25
+        })
+        .then(response => (this.info = response["data"]["result"]))
+      }
+    })
+  }
+}
+
 </script>

@@ -69,27 +69,27 @@
                       <!-- Semester Genap -->
                       <tr id="ganjil">
                         <th rowspan="2" width='10%'>Tema</th>
-                        <th rowspan="2" width='20%'>Sub Tema<br>Kompetensi Dasar</th>
+                        <th rowspan="2" width='14%'>Sub Tema<br>Kompetensi Dasar</th>
                         <th rowspan="2" width='10%'>Alokasi Waktu</th>
-                        <th colspan="5" width="9%">Juli</th>
-                        <th colspan="5" width="9%">Agustus</th>
-                        <th colspan="5" width="9%">September</th>
-                        <th colspan="5" width="9%">Oktober</th>
-                        <th colspan="5" width="9%">November</th>
-                        <th colspan="5" width="9%">Desember</th>
+                        <th colspan="5" width="10%">Juli</th>
+                        <th colspan="5" width="10%">Agustus</th>
+                        <th colspan="5" width="10%">September</th>
+                        <th colspan="5" width="10%">Oktober</th>
+                        <th colspan="5" width="10%">November</th>
+                        <th colspan="5" width="10%">Desember</th>
                         <th width="6%">Option</th>
                       </tr>
                       <!-- Semester Ganjil -->
                       <tr id="genap" style="display:none">
                         <th rowspan="2" width='10%'>Tema</th>
-                        <th rowspan="2" width='20%'>Sub Tema<br>Kompetensi Dasar</th>
+                        <th rowspan="2" width='14%'>Sub Tema<br>Kompetensi Dasar</th>
                         <th rowspan="2" width='10%'>Alokasi Waktu</th>
-                        <th colspan="5" width="9%">January</th>
-                        <th colspan="5" width="9%">February</th>
-                        <th colspan="5" width="9%">Maret</th>
-                        <th colspan="5" width="9%">April</th>
-                        <th colspan="5" width="9%">Mei</th>
-                        <th colspan="5" width="9%">Juni</th>
+                        <th colspan="5" width="10%">January</th>
+                        <th colspan="5" width="10%">February</th>
+                        <th colspan="5" width="10%">Maret</th>
+                        <th colspan="5" width="10%">April</th>
+                        <th colspan="5" width="10%">Mei</th>
+                        <th colspan="5" width="10%">Juni</th>
                         <th width="6%">Option</th>
                       </tr>
                       <tr>
@@ -171,7 +171,7 @@
     $("#tableSemester"+btnid).append(
         "<tr class='protasem"+btnid+"' id='protarow"+total_element+"'>"+
         "<td width='10%'><input required type='text' name='DTL_TEMA[]' style='width:100%;border:none;text-align:center'></input></td>"+
-        "<td width='20%'><input required type='text' name='DTL_KOMPETENSI[]' style='width:100%;border:none;text-align:center'></input></td>"+
+        "<td width='14%'><input required type='text' name='DTL_KOMPETENSI[]' style='width:100%;border:none;text-align:center'></input></td>"+
         "<td width='10%'><input required type='text' name='DTL_ALOKASI_WAKTU[]' style='width:100%;border:none;text-align:center'></input></td>"+
         "<td><input required type='text' name='DTL_BLN_SATU_A[]'  style='width:100%;border:none;text-align:center'></input></td>"+
         "<td><input required type='text' name='DTL_BLN_SATU_B[]'  style='width:100%;border:none;text-align:center'></input></td>"+
