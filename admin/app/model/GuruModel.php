@@ -7,16 +7,17 @@ $id = $_REQUEST['id'];
 
 if (isset($_REQUEST["ext"])) {
   $role = "3";
+  $page = "data_staff";
 } else if (isset($_REQUEST["adm"])) {
   $role = "4";
 } else {
   $role = "2";
+  $page = "data_guru";
 }
 
 switch ($id) {
   case 'insert':
     $imageName = "DTL_PHOTO";
-    $page = "data_guru";
     $json = array (
       'action' => 'saveheaderdetail',
       'data' =>
@@ -89,7 +90,11 @@ switch ($id) {
       }
 
       if (!empty($_REQUEST['data'])) {
-        $page = "../../index.php?id=data_guru&start=0";
+        if (isset($_REQUEST["ext"])) {
+          $page = "../../index.php?id=data_staff&start=0";
+        } else {
+          $page = "../../index.php?id=data_guru&start=0";
+        }
       } else {
         $page  = "detail_guru.php?id=$guruId";
       }

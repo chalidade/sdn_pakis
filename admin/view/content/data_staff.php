@@ -105,6 +105,11 @@
                                                   <td><input type="text" name="USER_ADDRESS" v-bind:value="data.USER_ADDRESS" style="width: 100%;border:none;"></td>
                                                 </tr>
                                                 <tr>
+                                                  <td width="20%" style="font-weight:800">Nomor Telpon</td>
+                                                  <td width="1%">:</td>
+                                                  <td><input type="text" name="DTL_TELPON" v-bind:value="data.DTL_TELPON" style="width: 100%;border:none;"></td>
+                                                </tr>
+                                                <tr>
                                                   <td width="20%" style="font-weight:800">TTL</td>
                                                   <td width="1%">:</td>
                                                   <td><input type="text" name="USER_BIRTHPLACE" v-bind:value="data.USER_BIRTHPLACE" style="width: 35%;border:none;">, <input type="text" name="USER_BIRTHDATE" v-bind:value="data.USER_BIRTHDATE" style="width: 50%;border:none;"></td>
