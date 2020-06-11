@@ -23,8 +23,10 @@ $urlKeuanganRapbs   = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_r
 $urlPageRangking    = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_rangking&start=";
 $urlAnalisisHB      = "http://localhost/sdn_pakis_baru/admin/index.php?id=data_analisis_hb&start=";
 $urlAbsenSiswa      = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_absen_siswa&guru=";
+$urlRaport          = "http://localhost/sdn_pakis_baru/admin/index.php?id=input_raport&start=";
 
 $publicUser         = "resource/public/User/";
+$publicReport       = "resource/public/Raport/";
 $publicFolder       = "resource/public/";
 $publicImage        = "../../assets/img/";
 $publicJs           = "../../assets/js/";

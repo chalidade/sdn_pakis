@@ -156,6 +156,7 @@
         </li> -->
 
         <?php if($session["USER_ROLE"] == 4 || $session["USER_ROLE"] == 2 || $session["USER_ROLE"] == 1 ) { ?>
+        <li><a href="index.php?id=input_raport&start=0&menu=1"><i class="fa fa-book"></i>Raport Siswa</a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-heart"></i> <span>Aku Suka Membaca</span>
             <span class="pull-right-container">
