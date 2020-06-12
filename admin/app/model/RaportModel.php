@@ -16,11 +16,11 @@ switch ($id) {
     array(
     "RAPORT_ID"               => "",
     "RAPORT_NAMA_SISWA"       => $_POST['RAPORT_NAMA_SISWA'],
-    "RAPORT_KELAS"            => $_POST['RAPORT_KELAS'],
-    "RAPORT_MAPEL"            => $_POST['RAPORT_MAPEL'],
+    "RAPORT_KELAS"            => "",
+    "RAPORT_MAPEL"            => "",
     "RAPORT_GURU"             => $_POST['RAPORT_GURU'],
     "RAPORT_NIS"              => $_POST['RAPORT_NIS'],
-    "RAPORT_TAHUN"            => $_POST['RAPORT_TAHUN'],
+    "RAPORT_TAHUN"            => "",
     "RAPORT_USER_ID"          => $_POST["RAPORT_USER_ID"],
     "RAPORT_FILE"             =>  date("d_m_Y")."_".basename($_FILES["RAPORT_FILE"]["name"]),
     )]);

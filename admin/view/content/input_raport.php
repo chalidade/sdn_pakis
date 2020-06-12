@@ -43,7 +43,7 @@
                                 <th width="25%">Nama Siswa</th>
                                 <th width="15%">Kelas</th>
                                 <th width="15%">Guru</th>
-                                <th width="15%">Tahun Ajaran</th>
+                                <!-- <th width="15%">Tahun Ajaran</th> -->
                                 <th width="20%" style="text-align:center">Option</th>
                               </tr>
                               <template  v-for="data in info">
@@ -51,11 +51,11 @@
                                   <td width="5%" style="text-align:center">{{ data.RAPORT_ID }}</td>
                                   <td width="15%" style="text-align:center">{{ data.RAPORT_NIS }}</td>
                                   <td width="15%">
-                                    {{ data.RAPORT_NAMA_SISWA }}
+                                    {{ data.USER_NAME }}
                                   </td>
-                                  <td width="20%">{{ data.RAPORT_KELAS }}</td>
+                                  <td width="20%">{{ data.DTL_TINGKAT }} {{ data.DTL_KELAS }}</td>
                                   <td width="25%">{{ data.RAPORT_GURU }}</td>
-                                  <td width="25%">{{ data.RAPORT_TAHUN }}</td>
+                                  <!-- <td width="25%">{{ data.RAPORT_TAHUN }}</td> -->
                                   <td width="20%" style="text-align:center">
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.RAPORT_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
 
@@ -111,8 +111,10 @@
                                     NIS
                                     <input type="hidden" id="title" class="form-control" name="RAPORT_ID" value="" style="line-height:15px">
                                     <input type="text" placeholder="3124" required  id="title" class="form-control" name="RAPORT_NIS" value="">
+                                    <input type="hidden" required id="title" class="form-control" name="RAPORT_USER_ID" value="<?php echo $session["USER_ID"]; ?>">
+                                    <input type="hidden" id="title" class="form-control" name="RAPORT_GURU" value="<?php echo $session["USER_NAME"]; ?>">
                                   </label>
-                                  <label for="title" style="width:100%">
+                                  <!-- <label for="title" style="width:100%">
                                     Nama Siswa
                                     <input type="text" placeholder="Anisa" required id="title" class="form-control" name="RAPORT_NAMA_SISWA" value="">
                                   </label>
@@ -123,7 +125,6 @@
                                   <label for="title" style="width:100%">
                                     Mata Pelajaran
                                     <input type="text" placeholder="Bahasa Indonesia" required id="title" class="form-control" name="RAPORT_MAPEL" value="">
-                                    <input type="hidden" required id="title" class="form-control" name="RAPORT_USER_ID" value="<?php echo $session["USER_ID"]; ?>">
                                   </label>
                                   <label for="title" style="width:100%">
                                     Tahun
@@ -132,8 +133,7 @@
                                   <label for="title" style="width:100%">
                                     Guru
                                     <input type="text" required class="form-control" disabled value="<?php echo $session["USER_NAME"]; ?>">
-                                    <input type="hidden" id="title" class="form-control" name="RAPORT_GURU" value="<?php echo $session["USER_NAME"]; ?>">
-                                  </label>
+                                  </label> -->
                                   <label for="raport" style="width:100%;margin-top:10px">
                                     Upload Raport
                                     <input type="file" required id="raport" class="form-control" name="RAPORT_FILE" value="">
@@ -190,6 +190,18 @@
             db: 'sdnpakis',
             table: 'tx_hdr_raport',
             start: start,
+            innerJoin: [
+                {
+                    "table": "tx_dtl_user_siswa as B",
+                    "field1": "B.DTL_NIS",
+                    "field2": "A.RAPORT_NIS"
+                },
+                {
+                    "table": "tx_hdr_user as C",
+                    "field1": "C.USER_ID",
+                    "field2": "B.DTL_HDR_ID"
+                }
+            ],
             where: [["RAPORT_NIS", "=", nis]],
             orderBy: ['RAPORT_ID', 'DESC'],
             limit: 25
@@ -211,7 +223,19 @@
           .post(url+'/index', {
             action: 'list',
             db: 'sdnpakis',
-            table: 'tx_hdr_raport',
+            table: 'tx_hdr_raport as A',
+            innerJoin: [
+                {
+                    "table": "tx_dtl_user_siswa as B",
+                    "field1": "B.DTL_NIS",
+                    "field2": "A.RAPORT_NIS"
+                },
+                {
+                    "table": "tx_hdr_user as C",
+                    "field1": "C.USER_ID",
+                    "field2": "B.DTL_HDR_ID"
+                }
+            ],
             start: start,
             where: [["RAPORT_USER_ID", "=", nip]],
             orderBy: ['RAPORT_ID', 'DESC'],
