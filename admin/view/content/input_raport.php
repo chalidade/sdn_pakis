@@ -57,6 +57,7 @@
                                   <td width="25%">{{ data.RAPORT_GURU }}</td>
                                   <!-- <td width="25%">{{ data.RAPORT_TAHUN }}</td> -->
                                   <td width="20%" style="text-align:center">
+                                    <button type="button" v-bind:onclick="'DELETE_RAPORT(' + data.RAPORT_ID + ',<?php echo $start; ?>,<?php echo $page; ?>)'"/ class="btn btn-danger option"><i class="fa fa-trash"></i></button>
                                     <button type="button"  data-toggle="modal" v-bind:data-target="'#modal-default' + data.RAPORT_ID" class="btn btn-primary option"><i class="fa fa-eye"></i></button>
 
                                     <div class="modal fade" v-bind:id="'modal-default' + data.RAPORT_ID">
@@ -174,6 +175,29 @@
     var role = "<?php echo $role; ?>";
     start   = <?php echo $start; ?>;
     var url = "<?php echo $urlApi; ?>";
+
+    function DELETE_RAPORT(id, start, page) {
+      new Vue({
+          el: '#app',
+          data () {
+            return {
+              info: null
+            }
+          },
+          mounted () {
+            axios
+            .post(url+'/store', {
+              action: 'simpleDelete',
+              db: 'sdnpakis',
+              table: 'tx_hdr_raport',
+              where : ["RAPORT_ID", id]
+            })
+            .then(response => (alert(this.info = response["data"])))
+          }
+        })
+        window.location = "<?php echo $urlRaport; ?>"+start+"&page="+page;
+    }
+
     if (role === "1") {
       var nis  = "<?php echo $nis; ?>";
       new Vue({
@@ -188,7 +212,7 @@
           .post(url+'/index', {
             action: 'list',
             db: 'sdnpakis',
-            table: 'tx_hdr_raport',
+            table: 'tx_hdr_raport as A',
             start: start,
             innerJoin: [
                 {
